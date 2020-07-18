@@ -1,0 +1,706 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 52;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		5C6B906424C340F50035808A /* CouchnadoApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C6B905124C340F40035808A /* CouchnadoApp.swift */; };
+		5C6B906524C340F50035808A /* CouchnadoApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C6B905124C340F40035808A /* CouchnadoApp.swift */; };
+		5C6B906624C340F50035808A /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C6B905224C340F40035808A /* ContentView.swift */; };
+		5C6B906724C340F50035808A /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C6B905224C340F40035808A /* ContentView.swift */; };
+		5C6B906824C340F50035808A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5C6B905324C340F50035808A /* Assets.xcassets */; };
+		5C6B906924C340F50035808A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5C6B905324C340F50035808A /* Assets.xcassets */; };
+		5C7FEDC124C378CD008446A5 /* CouchnadoApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C6B905124C340F40035808A /* CouchnadoApp.swift */; };
+		5C7FEDC224C378D1008446A5 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C6B905224C340F40035808A /* ContentView.swift */; };
+		5C7FEDC324C37934008446A5 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5C6B905324C340F50035808A /* Assets.xcassets */; };
+		5C7FEDC624C37956008446A5 /* CouchData in Frameworks */ = {isa = PBXBuildFile; productRef = 5C7FEDC524C37956008446A5 /* CouchData */; };
+		5C7FEDC824C3795F008446A5 /* CouchData in Frameworks */ = {isa = PBXBuildFile; productRef = 5C7FEDC724C3795F008446A5 /* CouchData */; };
+		5C7FEDCA24C3796C008446A5 /* CouchData in Frameworks */ = {isa = PBXBuildFile; productRef = 5C7FEDC924C3796C008446A5 /* CouchData */; };
+		5C7FEDCC24C37A92008446A5 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5C7FEDCB24C37A92008446A5 /* Assets.xcassets */; };
+		5C7FEDD224C3805F008446A5 /* Version in Frameworks */ = {isa = PBXBuildFile; productRef = 5C7FEDD124C3805F008446A5 /* Version */; };
+		5C7FEDD424C3806E008446A5 /* Version in Frameworks */ = {isa = PBXBuildFile; productRef = 5C7FEDD324C3806E008446A5 /* Version */; };
+		5C7FEDD624C38075008446A5 /* Version in Frameworks */ = {isa = PBXBuildFile; productRef = 5C7FEDD524C38075008446A5 /* Version */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		5C6B905124C340F40035808A /* CouchnadoApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CouchnadoApp.swift; sourceTree = "<group>"; };
+		5C6B905224C340F40035808A /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		5C6B905324C340F50035808A /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		5C6B905824C340F50035808A /* Couchnado.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Couchnado.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		5C6B905B24C340F50035808A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		5C6B906024C340F50035808A /* Couchnado.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Couchnado.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		5C6B906224C340F50035808A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		5C6B906324C340F50035808A /* macOS.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = macOS.entitlements; sourceTree = "<group>"; };
+		5C6EF85824C3770B008CD492 /* Couchnado.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Couchnado.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		5C6EF86324C3770D008CD492 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		5C7FEDCB24C37A92008446A5 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		5C6B905524C340F50035808A /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				5C7FEDC624C37956008446A5 /* CouchData in Frameworks */,
+				5C7FEDD424C3806E008446A5 /* Version in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		5C6B905D24C340F50035808A /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				5C7FEDCA24C3796C008446A5 /* CouchData in Frameworks */,
+				5C7FEDD224C3805F008446A5 /* Version in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		5C6EF85524C3770B008CD492 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				5C7FEDC824C3795F008446A5 /* CouchData in Frameworks */,
+				5C7FEDD624C38075008446A5 /* Version in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		5C6B904B24C340F40035808A = {
+			isa = PBXGroup;
+			children = (
+				5C6B905024C340F40035808A /* Shared */,
+				5C6B906124C340F50035808A /* macOS */,
+				5C6B905A24C340F50035808A /* iOS */,
+				5C6EF85924C3770B008CD492 /* tvOS */,
+				5C6B905924C340F50035808A /* Products */,
+				5C7FEDC424C37956008446A5 /* Frameworks */,
+			);
+			sourceTree = "<group>";
+		};
+		5C6B905024C340F40035808A /* Shared */ = {
+			isa = PBXGroup;
+			children = (
+				5C6B905124C340F40035808A /* CouchnadoApp.swift */,
+				5C6B905224C340F40035808A /* ContentView.swift */,
+				5C6B905324C340F50035808A /* Assets.xcassets */,
+			);
+			path = Shared;
+			sourceTree = "<group>";
+		};
+		5C6B905924C340F50035808A /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				5C6B905824C340F50035808A /* Couchnado.app */,
+				5C6B906024C340F50035808A /* Couchnado.app */,
+				5C6EF85824C3770B008CD492 /* Couchnado.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		5C6B905A24C340F50035808A /* iOS */ = {
+			isa = PBXGroup;
+			children = (
+				5C6B905B24C340F50035808A /* Info.plist */,
+			);
+			path = iOS;
+			sourceTree = "<group>";
+		};
+		5C6B906124C340F50035808A /* macOS */ = {
+			isa = PBXGroup;
+			children = (
+				5C6B906324C340F50035808A /* macOS.entitlements */,
+				5C6B906224C340F50035808A /* Info.plist */,
+			);
+			path = macOS;
+			sourceTree = "<group>";
+		};
+		5C6EF85924C3770B008CD492 /* tvOS */ = {
+			isa = PBXGroup;
+			children = (
+				5C7FEDCB24C37A92008446A5 /* Assets.xcassets */,
+				5C6EF86324C3770D008CD492 /* Info.plist */,
+			);
+			path = tvOS;
+			sourceTree = "<group>";
+		};
+		5C7FEDC424C37956008446A5 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		5C6B905724C340F50035808A /* Couchnado (iOS) */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 5C6B906C24C340F50035808A /* Build configuration list for PBXNativeTarget "Couchnado (iOS)" */;
+			buildPhases = (
+				5C6B905424C340F50035808A /* Sources */,
+				5C6B905524C340F50035808A /* Frameworks */,
+				5C6B905624C340F50035808A /* Resources */,
+				5C7FEDCE24C37FA8008446A5 /* Set Build Number */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "Couchnado (iOS)";
+			packageProductDependencies = (
+				5C7FEDC524C37956008446A5 /* CouchData */,
+				5C7FEDD324C3806E008446A5 /* Version */,
+			);
+			productName = "Couchnado (iOS)";
+			productReference = 5C6B905824C340F50035808A /* Couchnado.app */;
+			productType = "com.apple.product-type.application";
+		};
+		5C6B905F24C340F50035808A /* Couchnado (macOS) */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 5C6B906F24C340F50035808A /* Build configuration list for PBXNativeTarget "Couchnado (macOS)" */;
+			buildPhases = (
+				5C6B905C24C340F50035808A /* Sources */,
+				5C6B905D24C340F50035808A /* Frameworks */,
+				5C6B905E24C340F50035808A /* Resources */,
+				5C7FEDCD24C37F8D008446A5 /* Set Build Number */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "Couchnado (macOS)";
+			packageProductDependencies = (
+				5C7FEDC924C3796C008446A5 /* CouchData */,
+				5C7FEDD124C3805F008446A5 /* Version */,
+			);
+			productName = "Couchnado (macOS)";
+			productReference = 5C6B906024C340F50035808A /* Couchnado.app */;
+			productType = "com.apple.product-type.application";
+		};
+		5C6EF85724C3770B008CD492 /* Couchnado (tvOS) */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 5C6EF86624C3770D008CD492 /* Build configuration list for PBXNativeTarget "Couchnado (tvOS)" */;
+			buildPhases = (
+				5C6EF85424C3770B008CD492 /* Sources */,
+				5C6EF85524C3770B008CD492 /* Frameworks */,
+				5C6EF85624C3770B008CD492 /* Resources */,
+				5C7FEDCF24C37FC8008446A5 /* Set Build Number */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "Couchnado (tvOS)";
+			packageProductDependencies = (
+				5C7FEDC724C3795F008446A5 /* CouchData */,
+				5C7FEDD524C38075008446A5 /* Version */,
+			);
+			productName = "Couchnado (tvOS)";
+			productReference = 5C6EF85824C3770B008CD492 /* Couchnado.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		5C6B904C24C340F40035808A /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 1200;
+				LastUpgradeCheck = 1200;
+				TargetAttributes = {
+					5C6B905724C340F50035808A = {
+						CreatedOnToolsVersion = 12.0;
+					};
+					5C6B905F24C340F50035808A = {
+						CreatedOnToolsVersion = 12.0;
+					};
+					5C6EF85724C3770B008CD492 = {
+						CreatedOnToolsVersion = 12.0;
+					};
+				};
+			};
+			buildConfigurationList = 5C6B904F24C340F40035808A /* Build configuration list for PBXProject "Couchnado" */;
+			compatibilityVersion = "Xcode 9.3";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 5C6B904B24C340F40035808A;
+			packageReferences = (
+				5C7FEDD024C3805F008446A5 /* XCRemoteSwiftPackageReference "version" */,
+			);
+			productRefGroup = 5C6B905924C340F50035808A /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				5C6B905F24C340F50035808A /* Couchnado (macOS) */,
+				5C6B905724C340F50035808A /* Couchnado (iOS) */,
+				5C6EF85724C3770B008CD492 /* Couchnado (tvOS) */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		5C6B905624C340F50035808A /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				5C6B906824C340F50035808A /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		5C6B905E24C340F50035808A /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				5C6B906924C340F50035808A /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		5C6EF85624C3770B008CD492 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				5C7FEDCC24C37A92008446A5 /* Assets.xcassets in Resources */,
+				5C7FEDC324C37934008446A5 /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		5C7FEDCD24C37F8D008446A5 /* Set Build Number */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			name = "Set Build Number";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "build=`$(sh /etc/profile; which git) rev-list --all |wc -l`\n/usr/libexec/PlistBuddy -c \"Set :CFBundleVersion $build\" \"$TARGET_BUILD_DIR/$INFOPLIST_PATH\"\n";
+		};
+		5C7FEDCE24C37FA8008446A5 /* Set Build Number */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			name = "Set Build Number";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "build=`$(sh /etc/profile; which git) rev-list --all |wc -l`\n/usr/libexec/PlistBuddy -c \"Set :CFBundleVersion $build\" \"$TARGET_BUILD_DIR/$INFOPLIST_PATH\"\n";
+		};
+		5C7FEDCF24C37FC8008446A5 /* Set Build Number */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			name = "Set Build Number";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "build=`$(sh /etc/profile; which git) rev-list --all |wc -l`\n/usr/libexec/PlistBuddy -c \"Set :CFBundleVersion $build\" \"$TARGET_BUILD_DIR/$INFOPLIST_PATH\"\n";
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		5C6B905424C340F50035808A /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				5C6B906624C340F50035808A /* ContentView.swift in Sources */,
+				5C6B906424C340F50035808A /* CouchnadoApp.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		5C6B905C24C340F50035808A /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				5C6B906724C340F50035808A /* ContentView.swift in Sources */,
+				5C6B906524C340F50035808A /* CouchnadoApp.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		5C6EF85424C3770B008CD492 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				5C7FEDC224C378D1008446A5 /* ContentView.swift in Sources */,
+				5C7FEDC124C378CD008446A5 /* CouchnadoApp.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin XCBuildConfiguration section */
+		5C6B906A24C340F50035808A /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		5C6B906B24C340F50035808A /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+			};
+			name = Release;
+		};
+		5C6B906D24C340F50035808A /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 0;
+				DEVELOPMENT_TEAM = 9Q3DL72K7D;
+				ENABLE_PREVIEWS = YES;
+				INFOPLIST_FILE = iOS/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.toddheasley.couchnado;
+				PRODUCT_NAME = Couchnado;
+				SDKROOT = iphoneos;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		5C6B906E24C340F50035808A /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 0;
+				DEVELOPMENT_TEAM = 9Q3DL72K7D;
+				ENABLE_PREVIEWS = YES;
+				INFOPLIST_FILE = iOS/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.toddheasley.couchnado;
+				PRODUCT_NAME = Couchnado;
+				SDKROOT = iphoneos;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		5C6B907024C340F50035808A /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = macOS/macOS.entitlements;
+				CODE_SIGN_IDENTITY = "Apple Development";
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				CURRENT_PROJECT_VERSION = 0;
+				DEVELOPMENT_TEAM = 9Q3DL72K7D;
+				ENABLE_HARDENED_RUNTIME = YES;
+				ENABLE_PREVIEWS = YES;
+				INFOPLIST_FILE = macOS/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+				);
+				MACOSX_DEPLOYMENT_TARGET = 10.16;
+				PRODUCT_BUNDLE_IDENTIFIER = com.toddheasley.couchnado;
+				PRODUCT_NAME = Couchnado;
+				SDKROOT = macosx;
+				SWIFT_VERSION = 5.0;
+			};
+			name = Debug;
+		};
+		5C6B907124C340F50035808A /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = macOS/macOS.entitlements;
+				CODE_SIGN_IDENTITY = "Apple Development";
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				CURRENT_PROJECT_VERSION = 0;
+				DEVELOPMENT_TEAM = 9Q3DL72K7D;
+				ENABLE_HARDENED_RUNTIME = YES;
+				ENABLE_PREVIEWS = YES;
+				INFOPLIST_FILE = macOS/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+				);
+				MACOSX_DEPLOYMENT_TARGET = 10.16;
+				PRODUCT_BUNDLE_IDENTIFIER = com.toddheasley.couchnado;
+				PRODUCT_NAME = Couchnado;
+				SDKROOT = macosx;
+				SWIFT_VERSION = 5.0;
+			};
+			name = Release;
+		};
+		5C6EF86424C3770D008CD492 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = "App Icon & Top Shelf Image";
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 0;
+				DEVELOPMENT_TEAM = 9Q3DL72K7D;
+				ENABLE_PREVIEWS = YES;
+				INFOPLIST_FILE = tvOS/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.toddheasley.couchnado;
+				PRODUCT_NAME = Couchnado;
+				SDKROOT = appletvos;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 3;
+				TVOS_DEPLOYMENT_TARGET = 14.0;
+			};
+			name = Debug;
+		};
+		5C6EF86524C3770D008CD492 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = "App Icon & Top Shelf Image";
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 0;
+				DEVELOPMENT_TEAM = 9Q3DL72K7D;
+				ENABLE_PREVIEWS = YES;
+				INFOPLIST_FILE = tvOS/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.toddheasley.couchnado;
+				PRODUCT_NAME = Couchnado;
+				SDKROOT = appletvos;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 3;
+				TVOS_DEPLOYMENT_TARGET = 14.0;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		5C6B904F24C340F40035808A /* Build configuration list for PBXProject "Couchnado" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				5C6B906A24C340F50035808A /* Debug */,
+				5C6B906B24C340F50035808A /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		5C6B906C24C340F50035808A /* Build configuration list for PBXNativeTarget "Couchnado (iOS)" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				5C6B906D24C340F50035808A /* Debug */,
+				5C6B906E24C340F50035808A /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		5C6B906F24C340F50035808A /* Build configuration list for PBXNativeTarget "Couchnado (macOS)" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				5C6B907024C340F50035808A /* Debug */,
+				5C6B907124C340F50035808A /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		5C6EF86624C3770D008CD492 /* Build configuration list for PBXNativeTarget "Couchnado (tvOS)" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				5C6EF86424C3770D008CD492 /* Debug */,
+				5C6EF86524C3770D008CD492 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		5C7FEDD024C3805F008446A5 /* XCRemoteSwiftPackageReference "version" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/toddheasley/version.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 0.0.1;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		5C7FEDC524C37956008446A5 /* CouchData */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = CouchData;
+		};
+		5C7FEDC724C3795F008446A5 /* CouchData */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = CouchData;
+		};
+		5C7FEDC924C3796C008446A5 /* CouchData */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = CouchData;
+		};
+		5C7FEDD124C3805F008446A5 /* Version */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 5C7FEDD024C3805F008446A5 /* XCRemoteSwiftPackageReference "version" */;
+			productName = Version;
+		};
+		5C7FEDD324C3806E008446A5 /* Version */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 5C7FEDD024C3805F008446A5 /* XCRemoteSwiftPackageReference "version" */;
+			productName = Version;
+		};
+		5C7FEDD524C38075008446A5 /* Version */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 5C7FEDD024C3805F008446A5 /* XCRemoteSwiftPackageReference "version" */;
+			productName = Version;
+		};
+/* End XCSwiftPackageProductDependency section */
+	};
+	rootObject = 5C6B904C24C340F40035808A /* Project object */;
+}
