@@ -1,6 +1,6 @@
 import Foundation
 
-public struct Circa: Value, Comparable, CustomStringConvertible {
+public struct Era: Value, Comparable, CustomStringConvertible {
     public let years: [ClosedRange<Int>]
     
     init?(years: [ClosedRange<Int>]) {
@@ -13,10 +13,11 @@ public struct Circa: Value, Comparable, CustomStringConvertible {
     // MARK: Value
     var value: String {
         return years.map { year in
-            switch year.count {
-            case 1:
+            if year.count == 1 {
                 return "\(year.lowerBound)"
-            default:
+            } else if year.upperBound == .max {
+                return "\(year.lowerBound)—"
+            } else {
                 return "\(year.lowerBound)-\(year.upperBound)"
             }
         }.joined(separator: ", ")
@@ -24,10 +25,11 @@ public struct Circa: Value, Comparable, CustomStringConvertible {
     
     init?(value: String) {
         self.init(years: value.components(separatedBy: ",").compactMap { component in
+            let component: String = component.replacingOccurrences(of: "—", with: "-").filter ("0123456789-".contains)
             let years: [Int] = component.components(separatedBy: "-").compactMap { year in
-                return Int(year.trimmingCharacters(in: .whitespaces))
+                return !year.isEmpty ? Int(year) : .max
             }
-            guard let first: Int = years.first,
+            guard let first: Int = years.first, first != .max,
                   let last: Int = years.last, first <= last else {
                 return nil
             }

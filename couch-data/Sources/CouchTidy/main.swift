@@ -1,1 +1,0 @@
-CouchTidy.main()

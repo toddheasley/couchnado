@@ -15,7 +15,7 @@ public struct Title: Value, Comparable, CustomStringConvertible {
     // MARK: Value
     let value: String
     
-    init?(value: String) {
+    public init?(value: String) {
         guard !value.isEmpty else {
             return nil
         }
