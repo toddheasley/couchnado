@@ -51,13 +51,13 @@ public struct CouchData {
         }
     }
     
-    public func publisher(_ request: Request = .default) -> AnyPublisher<[Video], Error>? {
+    public static func publisher(_ request: Request = .default) -> AnyPublisher<[Video], Error> {
         return request.publisher
             .tryMap { data in
                 guard let videos: [Video] = Table(data: data)?.records(Video.self) else {
                     throw URLError(.cannotDecodeContentData)
                 }
-                return videos.sorted()
+                return videos
             }
             .receive(on: DispatchQueue.main)
             .eraseToAnyPublisher()

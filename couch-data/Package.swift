@@ -9,8 +9,6 @@ let package = Package(name: "couch-data", platforms: [
     .library(name: "CouchData", targets: [
         "CouchData"
     ])
-], dependencies: [
-    .package(url: "https://github.com/apple/swift-argument-parser", from: "0.2.0")
 ], targets: [
     .target(name: "CouchData", dependencies: []),
     .testTarget(name: "CouchDataTests", dependencies: [
