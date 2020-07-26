@@ -24,7 +24,7 @@ public struct Title: Value, Comparable, CustomStringConvertible {
     
     // MARK: Comparable
     public static func < (lhs: Self, rhs: Self) -> Bool {
-        return lhs.sortDescription < rhs.sortDescription
+        return lhs.sortDescription.lowercased() < rhs.sortDescription.lowercased()
     }
     
     // MARK: CustomStringConvertible
