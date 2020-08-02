@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		5C57B9BE24D5DCDB000927EA /* NSOpenPanel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C57B9BD24D5DCDB000927EA /* NSOpenPanel.swift */; };
+		5C57B9C024D625A3000927EA /* NSSavePanel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C57B9BF24D625A3000927EA /* NSSavePanel.swift */; };
 		5C6B906424C340F50035808A /* CouchnadoApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C6B905124C340F40035808A /* CouchnadoApp.swift */; };
 		5C6B906524C340F50035808A /* CouchnadoApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C6B905124C340F40035808A /* CouchnadoApp.swift */; };
 		5C6B906624C340F50035808A /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C6B905224C340F40035808A /* ContentView.swift */; };
@@ -26,6 +28,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		5C57B9BD24D5DCDB000927EA /* NSOpenPanel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NSOpenPanel.swift; sourceTree = "<group>"; };
+		5C57B9BF24D625A3000927EA /* NSSavePanel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NSSavePanel.swift; sourceTree = "<group>"; };
 		5C6B905124C340F40035808A /* CouchnadoApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CouchnadoApp.swift; sourceTree = "<group>"; };
 		5C6B905224C340F40035808A /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		5C6B905324C340F50035808A /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -114,6 +118,8 @@
 			isa = PBXGroup;
 			children = (
 				5C6B906324C340F50035808A /* macOS.entitlements */,
+				5C57B9BD24D5DCDB000927EA /* NSOpenPanel.swift */,
+				5C57B9BF24D625A3000927EA /* NSSavePanel.swift */,
 				5C6B906224C340F50035808A /* Info.plist */,
 			);
 			path = macOS;
@@ -346,7 +352,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5C57B9C024D625A3000927EA /* NSSavePanel.swift in Sources */,
 				5C6B906724C340F50035808A /* ContentView.swift in Sources */,
+				5C57B9BE24D5DCDB000927EA /* NSOpenPanel.swift in Sources */,
 				5C6B906524C340F50035808A /* CouchnadoApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

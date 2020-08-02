@@ -3,7 +3,7 @@ import XCTest
 
 final class EraTests: XCTestCase {
     
-    // MARK: RawRepresentable
+    // MARK: Value
     func testValue() {
         XCTAssertEqual(Era(value: "1964-2020")?.value, "1964-2020")
         XCTAssertEqual(Era(value: "1980-1988, 2018-2020")?.value, "1980-1988, 2018-2020")

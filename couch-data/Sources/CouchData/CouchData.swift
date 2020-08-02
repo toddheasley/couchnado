@@ -44,11 +44,15 @@ public struct CouchData {
         private var url: URL {
             switch self {
             case .default, .refresh:
-                return URL(string: "https://toddheasley.github.io/couchnado/index.tsv")!
+                return URL(string: "https://toddheasley.github.io/couchnado/\(CouchData.path())")!
             case .custom(let url):
                 return url
             }
         }
+    }
+    
+    public static func path(name: String? = nil) -> String {
+        return "\(!(name ?? "").isEmpty ? name! : "index").tsv"
     }
     
     public static func publisher(_ request: Request = .default) -> AnyPublisher<[Video], Error> {
@@ -61,5 +65,12 @@ public struct CouchData {
             }
             .receive(on: DispatchQueue.main)
             .eraseToAnyPublisher()
+    }
+    
+    public static func write(videos: [Video], to url: URL) throws {
+        guard let table: Table = Table(records: videos) else {
+            throw URLError(.zeroByteResource)
+        }
+        try table.data.write(to: url)
     }
 }

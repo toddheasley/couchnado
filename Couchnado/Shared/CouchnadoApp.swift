@@ -3,25 +3,63 @@ import Combine
 import CouchData
 
 @main
-struct CouchnadoApp: App {
+class CouchnadoApp: App {
+    private(set) var videos: [Video] = [] {
+        didSet {
+            save()
+        }
+    }
     
-    var subscriber: AnyCancellable?
+    private static var subscriber: AnyCancellable?
     
-    init() {
-        subscriber = CouchData.publisher()
-        .sink(receiveCompletion: { completion in
-            switch completion {
-            case .failure(let error):
-                print(error)
-                fallthrough
-            case .finished:
-                break
+    private func load(_ request: CouchData.Request = .default) {
+        Self.subscriber?.cancel()
+        Self.subscriber = CouchData.publisher(request)
+            .sink(receiveCompletion: { completion in
+                switch completion {
+                case .failure(let error):
+                    print(error)
+                    fallthrough
+                case .finished:
+                    break
+                }
+            }, receiveValue: { [weak self] videos in
+                self?.videos = videos
+            })
+    }
+    
+    private func open() {
+        #if os(macOS)
+        Self.subscriber?.cancel()
+        Self.subscriber = NSOpenPanel(fileTypes: ["tsv"]).publisher
+            .sink { urls in
+                guard let url: URL = urls.first else {
+                    return
+                }
+                self.load(.custom(url))
             }
-        }, receiveValue: { videos in
-            for video in videos {
-                print(" - \(video)")
+        #endif
+    }
+    
+    private func save() {
+        #if os(macOS)
+        Self.subscriber?.cancel()
+        Self.subscriber = NSSavePanel().publisher(name: CouchData.path(name: "Couchnado"))
+            .sink { url in
+                guard let url: URL = url else {
+                    return
+                }
+                do {
+                    try CouchData.write(videos: self.videos, to: url)
+                } catch {
+                    print(error)
+                }
             }
-        })
+        #endif
+    }
+    
+    required init() {
+        open()
     }
     
     var body: some Scene {
