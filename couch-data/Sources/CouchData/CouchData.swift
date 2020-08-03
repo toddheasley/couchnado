@@ -44,15 +44,33 @@ public struct CouchData {
         private var url: URL {
             switch self {
             case .default, .refresh:
-                return URL(string: "https://toddheasley.github.io/couchnado/\(CouchData.path())")!
+                return URL(string: "https://toddheasley.github.io/couchnado/\(FileFormat.tsv.path())")!
             case .custom(let url):
                 return url
             }
         }
     }
     
-    public static func path(name: String? = nil) -> String {
-        return "\(!(name ?? "").isEmpty ? name! : "index").tsv"
+    public enum FileFormat: String, CaseIterable, CustomStringConvertible {
+        case html, tsv
+        
+        public var pathExtension: String {
+            return rawValue
+        }
+        
+        public func path(name: String? = nil) -> String {
+            return "\(!(name ?? "").isEmpty ? name! : "index").\(pathExtension)"
+        }
+        
+        // MARK: CustomStringConvertible
+        public var description: String {
+            switch self {
+            case .html:
+                return "web page"
+            case .tsv:
+                return "spreadsheet"
+            }
+        }
     }
     
     public static func publisher(_ request: Request = .default) -> AnyPublisher<[Video], Error> {
@@ -67,10 +85,16 @@ public struct CouchData {
             .eraseToAnyPublisher()
     }
     
-    public static func write(videos: [Video], to url: URL) throws {
+    public static func write(videos: [Video], to url: URL, file format: FileFormat = .tsv) throws {
         guard let table: Table = Table(records: videos) else {
             throw URLError(.zeroByteResource)
         }
-        try table.data.write(to: url)
+        switch format {
+        case .html:
+            let title: String = url.deletingPathExtension().lastPathComponent
+            try HTML(table: table, title: title).data.write(to: url)
+        case .tsv:
+            try table.data.write(to: url)
+        }
     }
 }

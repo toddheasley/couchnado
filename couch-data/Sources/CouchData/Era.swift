@@ -16,7 +16,7 @@ public struct Era: Value, Comparable, CustomStringConvertible {
             if year.count == 1 {
                 return "\(year.lowerBound)"
             } else if year.upperBound == .max {
-                return "\(year.lowerBound)—"
+                return "\(year.lowerBound)-"
             } else {
                 return "\(year.lowerBound)-\(year.upperBound)"
             }
@@ -25,7 +25,7 @@ public struct Era: Value, Comparable, CustomStringConvertible {
     
     init?(value: String) {
         self.init(years: value.components(separatedBy: ",").compactMap { component in
-            let component: String = component.replacingOccurrences(of: "—", with: "-").filter("0123456789-".contains)
+            let component: String = component.filter("0123456789-".contains)
             let years: [Int] = component.components(separatedBy: "-").compactMap { year in
                 return !year.isEmpty ? Int(year) : .max
             }

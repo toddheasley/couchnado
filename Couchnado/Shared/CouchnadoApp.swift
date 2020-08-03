@@ -3,13 +3,7 @@ import Combine
 import CouchData
 
 @main
-class CouchnadoApp: App {
-    private(set) var videos: [Video] = [] {
-        didSet {
-            save()
-        }
-    }
-    
+struct CouchnadoApp: App {
     private static var subscriber: AnyCancellable?
     
     private func load(_ request: CouchData.Request = .default) {
@@ -23,15 +17,15 @@ class CouchnadoApp: App {
                 case .finished:
                     break
                 }
-            }, receiveValue: { [weak self] videos in
-                self?.videos = videos
+            }, receiveValue: { videos in
+                save(videos: videos)
             })
     }
     
     private func open() {
         #if os(macOS)
         Self.subscriber?.cancel()
-        Self.subscriber = NSOpenPanel(fileTypes: ["tsv"]).publisher
+        Self.subscriber = NSOpenPanel(fileTypes: [CouchData.FileFormat.tsv.pathExtension]).publisher
             .sink { urls in
                 guard let url: URL = urls.first else {
                     return
@@ -41,16 +35,17 @@ class CouchnadoApp: App {
         #endif
     }
     
-    private func save() {
+    private func save(videos: [Video]) {
         #if os(macOS)
+        let format: CouchData.FileFormat = .tsv
         Self.subscriber?.cancel()
-        Self.subscriber = NSSavePanel().publisher(name: CouchData.path(name: "Couchnado"))
+        Self.subscriber = NSSavePanel().publisher(name: format.path(name: "Couchnado"))
             .sink { url in
                 guard let url: URL = url else {
                     return
                 }
                 do {
-                    try CouchData.write(videos: self.videos, to: url)
+                    try CouchData.write(videos: videos, to: url, file: format)
                 } catch {
                     print(error)
                 }
@@ -58,7 +53,8 @@ class CouchnadoApp: App {
         #endif
     }
     
-    required init() {
+    init() {
+        //load()
         open()
     }
     

@@ -1,6 +1,6 @@
 import Foundation
 
-public struct Video: Record, Comparable, CustomStringConvertible {
+public struct Video: Record, Identifiable, Comparable, CustomStringConvertible {
     public enum Format: String, Value, CaseIterable, CustomStringConvertible {
         case movie, miniseries, series
         
@@ -40,6 +40,9 @@ public struct Video: Record, Comparable, CustomStringConvertible {
         self.era = era
         self.links = links
     }
+    
+    // MARK: Identifiable
+    public let id: UUID = UUID()
     
     // MARK: Comparable
     public static func < (lhs: Self, rhs: Self) -> Bool {

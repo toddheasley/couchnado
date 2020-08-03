@@ -1,13 +1,19 @@
 import SwiftUI
+import CouchData
 
 struct ContentView: View {
     var body: some View {
-        Text("Couchnado").padding()
+        NavigationView {
+            Text("Couchnado").padding()
+        }
+        
     }
 }
 
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
-        ContentView()
+        Group {
+            ContentView()
+        }
     }
 }

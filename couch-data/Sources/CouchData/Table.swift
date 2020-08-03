@@ -19,7 +19,7 @@ struct Table {
     }
 }
 
-extension Table {    
+extension Table {
     var data: Data {
         var components: [String] = [schema.joined(separator: "\t")]
         for record in records {
