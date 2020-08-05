@@ -39,7 +39,7 @@ struct CouchnadoApp: App {
         #if os(macOS)
         let format: CouchData.FileFormat = .tsv
         Self.subscriber?.cancel()
-        Self.subscriber = NSSavePanel().publisher(name: format.path(name: "Couchnado"))
+        Self.subscriber = NSSavePanel().publisher(nameField: format.path(name: "Couchnado"))
             .sink { url in
                 guard let url: URL = url else {
                     return

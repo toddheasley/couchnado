@@ -1,8 +1,8 @@
 import Foundation
 
 struct Table {
-    let schema: [String]
     let records: [[String]]
+    let schema: [String]
     
     func records<T: Record>(_ type: T.Type) -> [T] {
         return records.compactMap { T(record: $0) }
@@ -12,10 +12,10 @@ struct Table {
         guard let schema: [String] = records.first?.schema else {
             return nil
         }
-        self.schema = schema
         self.records = records.compactMap { record in
             return record.schema == schema ? record.record : nil
         }
+        self.schema = schema
     }
 }
 

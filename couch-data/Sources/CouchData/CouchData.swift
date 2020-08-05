@@ -51,7 +51,7 @@ public struct CouchData {
         }
     }
     
-    public enum FileFormat: String, CaseIterable, CustomStringConvertible {
+    public enum FileFormat: String, CaseIterable, Identifiable, CustomStringConvertible {
         case html, tsv
         
         public var pathExtension: String {
@@ -59,7 +59,18 @@ public struct CouchData {
         }
         
         public func path(name: String? = nil) -> String {
-            return "\(!(name ?? "").isEmpty ? name! : "index").\(pathExtension)"
+            guard var name: [String] = name?.components(separatedBy: "."), !name[0].isEmpty else {
+                return "index.\(pathExtension)"
+            }
+            if name.count > 1 {
+                name = name.dropLast()
+            }
+            return "\(name.joined(separator: ".")).\(pathExtension)"
+        }
+        
+        // MARK: Identifiable
+        public var id: String {
+            return rawValue
         }
         
         // MARK: CustomStringConvertible
