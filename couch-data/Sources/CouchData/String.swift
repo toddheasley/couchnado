@@ -1,6 +1,13 @@
 import Foundation
 
 extension String: Value {
+    var unwrappedValue: String {
+        return self.replacingOccurrences(of: "\"=\"\"", with: "").replacingOccurrences(of: "\"\"\"", with: "")
+    }
+    
+    var wrappedValue: String {
+        return "\"=\"\"\(self)\"\"\""
+    }
     
     // MARK: Value
     var value: String {

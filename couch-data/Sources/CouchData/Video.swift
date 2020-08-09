@@ -2,11 +2,27 @@ import Foundation
 
 public struct Video: Record, Identifiable, Comparable, CustomStringConvertible {
     public enum Format: String, Value, CaseIterable, CustomStringConvertible {
+        
         case movie, miniseries, series
         
         // MARK: CustomStringConvertible
         public var description: String {
             return value
+        }
+    }
+    
+    public enum Filter {
+        case title(String), genre(String), format(Format), none
+    }
+
+    public enum Sort: String, CustomStringConvertible {
+        case title, era
+        
+        public static let `default`: Self = .title
+        
+        // MARK: CustomStringConvertible
+        public var description: String {
+            return rawValue
         }
     }
     
@@ -42,8 +58,10 @@ public struct Video: Record, Identifiable, Comparable, CustomStringConvertible {
     }
     
     // MARK: Identifiable
-    public let id: UUID = UUID()
-    
+    public var id: String {
+        return description.lowercased()
+    }
+        
     // MARK: Comparable
     public static func < (lhs: Self, rhs: Self) -> Bool {
         return lhs.title < rhs.title
