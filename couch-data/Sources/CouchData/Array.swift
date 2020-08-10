@@ -6,7 +6,7 @@ extension Array where Element == Video {
         for video in self {
             genres += video.genres
         }
-        return Swift.Array(Set(genres))
+        return Set(genres).sorted()
     }
     
     func sorted(by sort: Video.Sort, reversed: Bool = false) -> [Video] {
@@ -23,7 +23,7 @@ extension Array where Element == Video {
     func filtered(by filter: Video.Filter) -> [Video] {
         switch filter {
         case .title(let string):
-            return self.filter { $0.title.description.lowercased().value.contains(string.lowercased().value) }
+            return self.filter { $0.matches(string) }
         case .genre(let string):
             return self.filter { $0.genres.contains(string.lowercased().value) }
         case .format(let format):

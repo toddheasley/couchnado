@@ -33,6 +33,10 @@ public struct Video: Record, Identifiable, Comparable, CustomStringConvertible {
     public let era: Era
     public let links: [URL]
     
+    func matches(_ string: String) -> Bool {
+        return (franchise?.matches(string) ?? false) || title.matches(string)
+    }
+    
     // MARK: Record
     let schema: [String] = ["Title", "Franchise", "Format", "Genres", "Era", "Links"]
     

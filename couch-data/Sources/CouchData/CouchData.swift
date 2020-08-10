@@ -94,9 +94,6 @@ extension CouchData {
                 guard let videos: [Video] = Table(data: data)?.records(Video.self) else {
                     throw URLError(.cannotDecodeContentData)
                 }
-                
-                print("videos: \(videos.count)")
-                
                 return videos
             }
             .receive(on: DispatchQueue.main)
@@ -141,8 +138,7 @@ extension CouchData {
         }
         switch format {
         case .html:
-            let title: String = url.deletingPathExtension().lastPathComponent
-            try HTML(table: table, title: title).data.write(to: url)
+            try HTML(table: table, title: url.deletingPathExtension().lastPathComponent).data.write(to: url)
         case .tsv:
             try table.data.write(to: url)
         }

@@ -1,12 +1,16 @@
 import Foundation
 
-extension String: Value {
+extension String: Value, Identifiable {
     var unwrappedValue: String {
         return self.replacingOccurrences(of: "\"=\"\"", with: "").replacingOccurrences(of: "\"\"\"", with: "")
     }
     
     var wrappedValue: String {
         return "\"=\"\"\(self)\"\"\""
+    }
+    
+    func tokenized() -> String {
+        return value.replacingOccurrences(of: " ", with: "")
     }
     
     // MARK: Value
@@ -20,5 +24,10 @@ extension String: Value {
             return nil
         }
         self = value
+    }
+    
+    // MARK: Identifiable
+    public var id: String {
+        return self
     }
 }

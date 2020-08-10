@@ -25,9 +25,6 @@
 		5C7FEDD224C3805F008446A5 /* Version in Frameworks */ = {isa = PBXBuildFile; productRef = 5C7FEDD124C3805F008446A5 /* Version */; };
 		5C7FEDD424C3806E008446A5 /* Version in Frameworks */ = {isa = PBXBuildFile; productRef = 5C7FEDD324C3806E008446A5 /* Version */; };
 		5C7FEDD624C38075008446A5 /* Version in Frameworks */ = {isa = PBXBuildFile; productRef = 5C7FEDD524C38075008446A5 /* Version */; };
-		5C93309324DF88A900D0015B /* VideoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C93309224DF88A900D0015B /* VideoView.swift */; };
-		5C93309424DF88A900D0015B /* VideoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C93309224DF88A900D0015B /* VideoView.swift */; };
-		5C93309524DF88A900D0015B /* VideoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C93309224DF88A900D0015B /* VideoView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -45,7 +42,6 @@
 		5C6EF85824C3770B008CD492 /* Couchnado.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Couchnado.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		5C6EF86324C3770D008CD492 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		5C7FEDCB24C37A92008446A5 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		5C93309224DF88A900D0015B /* VideoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -97,7 +93,6 @@
 			children = (
 				5C6B905124C340F40035808A /* CouchnadoApp.swift */,
 				5C6B905224C340F40035808A /* ContentView.swift */,
-				5C93309224DF88A900D0015B /* VideoView.swift */,
 				5C6B905324C340F50035808A /* Assets.xcassets */,
 			);
 			path = Shared;
@@ -350,7 +345,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				5C93309524DF88A900D0015B /* VideoView.swift in Sources */,
 				5C6B906624C340F50035808A /* ContentView.swift in Sources */,
 				5C6B906424C340F50035808A /* CouchnadoApp.swift in Sources */,
 			);
@@ -361,7 +355,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				5C57B9C024D625A3000927EA /* NSSavePanel.swift in Sources */,
-				5C93309324DF88A900D0015B /* VideoView.swift in Sources */,
 				5C6B906724C340F50035808A /* ContentView.swift in Sources */,
 				5C57B9BE24D5DCDB000927EA /* NSOpenPanel.swift in Sources */,
 				5C6B906524C340F50035808A /* CouchnadoApp.swift in Sources */,
@@ -372,7 +365,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				5C93309424DF88A900D0015B /* VideoView.swift in Sources */,
 				5C7FEDC224C378D1008446A5 /* ContentView.swift in Sources */,
 				5C7FEDC124C378CD008446A5 /* CouchnadoApp.swift in Sources */,
 			);

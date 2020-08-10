@@ -33,10 +33,6 @@ extension Table {
             let schema: [String] = components.first?.components(separatedBy: "\t"), !schema.isEmpty else {
             return nil
         }
-        
-        print("schema: \(components.count)")
-        
-        
         self.schema = schema
         self.records = components.compactMap { component in
             let record: [String] = component.components(separatedBy: "\t").map { $0.unwrappedValue }

@@ -12,6 +12,10 @@ public struct Title: Value, Comparable, CustomStringConvertible {
         return components.joined(separator: " ")
     }
     
+    func matches(_ string: String) -> Bool {
+        return string.isEmpty || description.tokenized().contains(string.tokenized())
+    }
+    
     // MARK: Value
     let value: String
     
