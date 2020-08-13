@@ -1,9 +1,13 @@
 import Foundation
 
 public struct Video: Record, Identifiable, Comparable, CustomStringConvertible {
-    public enum Format: String, Value, CaseIterable, CustomStringConvertible {
-        
+    public enum Format: String, Value, CaseIterable, Identifiable, CustomStringConvertible {
         case movie, miniseries, series
+        
+        // MARK: Identifiable
+        public var id: String {
+            return value
+        }
         
         // MARK: CustomStringConvertible
         public var description: String {
@@ -11,7 +15,7 @@ public struct Video: Record, Identifiable, Comparable, CustomStringConvertible {
         }
     }
     
-    public enum Filter {
+    public enum Filter: Equatable {
         case title(String), genre(String), format(Format), none
     }
 
