@@ -14,9 +14,9 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "5C6B905F24C340F50035808A"
+               BlueprintIdentifier = "5C6B905724C340F50035808A"
                BuildableName = "Couchnado.app"
-               BlueprintName = "Couchnado (macOS)"
+               BlueprintName = "Couchnado (iOS)"
                ReferencedContainer = "container:Couchnado.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
@@ -44,9 +44,9 @@
          runnableDebuggingMode = "0">
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "5C6B905F24C340F50035808A"
+            BlueprintIdentifier = "5C6B905724C340F50035808A"
             BuildableName = "Couchnado.app"
-            BlueprintName = "Couchnado (macOS)"
+            BlueprintName = "Couchnado (iOS)"
             ReferencedContainer = "container:Couchnado.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
@@ -61,9 +61,9 @@
          runnableDebuggingMode = "0">
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "5C6B905F24C340F50035808A"
+            BlueprintIdentifier = "5C6B905724C340F50035808A"
             BuildableName = "Couchnado.app"
-            BlueprintName = "Couchnado (macOS)"
+            BlueprintName = "Couchnado (iOS)"
             ReferencedContainer = "container:Couchnado.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>

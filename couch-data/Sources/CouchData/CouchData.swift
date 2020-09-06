@@ -3,18 +3,11 @@ import Combine
 
 public class CouchData: ObservableObject {
     @Published public private(set) var error: Error?
-    @Published public private(set) var allVideos: [Video] = []
+    @Published public private(set) var videos: [Video] = []
+    @Published public private(set) var genres: [String] = []
     @Published public var filter: Video.Filter = .none
     @Published public var sort: Video.Sort = .default
     @Published public var isReversed: Bool = false
-    
-    public var videos: [Video] {
-        return allVideos.filtered(by: filter).sorted(by: sort, reversed: isReversed)
-    }
-    
-    public var genres: [String] {
-        return allVideos.genres
-    }
     
     public func load(request: Request = .automatic) {
         subscriber?.cancel()
@@ -36,6 +29,13 @@ public class CouchData: ObservableObject {
     }
     
     private var subscriber: AnyCancellable?
+    
+    private var allVideos: [Video] = [] {
+        didSet {
+            videos = allVideos.filtered(by: filter).sorted(by: sort, reversed: isReversed)
+            genres = allVideos.genres
+        }
+    }
 }
 
 extension CouchData {

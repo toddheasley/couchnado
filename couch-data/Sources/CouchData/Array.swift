@@ -22,10 +22,10 @@ extension Array where Element == Video {
     
     func filtered(by filter: Video.Filter) -> [Video] {
         switch filter {
-        case .title(let string):
-            return self.filter { $0.matches(string) }
-        case .genre(let string):
-            return self.filter { $0.genres.contains(string.lowercased().value) }
+        case .title(let title):
+            return self.filter { $0.matches(title) }
+        case .genre(let genre):
+            return self.filter { $0.genres.contains(genre.lowercased().value) }
         case .format(let format):
             return self.filter { $0.format == format }
         case .none:

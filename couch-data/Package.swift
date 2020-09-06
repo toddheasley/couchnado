@@ -2,7 +2,7 @@
 import PackageDescription
 
 let package = Package(name: "couch-data", platforms: [
-    .macOS(.v10_16),
+    .macOS(.v11),
     .iOS(.v14),
     .watchOS(.v7),
     .tvOS(.v14)

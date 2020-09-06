@@ -9,7 +9,7 @@ struct CouchnadoApp: App {
     // MARK: App
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            MainView()
                 .environmentObject(data)
         }
     }

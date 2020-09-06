@@ -1,2 +1,3 @@
 # Couchnado
 
+## Privacy Policy
