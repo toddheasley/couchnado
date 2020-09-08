@@ -21,25 +21,17 @@ struct MainView: View {
     let configuration: Configuration = .basic
     #endif
     
-    init() {
-        #if targetEnvironment(macCatalyst)
-        for scene in UIApplication.shared.connectedScenes {
-            (scene as? UIWindowScene)?.titlebar?.titleVisibility = .hidden
-        }
-        #endif
-    }
-    
-    @State private var isPresented: Bool = true
+    @EnvironmentObject private var data: CouchData
     
     // MARK: View
     var body: some View {
         switch configuration {
         case .compact:
-            Text("compact")
+            Text("compact (\(data.videos.count))")
         case .standard:
-            Text("standard")
+            Text("standard (\(data.videos.count))")
         case .basic:
-            Text("basic")
+            Text("basic (\(data.videos.count))")
         }
     }
 }
@@ -49,5 +41,6 @@ struct MainView_Previews: PreviewProvider {
     // MARK: PreviewProvider
     static var previews: some View {
         MainView()
+            .environmentObject(CouchData())
     }
 }

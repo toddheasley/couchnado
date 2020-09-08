@@ -4,7 +4,6 @@ import UniformTypeIdentifiers
 struct DocumentPicker {
     static func export(url: URL, result: @escaping (URL?) -> Void) {
         DocumentPickerView.shared = DocumentPickerView(forExporting: [url], asCopy: true)
-        // DocumentPickerView.shared?.allowsMultipleSelection = false
         DocumentPickerView.shared?.present { urls in
             result(urls.first)
         }

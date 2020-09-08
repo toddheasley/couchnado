@@ -10,6 +10,8 @@
 		5C06745824E9895700B9961B /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C06745624E9895700B9961B /* MainView.swift */; };
 		5C06745924E9895700B9961B /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C06745624E9895700B9961B /* MainView.swift */; };
 		5C15D96D2501D6C7003B6FCF /* DocumentPicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C15D96A2501D6C7003B6FCF /* DocumentPicker.swift */; };
+		5C3E8F7E2506CCA700570F45 /* Safari.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C3E8F7D2506CCA700570F45 /* Safari.swift */; };
+		5C3E8F7F2506CCA700570F45 /* Safari.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C3E8F7D2506CCA700570F45 /* Safari.swift */; };
 		5C6B906424C340F50035808A /* CouchnadoApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C6B905124C340F40035808A /* CouchnadoApp.swift */; };
 		5C6B906824C340F50035808A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5C6B905324C340F50035808A /* Assets.xcassets */; };
 		5C7FEDC124C378CD008446A5 /* CouchnadoApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C6B905124C340F40035808A /* CouchnadoApp.swift */; };
@@ -22,6 +24,7 @@
 /* Begin PBXFileReference section */
 		5C06745624E9895700B9961B /* MainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
 		5C15D96A2501D6C7003B6FCF /* DocumentPicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DocumentPicker.swift; sourceTree = "<group>"; };
+		5C3E8F7D2506CCA700570F45 /* Safari.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Safari.swift; sourceTree = "<group>"; };
 		5C562E2D24DB8B99009CD4B2 /* Couchnado.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Couchnado.entitlements; sourceTree = "<group>"; };
 		5C6B905124C340F40035808A /* CouchnadoApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CouchnadoApp.swift; sourceTree = "<group>"; };
 		5C6B905324C340F50035808A /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -70,6 +73,7 @@
 				5C6B905124C340F40035808A /* CouchnadoApp.swift */,
 				5C06745624E9895700B9961B /* MainView.swift */,
 				5C15D96A2501D6C7003B6FCF /* DocumentPicker.swift */,
+				5C3E8F7D2506CCA700570F45 /* Safari.swift */,
 				5C6B905324C340F50035808A /* Assets.xcassets */,
 			);
 			path = Shared;
@@ -256,6 +260,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				5C06745924E9895700B9961B /* MainView.swift in Sources */,
+				5C3E8F7F2506CCA700570F45 /* Safari.swift in Sources */,
 				5C15D96D2501D6C7003B6FCF /* DocumentPicker.swift in Sources */,
 				5C6B906424C340F50035808A /* CouchnadoApp.swift in Sources */,
 			);
@@ -267,6 +272,7 @@
 			files = (
 				5C06745824E9895700B9961B /* MainView.swift in Sources */,
 				5C7FEDC124C378CD008446A5 /* CouchnadoApp.swift in Sources */,
+				5C3E8F7E2506CCA700570F45 /* Safari.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
