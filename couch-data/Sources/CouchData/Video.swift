@@ -17,6 +17,10 @@ public struct Video: Record, Identifiable, Comparable, CustomStringConvertible {
     
     public enum Filter: Equatable {
         case title(String), genre(String), format(Format), none
+        
+        public var isDisabled: Bool {
+            return self == .none
+        }
     }
 
     public enum Sort: String, CustomStringConvertible {

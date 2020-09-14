@@ -10,10 +10,13 @@
 		5C06745824E9895700B9961B /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C06745624E9895700B9961B /* MainView.swift */; };
 		5C06745924E9895700B9961B /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C06745624E9895700B9961B /* MainView.swift */; };
 		5C15D96D2501D6C7003B6FCF /* DocumentPicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C15D96A2501D6C7003B6FCF /* DocumentPicker.swift */; };
-		5C3E8F7E2506CCA700570F45 /* Safari.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C3E8F7D2506CCA700570F45 /* Safari.swift */; };
 		5C3E8F7F2506CCA700570F45 /* Safari.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C3E8F7D2506CCA700570F45 /* Safari.swift */; };
+		5C6A6FCF250DB11700D7A245 /* WindowGroup.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C6A6FCE250DB11700D7A245 /* WindowGroup.swift */; };
+		5C6A6FD0250DB11700D7A245 /* WindowGroup.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C6A6FCE250DB11700D7A245 /* WindowGroup.swift */; };
 		5C6B906424C340F50035808A /* CouchnadoApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C6B905124C340F40035808A /* CouchnadoApp.swift */; };
 		5C6B906824C340F50035808A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5C6B905324C340F50035808A /* Assets.xcassets */; };
+		5C6D7E86250F0599006F5A59 /* Alert.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C6D7E85250F0599006F5A59 /* Alert.swift */; };
+		5C6D7E87250F0599006F5A59 /* Alert.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C6D7E85250F0599006F5A59 /* Alert.swift */; };
 		5C7FEDC124C378CD008446A5 /* CouchnadoApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C6B905124C340F40035808A /* CouchnadoApp.swift */; };
 		5C7FEDC324C37934008446A5 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5C6B905324C340F50035808A /* Assets.xcassets */; };
 		5C7FEDC624C37956008446A5 /* CouchData in Frameworks */ = {isa = PBXBuildFile; productRef = 5C7FEDC524C37956008446A5 /* CouchData */; };
@@ -26,10 +29,12 @@
 		5C15D96A2501D6C7003B6FCF /* DocumentPicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DocumentPicker.swift; sourceTree = "<group>"; };
 		5C3E8F7D2506CCA700570F45 /* Safari.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Safari.swift; sourceTree = "<group>"; };
 		5C562E2D24DB8B99009CD4B2 /* Couchnado.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Couchnado.entitlements; sourceTree = "<group>"; };
+		5C6A6FCE250DB11700D7A245 /* WindowGroup.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WindowGroup.swift; sourceTree = "<group>"; };
 		5C6B905124C340F40035808A /* CouchnadoApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CouchnadoApp.swift; sourceTree = "<group>"; };
 		5C6B905324C340F50035808A /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		5C6B905824C340F50035808A /* Couchnado.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Couchnado.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		5C6B905B24C340F50035808A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		5C6D7E85250F0599006F5A59 /* Alert.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Alert.swift; sourceTree = "<group>"; };
 		5C6EF85824C3770B008CD492 /* Couchnado.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Couchnado.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		5C6EF86324C3770D008CD492 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		5C7FEDCB24C37A92008446A5 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -63,7 +68,6 @@
 				5C6EF85924C3770B008CD492 /* tvOS */,
 				5C6B905A24C340F50035808A /* iOS */,
 				5C6B905924C340F50035808A /* Products */,
-				5C7FEDC424C37956008446A5 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -71,9 +75,11 @@
 			isa = PBXGroup;
 			children = (
 				5C6B905124C340F40035808A /* CouchnadoApp.swift */,
-				5C06745624E9895700B9961B /* MainView.swift */,
+				5C6D7E85250F0599006F5A59 /* Alert.swift */,
 				5C15D96A2501D6C7003B6FCF /* DocumentPicker.swift */,
+				5C06745624E9895700B9961B /* MainView.swift */,
 				5C3E8F7D2506CCA700570F45 /* Safari.swift */,
+				5C6A6FCE250DB11700D7A245 /* WindowGroup.swift */,
 				5C6B905324C340F50035808A /* Assets.xcassets */,
 			);
 			path = Shared;
@@ -103,13 +109,6 @@
 				5C6EF86324C3770D008CD492 /* Info.plist */,
 			);
 			path = tvOS;
-			sourceTree = "<group>";
-		};
-		5C7FEDC424C37956008446A5 /* Frameworks */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			name = Frameworks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -259,7 +258,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5C6D7E87250F0599006F5A59 /* Alert.swift in Sources */,
 				5C06745924E9895700B9961B /* MainView.swift in Sources */,
+				5C6A6FD0250DB11700D7A245 /* WindowGroup.swift in Sources */,
 				5C3E8F7F2506CCA700570F45 /* Safari.swift in Sources */,
 				5C15D96D2501D6C7003B6FCF /* DocumentPicker.swift in Sources */,
 				5C6B906424C340F50035808A /* CouchnadoApp.swift in Sources */,
@@ -271,8 +272,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				5C06745824E9895700B9961B /* MainView.swift in Sources */,
+				5C6A6FCF250DB11700D7A245 /* WindowGroup.swift in Sources */,
+				5C6D7E86250F0599006F5A59 /* Alert.swift in Sources */,
 				5C7FEDC124C378CD008446A5 /* CouchnadoApp.swift in Sources */,
-				5C3E8F7E2506CCA700570F45 /* Safari.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

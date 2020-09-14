@@ -2,12 +2,27 @@ import Foundation
 import Combine
 
 public class CouchData: ObservableObject {
-    @Published public private(set) var error: Error?
     @Published public private(set) var videos: [Video] = []
     @Published public private(set) var genres: [String] = []
-    @Published public var filter: Video.Filter = .none
-    @Published public var sort: Video.Sort = .default
-    @Published public var isReversed: Bool = false
+    @Published public var error: URLError?
+    
+    @Published public var filter: Video.Filter = .none {
+        didSet {
+            allVideos = nil ?? allVideos
+        }
+    }
+    
+    @Published public var sort: Video.Sort = .default {
+        didSet {
+            allVideos = nil ?? allVideos
+        }
+    }
+    
+    @Published public var isReversed: Bool = false {
+        didSet {
+            allVideos = nil ?? allVideos
+        }
+    }
     
     public func load(request: Request = .automatic) {
         subscriber?.cancel()
@@ -15,7 +30,7 @@ public class CouchData: ObservableObject {
             .sink(receiveCompletion: { completion in
                 switch completion {
                 case .failure(let error):
-                    self.error = error
+                    self.error = error as? URLError
                 case .finished:
                     self.error = nil
                 }
@@ -48,7 +63,7 @@ extension CouchData {
                 case "http", "https":
                     URLSession.shared.dataTask(with: URLRequest(url: url, cachePolicy: cachePolicy, timeoutInterval: 10.0)) { data, response, error in
                         guard let data: Data = data else {
-                            completion(.failure(error ?? URLError(.badServerResponse)))
+                            completion(.failure(error as? URLError ?? URLError(.badServerResponse)))
                             return
                         }
                         completion(.success(data))
@@ -58,7 +73,7 @@ extension CouchData {
                         let data: Data = try Data(contentsOf: url)
                         completion(.success(data))
                     } catch {
-                        completion(.failure(error))
+                        completion(.failure(URLError(.cannotDecodeContentData)))
                     }
                 default:
                     completion(.failure(URLError(.unsupportedURL)))
@@ -69,8 +84,6 @@ extension CouchData {
         
         private var cachePolicy: URLRequest.CachePolicy {
             switch self {
-            case .automatic:
-                return .returnCacheDataElseLoad
             case .refresh:
                 return .reloadIgnoringLocalAndRemoteCacheData
             default:
