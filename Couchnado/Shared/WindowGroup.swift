@@ -43,6 +43,7 @@ extension WindowGroup {
         #endif
     }
     
+    #if os(iOS)
     func importData(_ data: CouchData) {
         DocumentPicker.import(types: [.tabSeparatedText]) { url in
             guard let url: URL = url else {
@@ -63,4 +64,5 @@ extension WindowGroup {
             data.error = error as? URLError ?? URLError(.badURL)
         }
     }
+    #endif
 }

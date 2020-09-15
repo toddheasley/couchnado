@@ -22,6 +22,10 @@
 		5C7FEDC624C37956008446A5 /* CouchData in Frameworks */ = {isa = PBXBuildFile; productRef = 5C7FEDC524C37956008446A5 /* CouchData */; };
 		5C7FEDC824C3795F008446A5 /* CouchData in Frameworks */ = {isa = PBXBuildFile; productRef = 5C7FEDC724C3795F008446A5 /* CouchData */; };
 		5C7FEDCC24C37A92008446A5 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5C7FEDCB24C37A92008446A5 /* Assets.xcassets */; };
+		5C8E8AEE251044A40041BFB0 /* FormatPicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C8E8AED251044A40041BFB0 /* FormatPicker.swift */; };
+		5C8E8AEF251044A40041BFB0 /* FormatPicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C8E8AED251044A40041BFB0 /* FormatPicker.swift */; };
+		5CBF5DA4250FB3E9007D5385 /* SearchView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CBF5DA3250FB3E9007D5385 /* SearchView.swift */; };
+		5CBF5DA5250FB3E9007D5385 /* SearchView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CBF5DA3250FB3E9007D5385 /* SearchView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -38,6 +42,8 @@
 		5C6EF85824C3770B008CD492 /* Couchnado.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Couchnado.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		5C6EF86324C3770D008CD492 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		5C7FEDCB24C37A92008446A5 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		5C8E8AED251044A40041BFB0 /* FormatPicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FormatPicker.swift; sourceTree = "<group>"; };
+		5CBF5DA3250FB3E9007D5385 /* SearchView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -74,11 +80,13 @@
 		5C6B905024C340F40035808A /* Shared */ = {
 			isa = PBXGroup;
 			children = (
-				5C6B905124C340F40035808A /* CouchnadoApp.swift */,
 				5C6D7E85250F0599006F5A59 /* Alert.swift */,
+				5C6B905124C340F40035808A /* CouchnadoApp.swift */,
 				5C15D96A2501D6C7003B6FCF /* DocumentPicker.swift */,
+				5C8E8AED251044A40041BFB0 /* FormatPicker.swift */,
 				5C06745624E9895700B9961B /* MainView.swift */,
 				5C3E8F7D2506CCA700570F45 /* Safari.swift */,
+				5CBF5DA3250FB3E9007D5385 /* SearchView.swift */,
 				5C6A6FCE250DB11700D7A245 /* WindowGroup.swift */,
 				5C6B905324C340F50035808A /* Assets.xcassets */,
 			);
@@ -261,6 +269,8 @@
 				5C6D7E87250F0599006F5A59 /* Alert.swift in Sources */,
 				5C06745924E9895700B9961B /* MainView.swift in Sources */,
 				5C6A6FD0250DB11700D7A245 /* WindowGroup.swift in Sources */,
+				5CBF5DA5250FB3E9007D5385 /* SearchView.swift in Sources */,
+				5C8E8AEF251044A40041BFB0 /* FormatPicker.swift in Sources */,
 				5C3E8F7F2506CCA700570F45 /* Safari.swift in Sources */,
 				5C15D96D2501D6C7003B6FCF /* DocumentPicker.swift in Sources */,
 				5C6B906424C340F50035808A /* CouchnadoApp.swift in Sources */,
@@ -271,7 +281,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5CBF5DA4250FB3E9007D5385 /* SearchView.swift in Sources */,
 				5C06745824E9895700B9961B /* MainView.swift in Sources */,
+				5C8E8AEE251044A40041BFB0 /* FormatPicker.swift in Sources */,
 				5C6A6FCF250DB11700D7A245 /* WindowGroup.swift in Sources */,
 				5C6D7E86250F0599006F5A59 /* Alert.swift in Sources */,
 				5C7FEDC124C378CD008446A5 /* CouchnadoApp.swift in Sources */,
