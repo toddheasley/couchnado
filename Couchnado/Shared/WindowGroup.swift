@@ -4,6 +4,11 @@ import CouchData
 extension WindowGroup {
     func commands(data: CouchData) -> some Scene {
         #if os(iOS)
+        #if targetEnvironment(macCatalyst)
+        for scene in UIApplication.shared.connectedScenes {
+            (scene as? UIWindowScene)?.titlebar?.titleVisibility = .hidden
+        }
+        #endif
         return commands {
             CommandGroup(replacing: .help) {
                 Button("Couchnado Documentation and Source Code") {
@@ -29,7 +34,7 @@ extension WindowGroup {
                 Button("Remove Videos Filter") {
                     data.filter = .none
                 }
-                .keyboardShortcut(.escape, modifiers: [])
+                .keyboardShortcut(.delete, modifiers: [.command])
             }
             CommandGroup(replacing: .toolbar) {
                 Button("Refresh Videos") {

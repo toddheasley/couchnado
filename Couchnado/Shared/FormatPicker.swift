@@ -16,6 +16,7 @@ struct FormatPicker: View {
             }
         }
         .pickerStyle(SegmentedPickerStyle())
+        .padding(.vertical, .vertical)
         .onChange(of: selection) { selection in
             if let format: Video.Format = Video.Format(rawValue: selection) {
                 filter = .format(format)

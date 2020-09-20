@@ -9,16 +9,13 @@ struct MainView: View {
     
     // MARK: View
     var body: some View {
-        VStack {
+        VStack(spacing: .vertical) {
             SearchView(filter: $data.filter)
-                .padding(10.0)
+                .padding(.horizontal, .horizontal)
             FormatPicker(filter: $data.filter)
-                .padding(10.0)
-            Spacer()
-            Text("Videos: \(data.videos.count)")
-                .padding(10.0)
+                .padding(.horizontal, .horizontal)
+            GenreList(genres: data.genres, filter: $data.filter)
         }
-        .padding(20.0)
     }
 }
 

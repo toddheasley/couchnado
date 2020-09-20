@@ -68,10 +68,10 @@ struct SearchView: View {
                     })
                     .buttonStyle(PlainButtonStyle())
                 }
-                .padding(EdgeInsets(top: 7.0, leading: 10.0, bottom: 7.0, trailing: 10.0))
+                .padding(7.0)
             }
-            .background(Color.secondary.opacity(0.1))
-            .cornerRadius(10.0)
+            .background(Color.secondary.opacity(0.15))
+            .cornerRadius(.radius)
             #if !targetEnvironment(macCatalyst)
             if isEditing {
                 Button(action: {
@@ -79,13 +79,14 @@ struct SearchView: View {
                     text = ""
                 }, label: {
                     Text("Cancel")
-                        .padding(EdgeInsets(top: 0.0, leading: 4.0, bottom: 0.0, trailing: 4.0))
+                        .padding(.horizontal, 4.0)
                 })
                 .buttonStyle(BorderlessButtonStyle())
                 .transition(.move(edge: .trailing))
             }
             #endif
         }
+        .padding(.vertical, .vertical)
         .clipped()
         .onChange(of: filter) { filter in
             filterChanged()
@@ -95,6 +96,7 @@ struct SearchView: View {
         }
         #else
         TextField("Search", text: $text)
+            //.font(.headline)
             .onChange(of: filter) { filter in
                 filterChanged()
             }
@@ -113,4 +115,3 @@ struct SearchView_Previews: PreviewProvider {
         SearchView(filter: $filter)
     }
 }
-
