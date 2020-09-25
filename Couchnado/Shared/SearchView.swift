@@ -2,15 +2,21 @@ import SwiftUI
 import CouchData
 
 struct SearchView: View {
+    static func endEditing() {
+        UIApplication.shared.sendAction(#selector(UIResponder.resignFirstResponder), to: nil, from: nil, for: nil)
+    }
+    
     @Binding var filter: Video.Filter
+    
     @State private var text: String = ""
     
     @State private var isEditing: Bool = false {
         didSet {
-            guard !isEditing else {
-                return
+            if !isEditing {
+                Self.endEditing()
+            } else {
+                filter = .none
             }
-            UIApplication.shared.sendAction(#selector(UIResponder.resignFirstResponder), to: nil, from: nil, for: nil)
         }
     }
     
@@ -96,7 +102,6 @@ struct SearchView: View {
         }
         #else
         TextField("Search", text: $text)
-            //.font(.headline)
             .onChange(of: filter) { filter in
                 filterChanged()
             }

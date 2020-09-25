@@ -8,8 +8,8 @@ struct CouchnadoApp: App {
     
     // MARK: App
     var body: some Scene {
-        return WindowGroup {
-            MainView()
+        WindowGroup {
+            ContentView()
                 .environmentObject(data)
                 .alert(item: $data.error) { error in
                     Alert(error: error) {

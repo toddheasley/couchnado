@@ -3,12 +3,13 @@ import CouchData
 
 struct FormatPicker: View {
     @Binding var filter: Video.Filter
+    
     @State private var selection: String = ""
     
     // MARK: View
     var body: some View {
         Picker("", selection: $selection) {
-            Text("Any Format")
+            Text("All")
                 .tag("")
             ForEach(Video.Format.allCases) { format in
                 Text(format.description.capitalized)
@@ -16,7 +17,8 @@ struct FormatPicker: View {
             }
         }
         .pickerStyle(SegmentedPickerStyle())
-        .padding(.vertical, .vertical)
+        .padding(.top, .vertical + 1.0)
+        .padding(.bottom, .vertical)
         .onChange(of: selection) { selection in
             if let format: Video.Format = Video.Format(rawValue: selection) {
                 filter = .format(format)

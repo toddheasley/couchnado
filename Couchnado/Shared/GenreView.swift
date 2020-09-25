@@ -33,7 +33,7 @@ struct GenreView: View {
                 Spacer()
             }
             .padding(EdgeInsets(top: 8.0, leading: 14.0, bottom: 8.0, trailing: 14.0))
-            .background(isSelected ? Color.accentColor.opacity(0.75) : Color.secondary.opacity(0.05))
+            .background(isSelected ? Color.accentColor.opacity(0.8) : Color.secondary.opacity(0.05))
             .cornerRadius(.radius)
         })
         .buttonStyle(PlainButtonStyle())

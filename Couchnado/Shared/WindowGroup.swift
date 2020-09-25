@@ -37,6 +37,10 @@ extension WindowGroup {
                 .keyboardShortcut(.delete, modifiers: [.command])
             }
             CommandGroup(replacing: .toolbar) {
+                Button("Toggle Filter View") {
+                    data.showFilter.toggle()
+                }
+                .keyboardShortcut("f", modifiers: [.command])
                 Button("Refresh Videos") {
                     data.load()
                 }

@@ -2,13 +2,11 @@ import SwiftUI
 
 struct OffsetScrollView<Content>: View where Content: View {
     let axes: Axis.Set
-    let showsIndicators: Bool
     let content: Content
     @Binding var offset: CGPoint
     
-    init(_ axes: Axis.Set = .vertical, showsIndicators: Bool = true, offset: Binding<CGPoint>, @ViewBuilder content: () -> Content) {
+    init(_ axes: Axis.Set = .vertical, offset: Binding<CGPoint>, @ViewBuilder content: () -> Content) {
         self.axes = axes
-        self.showsIndicators = showsIndicators
         self.content = content()
         self._offset = offset
     }
@@ -16,18 +14,18 @@ struct OffsetScrollView<Content>: View where Content: View {
     // MARK: View
     var body: some View {
         GeometryReader { outer in
-            ScrollView(axes, showsIndicators: showsIndicators) {
+            ScrollView(axes) {
                 ScrollViewReader { _ in
                     ZStack {
                         GeometryReader { inner in
                             OffsetPreference(outer, inner)
                         }
-                        self.content
+                        content
                     }
                 }
             }
             .onPreferenceChange(OffsetPreference.Key.self) { value in
-                self.offset = value[0]
+                offset = value[0]
             }
         }
     }

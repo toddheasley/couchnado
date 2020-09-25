@@ -12,6 +12,12 @@ public class CouchData: ObservableObject {
         }
     }
     
+    @Published public var showFilter: Bool {
+        didSet {
+            UserDefaults.standard.set(showFilter, forKey: "showFilter")
+        }
+    }
+    
     @Published public var sort: Video.Sort = .default {
         didSet {
             allVideos = nil ?? allVideos
@@ -40,6 +46,7 @@ public class CouchData: ObservableObject {
     }
 
     public init() {
+        showFilter = UserDefaults.standard.bool(forKey: "showFilter")
         load()
     }
     
