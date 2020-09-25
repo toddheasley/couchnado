@@ -22,7 +22,7 @@ struct RegularView: View {
 
 fileprivate struct FilterView: View {
     static func offset(show: Bool = true) -> CGPoint {
-        return CGPoint(x: show ? 290 : 0.0, y: .zero)
+        return CGPoint(x: show ? 320 : 0.0, y: .zero)
     }
     
     private enum DragMode {
@@ -67,7 +67,7 @@ fileprivate struct FilterView: View {
                         .padding(.bottom, 4.0)
                 }
                 .frame(height: proxy.size.height)
-                .background(Color.background
+                .background(Color.secondaryBackground
                                 .frame(height: proxy.size.height + 100.0))
                 Divider()
                     .ignoresSafeArea()

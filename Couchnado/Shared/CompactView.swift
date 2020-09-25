@@ -85,7 +85,7 @@ fileprivate struct FilterView: View {
                 }
             }
             .frame(width: proxy.size.width, height: proxy.size.height * 2.0, alignment: .top)
-            .background(Color.background.shadow(color: Color.shadow, radius: 5.0))
+            .background(Color.secondaryBackground.shadow(color: Color.shadow, radius: 5.0))
             .offset(y: offset(proxy).y + dragMode.translation.height)
             .animation(.interpolatingSpring)
             .gesture(DragGesture()

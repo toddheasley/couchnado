@@ -10,8 +10,6 @@ struct GenreList: View {
     // MARK: View
     var body: some View {
         ZStack(alignment: .top) {
-            Divider()
-                .opacity(offset.y > 0.0 ? 1.0 : 0.0)
             OffsetScrollView(offset: $offset) {
                 VStack(alignment: .leading) {
                     GenreView.allGenres(filter: $filter)
@@ -22,6 +20,8 @@ struct GenreList: View {
                 .padding(.horizontal, .horizontal)
                 .padding(.vertical, .vertical)
             }
+            Divider()
+                .opacity(offset.y > 0.0 ? 1.0 : 0.0)
         }
     }
 }
