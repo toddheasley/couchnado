@@ -61,6 +61,7 @@ fileprivate struct FilterView: View {
                 VStack(spacing: 10.0) {
                     SearchView(filter: $data.filter)
                         .padding(.horizontal, .horizontal)
+                        .padding(.top, 4.0)
                     FormatPicker(filter: $data.filter)
                         .padding(.horizontal, .horizontal)
                     GenreList(genres: data.genres, filter: $data.filter)

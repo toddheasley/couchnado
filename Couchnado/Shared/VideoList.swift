@@ -5,46 +5,58 @@ struct VideoList: View {
     @EnvironmentObject private var data: CouchData
     @State private var offset: CGPoint = .zero
     
+    private var items: [VideoView.Item] {
+        return data.videos.enumerated().map { index, video in
+            return VideoView.Item(video: video, index: index)
+        }
+    }
+    
     // MARK: View
     var body: some View {
-        VStack(spacing: 0.0) {
+        ZStack(alignment: .top) {
             HeaderView()
-                .zIndex(1)
-            ZStack(alignment: .top) {
-                OffsetScrollView(offset: $offset) {
-                    LazyVStack(alignment: .leading) {
-                        ForEach(data.videos) { video in
-                            VideoView(video: video)
+            GeometryReader { proxy in
+                ScrollView {
+                    LazyVStack(alignment: .leading, spacing: .zero) {
+                        ForEach(items) { item in
+                            VideoView(item: item, size: proxy.size)
                         }
                     }
-                    .padding(.horizontal, .horizontal * 2.0)
-                    .padding(.vertical, .vertical)
+                    .background(Color.background)
+                    .cornerRadius(.radius)
+                    .padding(.top, HeaderView.size.height + .vertical)
+                    .padding(.horizontal, .horizontal)
+                    .padding(.bottom, .radius + .vertical)
                 }
-                Divider()
-                    .opacity(offset.y > 5.0 ? 1.0 : 0.0)
             }
-            .zIndex(0)
         }
         .ignoresSafeArea()
     }
 }
 
 fileprivate struct HeaderView: View {
+    static var size: CGSize {
+        return CGSize(width: .zero, height: (UIFontMetrics.default.scaledValue(for: 37.0) + 0.0))
+    }
+    
+    private static var font: Font {
+        #if targetEnvironment(macCatalyst)
+        return .subheadline
+        #else
+        return Font.caption.weight(.semibold)
+        #endif
+    }
+    
     @EnvironmentObject private var data: CouchData
     
     // MARK: View
     var body: some View {
-        #if targetEnvironment(macCatalyst)
-        HStack(alignment: .center) {
-            Spacer()
-            Text("Videos (\(data.videos.count))")
-            Spacer()
-        }
-        .frame(height: 37.0)
-        .background(Color.background)
-        #else
-        Text("Videos (\(data.videos.count))")
-        #endif
+        Text("\(data.description)")
+            .font(Self.font)
+            .truncationMode(.tail)
+            .lineLimit(1)
+            .foregroundColor(.secondary)
+            .frame(height: Self.size.height)
     }
 }
 

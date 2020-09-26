@@ -7,9 +7,9 @@ struct DragIndicator: View {
         fileprivate var size: CGSize {
             switch self {
             case .horizontal:
-                return CGSize(width: 42.0, height: 4.0)
+                return CGSize(width: 36.0, height: .vertical)
             case .vertical:
-                return CGSize(width: 4.0, height: 42.0)
+                return CGSize(width: .vertical, height: 36.0)
             }
         }
         

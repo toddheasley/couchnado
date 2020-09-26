@@ -1,7 +1,7 @@
 import Foundation
 import Combine
 
-public class CouchData: ObservableObject {
+public class CouchData: ObservableObject, CustomStringConvertible {
     @Published public private(set) var videos: [Video] = []
     @Published public private(set) var genres: [String] = []
     @Published public var error: URLError?
@@ -56,6 +56,16 @@ public class CouchData: ObservableObject {
         didSet {
             videos = allVideos.filtered(by: filter).sorted(by: sort, reversed: isReversed)
             genres = allVideos.genres
+        }
+    }
+    
+    // MARK: CustomStringConvertible
+    public var description: String {
+        switch filter {
+        case .title, .genre, .format:
+            return ["\(videos.count) of \(allVideos.count) videos", "\(filter)"].joined(separator: " ")
+        case .none:
+            return "\(videos.count) videos"
         }
     }
 }

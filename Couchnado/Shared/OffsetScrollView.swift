@@ -15,13 +15,11 @@ struct OffsetScrollView<Content>: View where Content: View {
     var body: some View {
         GeometryReader { outer in
             ScrollView(axes) {
-                ScrollViewReader { _ in
-                    ZStack {
-                        GeometryReader { inner in
-                            OffsetPreference(outer, inner)
-                        }
-                        content
+                ZStack {
+                    GeometryReader { inner in
+                        OffsetPreference(outer, inner)
                     }
+                    content
                 }
             }
             .onPreferenceChange(OffsetPreference.Key.self) { value in
@@ -44,8 +42,9 @@ fileprivate struct OffsetPreference: View {
     
     let offset: CGPoint
     
-    init(_ outer: GeometryProxy, _ inner: GeometryProxy) {
-        offset = CGPoint(x: outer.frame(in: .global).minX - inner.frame(in: .global).minX, y: outer.frame(in: .global).minY - inner.frame(in: .global).minY)
+    init(_ outer: GeometryProxy, _ inner: GeometryProxy, _ space: CoordinateSpace = .global) {
+        offset = CGPoint(x: outer.frame(in: space).minX - inner.frame(in: space).minX,
+                         y: outer.frame(in: space).minY - inner.frame(in: space).minY)
     }
     
     // MARK: View

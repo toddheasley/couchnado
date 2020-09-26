@@ -25,15 +25,20 @@ struct GenreView: View {
         Button(action: {
             filter = (!isSelected && genre != Self.allGenres) ? .genre(genre) : .none
         }, label: {
-            HStack {
-                Text(genre.capitalized)
-                    .font(.callout)
-                    .fontWeight(isSelected ? .medium : .regular)
-                    .foregroundColor(isSelected ? .white : .primary)
-                Spacer()
+            Group {
+                HStack {
+                    Text(genre.capitalized)
+                        //.font(.callout)
+                        .foregroundColor(isSelected ? Color.white.opacity(0.9) : .primary)
+                    Spacer()
+                }
+                .padding(.horizontal, .horizontal)
+                .padding(.vertical, 8.0)
+                .background(Color.accent(isSelected))
+                .cornerRadius(.radius * 0.75)
             }
-            .padding(EdgeInsets(top: 8.0, leading: 14.0, bottom: 8.0, trailing: 14.0))
-            .background(isSelected ? Color.accentColor.opacity(0.8) : Color.secondary.opacity(0.05))
+            .padding(2.0)
+            .background(Color.accentBackground)
             .cornerRadius(.radius)
         })
         .buttonStyle(PlainButtonStyle())

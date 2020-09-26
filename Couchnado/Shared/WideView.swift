@@ -7,7 +7,7 @@ struct WideView: View {
     // MARK: View
     var body: some View {
         VStack {
-            Text("Videos (\(data.videos.count))")
+            Text("\(data.description)")
         }
     }
 }

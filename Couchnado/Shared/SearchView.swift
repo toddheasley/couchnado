@@ -65,6 +65,7 @@ struct SearchView: View {
                     })
                     .textFieldStyle(PlainTextFieldStyle())
                     .disableAutocorrection(true)
+                    .autocapitalization(.none)
                     Button(action: {
                         text = ""
                     }, label: {

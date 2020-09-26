@@ -15,8 +15,22 @@ public struct Video: Record, Identifiable, Comparable, CustomStringConvertible {
         }
     }
     
-    public enum Filter: Equatable {
+    public enum Filter: Equatable, CustomStringConvertible {
         case title(String), genre(String), format(Format), none
+        
+        // MARK: CustomStringConvertible
+        public var description: String {
+            switch self {
+            case .title(let title):
+                return "filtered by title \"\(title)\""
+            case .genre(let genre):
+                return "filtered by genre \"\(genre)\""
+            case .format(let format):
+                return "filtered by format \"\(format)\""
+            case .none:
+                return ""
+            }
+        }
     }
 
     public enum Sort: String, CustomStringConvertible {
