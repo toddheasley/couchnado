@@ -13,6 +13,7 @@ struct VideoList: View {
     
     // MARK: View
     var body: some View {
+        #if os(iOS)
         ZStack(alignment: .top) {
             HeaderView()
             GeometryReader { proxy in
@@ -31,6 +32,19 @@ struct VideoList: View {
             }
         }
         .ignoresSafeArea()
+        #else
+        GeometryReader { proxy in
+            ScrollView {
+                LazyVStack {
+                    HeaderView()
+                        .padding()
+                    ForEach(items) { item in
+                        VideoView(item: item, size: proxy.size)
+                    }
+                }
+            }
+        }
+        #endif
     }
 }
 

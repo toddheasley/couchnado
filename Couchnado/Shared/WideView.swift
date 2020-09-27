@@ -6,11 +6,9 @@ struct WideView: View {
     
     // MARK: View
     var body: some View {
-        VStack {
-            SearchView(filter: $data.filter)
-            FormatPicker(filter: $data.filter)
-                .padding(.bottom, 17.0)
-            Text("\(data.description)")
+        HStack(alignment: .top) {
+            VideoList()
+            VideoList()
         }
     }
 }

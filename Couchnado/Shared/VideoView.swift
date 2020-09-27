@@ -2,7 +2,7 @@ import SwiftUI
 import CouchData
 
 struct VideoView: View {
-    struct Item: Identifiable {
+    struct Item: Identifiable, CustomStringConvertible {
         let video: Video
         let index: Int
         
@@ -10,19 +10,30 @@ struct VideoView: View {
         var id: Int {
             return index
         }
+        
+        // MARK: CustomStringConvertible
+        var description: String {
+            return "\(video.era.description) \(video.format.description)"
+        }
     }
     
     let item: Item
     let size: CGSize
     
+    init(item: Item, size: CGSize = .zero) {
+        self.item = item
+        self.size = size
+    }
+    
     private let width: CGFloat = 720.0
     
     // MARK: View
     var body: some View {
+        #if os(iOS)
         HStack {
             VStack(alignment: .leading, spacing: 3.0) {
                 TitleView(video: item.video)
-                Text("\(item.video.era.description) \(item.video.format.description)")
+                Text("\(item.description)")
                     .font(.callout)
                     .truncationMode(.tail)
                     .lineLimit(1)
@@ -34,18 +45,40 @@ struct VideoView: View {
         .padding(.vertical, .vertical * 2.0)
         .background(Color.alternateBackground(item.index))
         .cornerRadius(1.0)
+        #else
+        Button(action: {
+            guard let apple: URL = item.video.apple else {
+                return
+            }
+            Safari.open(url: apple)
+        }, label: {
+            HStack {
+                VStack(alignment: .leading) {
+                    Text("\(item.video.title.description)")
+                        .font(.headline)
+                        .truncationMode(.tail)
+                        .lineLimit(1)
+                    Text("\(item.description)")
+                        .truncationMode(.tail)
+                        .lineLimit(1)
+                        .foregroundColor(.secondary)
+                }
+                Spacer()
+                Image(systemName: "play.fill")
+                    .imageScale(.large)
+                    .font(.headline)
+                    .foregroundColor(item.video.apple != nil ? Color.primary.opacity(0.75) : .clear)
+            }
+            .frame(width: size.width * 0.8)
+        })
+        .disabled(item.video.apple == nil)
+        #endif
     }
 }
 
+#if os(iOS)
 fileprivate struct TitleView: View {
     let video: Video
-    
-    private var wikipedia: URL? {
-        guard let url: URL = video.links.first, url.service == .wikipedia else {
-            return nil
-        }
-        return url
-    }
     
     private func content() -> some View {
         return Text("\(video.title.description)")
@@ -56,7 +89,7 @@ fileprivate struct TitleView: View {
     
     // MARK: View
     var body: some View {
-        if let wikipedia: URL = wikipedia {
+        if let wikipedia: URL = video.wikipedia {
             Button(action: {
                 SearchView.endEditing()
                 Safari.open(url: wikipedia)
@@ -73,23 +106,16 @@ fileprivate struct TitleView: View {
 fileprivate struct PlayButton: View {
     let video: Video
     
-    private var apple: URL? {
-        guard let url: URL = video.links.last, url.service == .apple else {
-            return nil
-        }
-        return url
-    }
-    
     private func content() -> some View {
         return Image(systemName: "play.rectangle.fill")
             .imageScale(.large)
             .font(.title)
-            .foregroundColor(apple != nil ? .gray : .clear)
+            .foregroundColor(video.apple != nil ? .gray : .clear)
     }
     
     // MARK: View
     var body: some View {
-        if let apple: URL = apple {
+        if let apple: URL = video.apple {
             Button(action: {
                 SearchView.endEditing()
                 Safari.open(url: apple)
@@ -100,5 +126,22 @@ fileprivate struct PlayButton: View {
         } else {
             content()
         }
+    }
+}
+#endif
+
+extension Video {
+    fileprivate var wikipedia: URL? {
+        guard let url: URL = links.first, url.service == .wikipedia else {
+            return nil
+        }
+        return url
+    }
+    
+    fileprivate var apple: URL? {
+        guard let url: URL = links.last, url.service == .apple else {
+            return nil
+        }
+        return url
     }
 }

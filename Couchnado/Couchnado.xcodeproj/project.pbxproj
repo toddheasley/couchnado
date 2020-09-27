@@ -10,6 +10,9 @@
 		5C15AEDA251A845800654DA2 /* Color.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C15AED8251A845800654DA2 /* Color.swift */; };
 		5C15D96D2501D6C7003B6FCF /* DocumentPicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C15D96A2501D6C7003B6FCF /* DocumentPicker.swift */; };
 		5C3E8F7F2506CCA700570F45 /* Safari.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C3E8F7D2506CCA700570F45 /* Safari.swift */; };
+		5C5C047F252013DA002546C3 /* VideoList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CA23B59251D008100E454C7 /* VideoList.swift */; };
+		5C5C0482252013DF002546C3 /* VideoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C718BEF251D8B6E00F1B929 /* VideoView.swift */; };
+		5C5C048A25203568002546C3 /* Safari.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C3E8F7D2506CCA700570F45 /* Safari.swift */; };
 		5C6A6FCF250DB11700D7A245 /* WindowGroup.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C6A6FCE250DB11700D7A245 /* WindowGroup.swift */; };
 		5C6A6FD0250DB11700D7A245 /* WindowGroup.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C6A6FCE250DB11700D7A245 /* WindowGroup.swift */; };
 		5C6B906424C340F50035808A /* CouchnadoApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C6B905124C340F40035808A /* CouchnadoApp.swift */; };
@@ -329,11 +332,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5C5C047F252013DA002546C3 /* VideoList.swift in Sources */,
 				5CBF5DA4250FB3E9007D5385 /* SearchView.swift in Sources */,
 				5C8B7AC125181B980003D504 /* ContentView.swift in Sources */,
+				5C5C048A25203568002546C3 /* Safari.swift in Sources */,
 				5CBCA0C225177F88007F589E /* OffsetScrollView.swift in Sources */,
 				5C8E8AEE251044A40041BFB0 /* FormatPicker.swift in Sources */,
 				5C6A6FCF250DB11700D7A245 /* WindowGroup.swift in Sources */,
+				5C5C0482252013DF002546C3 /* VideoView.swift in Sources */,
 				5C8F364A251AE3F100FC54DA /* WideView.swift in Sources */,
 				5C6D7E86250F0599006F5A59 /* Alert.swift in Sources */,
 				5C7FEDC124C378CD008446A5 /* CouchnadoApp.swift in Sources */,
