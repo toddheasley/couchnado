@@ -50,5 +50,6 @@ struct GenreView_Previews: PreviewProvider {
     
     static var previews: some View {
         GenreView(genre: "genre", filter: $filter)
+            .padding()
     }
 }

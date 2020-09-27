@@ -93,7 +93,6 @@ struct SearchView: View {
             }
             #endif
         }
-        .padding(.vertical, .vertical)
         .clipped()
         .onChange(of: filter) { filter in
             filterChanged()
@@ -119,5 +118,6 @@ struct SearchView_Previews: PreviewProvider {
     // MARK: PreviewProvider
     static var previews: some View {
         SearchView(filter: $filter)
+            .padding()
     }
 }

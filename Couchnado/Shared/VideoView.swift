@@ -28,6 +28,7 @@ struct VideoView: View {
                     .lineLimit(1)
             }
             Spacer()
+            PlayButton(video: item.video)
         }
         .padding(.horizontal, max((size.width - width) * 0.5, .horizontal))
         .padding(.vertical, .vertical * 2.0)
@@ -40,7 +41,7 @@ fileprivate struct TitleView: View {
     let video: Video
     
     private var wikipedia: URL? {
-        guard let url: URL = video.links.first, url.service == URL.Service.wikipedia else {
+        guard let url: URL = video.links.first, url.service == .wikipedia else {
             return nil
         }
         return url
@@ -62,6 +63,40 @@ fileprivate struct TitleView: View {
             }, label: {
                 content()
             })
+            .help(Text("Read Wikipedia Entry"))
+        } else {
+            content()
+        }
+    }
+}
+
+fileprivate struct PlayButton: View {
+    let video: Video
+    
+    private var apple: URL? {
+        guard let url: URL = video.links.last, url.service == .apple else {
+            return nil
+        }
+        return url
+    }
+    
+    private func content() -> some View {
+        return Image(systemName: "play.rectangle.fill")
+            .imageScale(.large)
+            .font(.title)
+            .foregroundColor(apple != nil ? .gray : .clear)
+    }
+    
+    // MARK: View
+    var body: some View {
+        if let apple: URL = apple {
+            Button(action: {
+                SearchView.endEditing()
+                Safari.open(url: apple)
+            }, label: {
+                content()
+            })
+            .help(Text("Watch on Apple TV"))
         } else {
             content()
         }

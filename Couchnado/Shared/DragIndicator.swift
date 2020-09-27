@@ -28,3 +28,16 @@ struct DragIndicator: View {
             .allowsHitTesting(false)
     }
 }
+
+struct DragIndicator_Previews: PreviewProvider {
+    
+    // MARK: PreviewProvider
+    static var previews: some View {
+        HStack {
+            DragIndicator(orientation: .horizontal)
+                .padding()
+            DragIndicator(orientation: .vertical)
+                .padding()
+        }
+    }
+}

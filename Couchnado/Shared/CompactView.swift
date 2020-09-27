@@ -15,7 +15,6 @@ struct CompactView: View {
     }
 }
 
-
 fileprivate struct FilterView: View {
     static var offset: CGPoint {
         return CGPoint(x: .zero, y: (UIFontMetrics.default.scaledValue(for: 24.0) + 57.0))
@@ -62,9 +61,10 @@ fileprivate struct FilterView: View {
                         .padding(.bottom, -2.0)
                     SearchView(filter: $data.filter)
                         .padding(.horizontal, .horizontal)
+                        .padding(.vertical, .vertical)
                     FormatPicker(filter: $data.filter)
                         .padding(.horizontal, .horizontal)
-                        .padding(.bottom, 1.0)
+                        .padding(.vertical, .vertical)
                         .opacity(data.showFilter ? 1.0 : 0.0)
                     GenreList(genres: data.genres, filter: $data.filter)
                         .opacity(data.showFilter ? 1.0 : 0.0)
