@@ -20,9 +20,8 @@ struct SearchView: View {
         }
     }
     
-    private func toggle(editing: Bool, animated: Bool = true) {
-        let duration: TimeInterval = animated ? 0.2 : 0.0
-        withAnimation(editing ? .easeOut(duration: duration) : .easeIn(duration: duration)) {
+    private func toggle(editing: Bool) {
+        withAnimation(editing ? .easeOut(duration: 0.5) : .easeIn(duration: 0.5)) {
             isEditing = editing
         }
     }
@@ -54,41 +53,17 @@ struct SearchView: View {
     
     // MARK: View
     var body: some View {
-        #if os(iOS)
         HStack {
-            HStack {
-                HStack {
-                    Image(systemName:"magnifyingglass")
-                        .foregroundColor(.secondary)
-                    TextField("Search", text: $text, onEditingChanged: { editing in
-                        toggle(editing: editing)
-                    })
-                    .textFieldStyle(PlainTextFieldStyle())
-                    .disableAutocorrection(true)
-                    .autocapitalization(.none)
-                    Button(action: {
-                        text = ""
-                    }, label: {
-                        Image(systemName:"xmark.circle.fill")
-                            .foregroundColor(.secondary)
-                            .opacity(isEditing && !text.isEmpty ? 0.8 : 0.0)
-                    })
-                    .buttonStyle(PlainButtonStyle())
-                }
-                .padding(7.0)
-            }
-            .background(Color.secondary.opacity(0.15))
-            .cornerRadius(.radius)
+            TextField("Search", text: $text, onEditingChanged: { editing in
+                toggle(editing: editing)
+            })
+            .textFieldStyle(SearchTextFieldStyle(text: $text))
             #if !targetEnvironment(macCatalyst)
             if isEditing {
-                Button(action: {
+                CancelButton {
                     toggle(editing: false)
                     text = ""
-                }, label: {
-                    Text("Cancel")
-                        .padding(.horizontal, 4.0)
-                })
-                .buttonStyle(BorderlessButtonStyle())
+                }
                 .transition(.move(edge: .trailing))
             }
             #endif
@@ -100,15 +75,6 @@ struct SearchView: View {
         .onChange(of: text) { text in
             textChanged()
         }
-        #else
-        TextField("Search", text: $text)
-            .onChange(of: filter) { filter in
-                filterChanged()
-            }
-            .onChange(of: text) { text in
-                textChanged()
-            }
-        #endif
     }
 }
 
@@ -119,5 +85,54 @@ struct SearchView_Previews: PreviewProvider {
     static var previews: some View {
         SearchView(filter: $filter)
             .padding()
+    }
+}
+
+fileprivate struct SearchTextFieldStyle: TextFieldStyle {
+    @Binding var text: String
+    
+    // MARK: TextFieldStyle
+    func _body(configuration: TextField<_Label>) -> some View {
+        HStack {
+            Image(systemName:"magnifyingglass")
+                .foregroundColor(.secondary)
+            configuration
+                .textFieldStyle(PlainTextFieldStyle())
+                .disableAutocorrection(true)
+                .autocapitalization(.none)
+            if !text.isEmpty {
+                ClearButton {
+                    text = ""
+                }
+            }
+        }
+        .padding(.horizontal, .radius)
+        .padding(.vertical, 8.0)
+        .background(Color.secondary.opacity(0.15))
+        .cornerRadius(.radius)
+    }
+}
+
+fileprivate struct ClearButton: View {
+    let action: () -> Void
+    
+    // MARK: View
+    var body: some View {
+        Button(action: action) {
+            Image(systemName:"xmark.circle.fill")
+                .foregroundColor(.secondary)
+        }
+    }
+}
+
+fileprivate struct CancelButton: View {
+    let action: () -> Void
+    
+    // MARK: View
+    var body: some View {
+        Button(action: action) {
+            Text("Cancel")
+                .padding(.horizontal, 4.0)
+        }
     }
 }

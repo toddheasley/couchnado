@@ -1,9 +1,8 @@
 import SwiftUI
-import Combine
 import CouchData
 
 @main
-struct CouchnadoApp: App {
+struct App: SwiftUI.App {
     @StateObject private var data: CouchData = CouchData()
     
     // MARK: App
@@ -11,12 +10,9 @@ struct CouchnadoApp: App {
         WindowGroup {
             ContentView()
                 .environmentObject(data)
-                .alert(item: $data.error) { error in
-                    Alert(error: error) {
-                        data.load()
-                    }
+                .alert(error: $data.error) {
+                    data.load()
                 }
         }
-        .commands(data: data)
     }
 }

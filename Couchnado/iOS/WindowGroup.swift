@@ -3,7 +3,6 @@ import CouchData
 
 extension WindowGroup {
     func commands(data: CouchData) -> some Scene {
-        #if os(iOS)
         #if targetEnvironment(macCatalyst)
         for scene in UIApplication.shared.connectedScenes {
             (scene as? UIWindowScene)?.titlebar?.titleVisibility = .hidden
@@ -16,11 +15,13 @@ extension WindowGroup {
                 }
             }
             CommandGroup(after: .newItem) {
-                Button("Import \(CouchData.FileFormat.tsv)…".capitalized) {
-                    importData(data)
+                if data.showImport {
+                    Button("Import \(CouchData.FileFormat.tsv)…".capitalized) {
+                        importData(data)
+                    }
+                    .keyboardShortcut("o", modifiers: [.command, .shift])
+                    Divider()
                 }
-                .keyboardShortcut("o", modifiers: [.command, .shift])
-                Divider()
                 Button("Export \(CouchData.FileFormat.tsv)…".capitalized) {
                     exportData(data, format: .tsv)
                 }
@@ -47,12 +48,8 @@ extension WindowGroup {
                 .keyboardShortcut("r", modifiers: [.command])
             }
         }
-        #else
-        return self
-        #endif
     }
     
-    #if os(iOS)
     func importData(_ data: CouchData) {
         DocumentPicker.import(types: [.tabSeparatedText]) { url in
             guard let url: URL = url else {
@@ -73,5 +70,4 @@ extension WindowGroup {
             data.error = error as? URLError ?? URLError(.badURL)
         }
     }
-    #endif
 }

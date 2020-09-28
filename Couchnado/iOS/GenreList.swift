@@ -25,15 +25,3 @@ struct GenreList: View {
         }
     }
 }
-
-struct GenreList_Previews: PreviewProvider {
-    @State private static var filter: Video.Filter = .none
-    @State private static var genres: [String] = [
-        "genre",
-    ]
-    
-    // MARK: PreviewProvider
-    static var previews: some View {
-        GenreList(genres: genres, filter: $filter)
-    }
-}

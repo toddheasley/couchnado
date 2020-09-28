@@ -1,7 +1,7 @@
 // swift-tools-version:5.3
 import PackageDescription
 
-let package = Package(name: "couch-data", platforms: [
+let package = Package(name: "couchdata", platforms: [
     .macOS(.v11),
     .iOS(.v14),
     .watchOS(.v7),

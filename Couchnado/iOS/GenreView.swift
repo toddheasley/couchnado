@@ -2,7 +2,7 @@ import SwiftUI
 import CouchData
 
 struct GenreView: View {
-    static func allGenres(filter: Binding<Video.Filter>) -> GenreView {
+    static func allGenres(filter: Binding<Video.Filter>) -> Self {
         return Self(genre: Self.allGenres, filter: filter)
     }
     
@@ -28,8 +28,9 @@ struct GenreView: View {
             Group {
                 HStack {
                     Text(genre.capitalized)
-                        //.font(.callout)
                         .foregroundColor(isSelected ? Color.white.opacity(0.9) : .primary)
+                        .truncationMode(.tail)
+                        .lineLimit(1)
                     Spacer()
                 }
                 .padding(.horizontal, .horizontal)
@@ -41,15 +42,5 @@ struct GenreView: View {
             .background(Color.accentBackground)
             .cornerRadius(.radius)
         })
-        .buttonStyle(PlainButtonStyle())
-    }
-}
-
-struct GenreView_Previews: PreviewProvider {
-    @State private static var filter: Video.Filter = .none
-    
-    static var previews: some View {
-        GenreView(genre: "genre", filter: $filter)
-            .padding()
     }
 }

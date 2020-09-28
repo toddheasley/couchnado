@@ -6,15 +6,21 @@ public class CouchData: ObservableObject, CustomStringConvertible {
     @Published public private(set) var genres: [String] = []
     @Published public var error: URLError?
     
-    @Published public var filter: Video.Filter = .none {
+    @Published public var showImport: Bool {
         didSet {
-            allVideos = nil ?? allVideos
+            UserDefaults.standard.showImport = showImport
         }
     }
     
     @Published public var showFilter: Bool {
         didSet {
-            UserDefaults.standard.set(showFilter, forKey: "showFilter")
+            UserDefaults.standard.showFilter = showFilter
+        }
+    }
+    
+    @Published public var filter: Video.Filter = .none {
+        didSet {
+            allVideos = nil ?? allVideos
         }
     }
     
@@ -31,6 +37,9 @@ public class CouchData: ObservableObject, CustomStringConvertible {
     }
     
     public func load(request: Request = .automatic) {
+        if UserDefaults.standard.loaded() {
+            showImport.toggle()
+        }
         subscriber?.cancel()
         subscriber = Self.publisher(request)
             .sink(receiveCompletion: { completion in
@@ -41,12 +50,14 @@ public class CouchData: ObservableObject, CustomStringConvertible {
                     self.error = nil
                 }
             }, receiveValue: { videos in
+                UserDefaults.standard.loaded()
                 self.allVideos = videos
             })
     }
 
     public init() {
-        showFilter = UserDefaults.standard.bool(forKey: "showFilter")
+        showImport = UserDefaults.standard.showImport
+        showFilter = UserDefaults.standard.showFilter
         load()
     }
     

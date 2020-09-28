@@ -1,28 +1,23 @@
 import SwiftUI
 import CouchData
 
-import SwiftUI
-import CouchData
-
-struct RegularView: View {
-    @EnvironmentObject private var data: CouchData
+struct CompactView: View {
     
     // MARK: View
     var body: some View {
         GeometryReader { proxy in
-            ZStack(alignment: .trailing) {
+            ZStack(alignment: .top) {
                 VideoList()
-                    .frame(width: proxy.size.width - FilterView.offset(show: data.showFilter).x)
-                FilterView()
+                    .frame(height: proxy.size.height - OverView.offset.y)
+                OverView()
             }
         }
     }
 }
 
-
-fileprivate struct FilterView: View {
-    static func offset(show: Bool = true) -> CGPoint {
-        return CGPoint(x: show ? 320 : 0.0, y: .zero)
+fileprivate struct OverView: View {
+    static var offset: CGPoint {
+        return CGPoint(x: .zero, y: (UIFontMetrics.default.scaledValue(for: 24.0) + 57.0))
     }
     
     private enum DragMode {
@@ -41,14 +36,15 @@ fileprivate struct FilterView: View {
     @EnvironmentObject private var data: CouchData
     @GestureState private var dragMode: DragMode = .inactive
     
-    private let width: CGFloat = Self.offset().x + 24.0
-    
-    private var offset: CGPoint {
-        return CGPoint(x: data.showFilter ? 0.0 : (0.0 - Self.offset().x), y: .zero)
+    private func offset(_ proxy: GeometryProxy? = nil) -> CGPoint {
+        guard let proxy: GeometryProxy = proxy, !data.showFilter else {
+            return CGPoint(x: .zero, y: .vertical)
+        }
+        return CGPoint(x: .zero, y: proxy.size.height - Self.offset.y)
     }
     
     private func dragEnded(drag: DragGesture.Value) {
-        guard abs(drag.translation.width) > 44.0 else {
+        guard abs(drag.translation.height) > 44.0 else {
             return
         }
         data.showFilter.toggle()
@@ -57,24 +53,27 @@ fileprivate struct FilterView: View {
     // MARK: View
     var body: some View {
         GeometryReader { proxy in
-            HStack(spacing: 0.0) {
+            Group {
                 VStack(spacing: 10.0) {
+                    Divider()
+                    DragIndicator(orientation: .horizontal)
+                        .offset(y: 3.0)
                     SearchView(filter: $data.filter)
                         .padding(.horizontal, .horizontal)
-                        .padding(.top, 4.0)
+                        .padding(.vertical, .vertical)
                     FormatPicker(filter: $data.filter)
                         .padding(.horizontal, .horizontal)
+                        .padding(.vertical, .vertical)
+                        .opacity(data.showFilter ? 1.0 : 0.0)
                     GenreList(genres: data.genres, filter: $data.filter)
-                        .padding(.bottom, 4.0)
+                        .opacity(data.showFilter ? 1.0 : 0.0)
                 }
-                .frame(height: proxy.size.height)
-                .background(Color.secondaryBackground
-                                .frame(height: proxy.size.height + 100.0))
-                Divider()
-                    .ignoresSafeArea()
-                DragIndicator(orientation: .vertical)
-                    .padding(.leading, .vertical)
-                    .padding(.trailing, .horizontal)
+                .frame(width: proxy.size.width, height: proxy.size.height - offset().y)
+            }
+            .onReceive(data.$filter) { _ in
+                DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
+                    data.showFilter = false
+                }
             }
             .onReceive(data.$showFilter) { showFilter in
                 guard showFilter else {
@@ -84,8 +83,9 @@ fileprivate struct FilterView: View {
                     SearchView.endEditing()
                 }
             }
-            .frame(width: width)
-            .offset(x: min(offset.x + dragMode.translation.width, 0.0))
+            .frame(width: proxy.size.width, height: proxy.size.height * 2.0, alignment: .top)
+            .background(Color.secondaryBackground.shadow(color: Color.shadow, radius: 3.0))
+            .offset(y: offset(proxy).y + dragMode.translation.height)
             .animation(.interpolatingSpring)
             .gesture(DragGesture()
                         .updating($dragMode) { drag, mode, _ in
