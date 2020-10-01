@@ -76,6 +76,7 @@
 		5CA23B59251D008100E454C7 /* VideoList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoList.swift; sourceTree = "<group>"; };
 		5CBCA0C125177F88007F589E /* OffsetScrollView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OffsetScrollView.swift; sourceTree = "<group>"; };
 		5CBF5DA3250FB3E9007D5385 /* SearchView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchView.swift; sourceTree = "<group>"; };
+		5CE041EA2522C44A0022E1ED /* Couchnado.sketch */ = {isa = PBXFileReference; lastKnownFileType = file; path = Couchnado.sketch; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -101,6 +102,7 @@
 		5C6B904B24C340F40035808A = {
 			isa = PBXGroup;
 			children = (
+				5CE041EA2522C44A0022E1ED /* Couchnado.sketch */,
 				5C562E2D24DB8B99009CD4B2 /* Couchnado.entitlements */,
 				5C6B905024C340F40035808A /* Shared */,
 				5C6EF85924C3770B008CD492 /* tvOS */,
