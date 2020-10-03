@@ -11,7 +11,7 @@ extension WindowGroup {
         return commands {
             CommandGroup(replacing: .help) {
                 Button("Couchnado Documentation and Source Code") {
-                    Safari.open(url: URL(string: "https://github.com/toddheasley/couchnado")!)
+                    UIApplication.shared.open(URL(string: "https://github.com/toddheasley/couchnado")!)
                 }
             }
             CommandGroup(after: .newItem) {

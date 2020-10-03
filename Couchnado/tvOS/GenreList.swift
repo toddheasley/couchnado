@@ -13,14 +13,6 @@ struct GenreList: View {
                     ForEach(data.genres) { genre in
                         GenreView(genre: genre, size: proxy.size, filter: $data.filter)
                     }
-                    VStack {
-                    Divider()
-                        .padding(.horizontal, proxy.safeAreaInsets.leading)
-                        .padding(.vertical, 11.0)
-                    Button(action: {}, label: {
-                        Text("Choose app icon...")
-                    })
-                    }
                 }
             }
         }

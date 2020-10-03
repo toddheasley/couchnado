@@ -1,9 +1,6 @@
 import SwiftUI
 import CouchData
 
-import SwiftUI
-import CouchData
-
 struct RegularView: View {
     @EnvironmentObject private var data: CouchData
     
@@ -20,10 +17,6 @@ struct RegularView: View {
 }
 
 fileprivate struct SideView: View {
-    static func offset(show: Bool = true) -> CGPoint {
-        return CGPoint(x: show ? 320.0 : .zero, y: .zero)
-    }
-    
     private enum DragMode {
         case dragging(translation: CGSize), inactive
         
@@ -35,6 +28,10 @@ fileprivate struct SideView: View {
                 return .zero
             }
         }
+    }
+    
+    static func offset(show: Bool = true) -> CGPoint {
+        return CGPoint(x: show ? 320.0 : .zero, y: .zero)
     }
     
     @EnvironmentObject private var data: CouchData
@@ -57,29 +54,28 @@ fileprivate struct SideView: View {
     var body: some View {
         GeometryReader { proxy in
             HStack(spacing: .zero) {
-                VStack(spacing: 10.0) {
+                VStack(spacing: .padding) {
                     SearchView(filter: $data.filter)
-                        .padding(.horizontal, .horizontal)
-                        .padding(.vertical, .vertical)
+                        .padding(.horizontal, .padding)
+                        .padding(.top, 5.0)
                     FormatPicker(filter: $data.filter)
-                        .padding(.horizontal, .horizontal)
+                        .padding(.horizontal, .padding)
                     GenreList(genres: data.genres, filter: $data.filter)
                 }
                 .frame(height: proxy.size.height)
-                .background(Color.secondaryBackground
-                                .frame(height: proxy.size.height * 2.0))
+                .background(Color(.secondarySystemBackground).frame(height: proxy.size.height * 2.0))
                 Divider()
                     .ignoresSafeArea()
                 DragIndicator(orientation: .vertical)
-                    .padding(.leading, .vertical)
-                    .padding(.trailing, .horizontal)
+                    .padding(.leading, 5.0)
+                    .padding(.trailing, .padding)
             }
             .onReceive(data.$showFilter) { showFilter in
                 SearchView.endEditing()
             }
             .frame(width: width)
             .offset(x: min(offset.x + dragMode.translation.width, .zero))
-            .animation(.interpolatingSpring)
+            .animation(.interactiveSpring())
             .gesture(DragGesture()
                         .updating($dragMode) { drag, mode, _ in
                             mode = .dragging(translation: drag.translation)

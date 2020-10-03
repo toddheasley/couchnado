@@ -10,6 +10,8 @@ struct VideoView: View {
         self.size = size != nil ? CGSize(width: size!.width * 0.75, height: size!.height) : nil
     }
     
+    @Environment(\.isFocused) private var isFocused: Bool
+    
     private var url: URL? {
         guard let url: URL = video.links.last, url.service == .apple else {
             return nil
@@ -41,9 +43,10 @@ struct VideoView: View {
                         .lineLimit(1)
                 }
                 Spacer()
-                Image(systemName: "play.fill")
-                    .imageScale(.large)
-                    .opacity(url != nil ? 0.75 : .zero)
+                Image(systemName: "play.rectangle")
+                    .font(.title2)
+                    .accentColor(.secondary)
+                    .opacity(url != nil ? 0.9 : .zero)
             }
             .frame(width: size?.width)
         }

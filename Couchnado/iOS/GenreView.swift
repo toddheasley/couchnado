@@ -33,13 +33,13 @@ struct GenreView: View {
                         .lineLimit(1)
                     Spacer()
                 }
-                .padding(.horizontal, .horizontal)
+                .padding(.horizontal, .padding)
                 .padding(.vertical, 8.0)
-                .background(Color.accent(isSelected))
+                .background(isSelected ? Color.accentColor.opacity(0.75) : .clear)
                 .cornerRadius(.radius * 0.75)
             }
             .padding(2.0)
-            .background(Color.accentBackground)
+            .background(Color.secondary.opacity(0.05))
             .cornerRadius(.radius)
         })
     }

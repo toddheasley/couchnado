@@ -1,4 +1,5 @@
 import SwiftUI
+import SafariServices
 import CouchData
 
 struct VideoView: View {
@@ -17,7 +18,7 @@ struct VideoView: View {
     // MARK: View
     var body: some View {
         HStack {
-            VStack(alignment: .leading, spacing: 3.0) {
+            VStack(alignment: .leading, spacing: 2.0) {
                 TitleView(video: item.video)
                 Text("\(item.video.era.description) \(item.video.format.description)")
                     .font(.callout)
@@ -27,9 +28,9 @@ struct VideoView: View {
             Spacer()
             PlayButton(video: item.video)
         }
-        .padding(.horizontal, .horizontal)
-        .padding(.vertical, .vertical * 2.0)
-        .background(Color.alternateBackground(item.index))
+        .padding(.horizontal, .padding)
+        .padding(.vertical, .radius)
+        .background((item.index % 2 == 0) ? Color.secondary.opacity(0.1) : .clear)
         .cornerRadius(2.0)
     }
 }
@@ -50,7 +51,7 @@ fileprivate struct TitleView: View {
                 return
             }
             SearchView.endEditing()
-            Safari.open(url: url)
+            UIApplication.shared.windows.first?.rootViewController?.present(SFSafariViewController(url: url), animated: true)
         }
     }
     
@@ -89,7 +90,7 @@ fileprivate struct PlayButton: View {
                 return
             }
             SearchView.endEditing()
-            Safari.open(url: url)
+            UIApplication.shared.open(url)
         }
     }
     
@@ -99,7 +100,7 @@ fileprivate struct PlayButton: View {
             Image(systemName: "play.rectangle.fill")
                 .imageScale(.large)
                 .font(.title)
-                .foregroundColor(url != nil ? .gray : .clear)
+                .foregroundColor(url != nil ? .secondary : .clear)
         }
         .help(Text("Watch on \(URL.Service.apple.description)"))
     }

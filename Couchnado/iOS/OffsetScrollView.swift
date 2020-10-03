@@ -2,12 +2,12 @@ import SwiftUI
 
 struct OffsetScrollView<Content>: View where Content: View {
     let axes: Axis.Set
-    let content: Content
+    let content: (EdgeInsets) -> Content
     @Binding var offset: CGPoint
     
-    init(_ axes: Axis.Set = .vertical, offset: Binding<CGPoint>, @ViewBuilder content: () -> Content) {
+    init(_ axes: Axis.Set = .vertical, offset: Binding<CGPoint>, @ViewBuilder content: @escaping (EdgeInsets) -> Content) {
         self.axes = axes
-        self.content = content()
+        self.content = content
         self._offset = offset
     }
     
@@ -19,7 +19,7 @@ struct OffsetScrollView<Content>: View where Content: View {
                     GeometryReader { inner in
                         OffsetPreference(outer, inner)
                     }
-                    content
+                    content(outer.safeAreaInsets)
                 }
             }
             .onPreferenceChange(OffsetPreference.Key.self) { value in

@@ -7,14 +7,14 @@ struct DragIndicator: View {
         fileprivate var size: CGSize {
             switch self {
             case .horizontal:
-                return CGSize(width: 36.0, height: .vertical)
+                return CGSize(width: 36.0, height: 5.0)
             case .vertical:
-                return CGSize(width: .vertical, height: 36.0)
+                return CGSize(width: 5.0, height: 36.0)
             }
         }
         
         fileprivate var radius: CGFloat {
-            return .vertical * 0.5
+            return 2.5
         }
     }
     
@@ -25,7 +25,6 @@ struct DragIndicator: View {
         RoundedRectangle(cornerRadius: orientation.radius)
             .frame(width: orientation.size.width, height: orientation.size.height)
             .foregroundColor(Color.secondary.opacity(0.5))
-            .allowsHitTesting(false)
     }
 }
 

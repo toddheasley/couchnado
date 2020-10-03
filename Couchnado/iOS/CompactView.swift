@@ -38,7 +38,7 @@ fileprivate struct OverView: View {
     
     private func offset(_ proxy: GeometryProxy? = nil) -> CGPoint {
         guard let proxy: GeometryProxy = proxy, !data.showFilter else {
-            return CGPoint(x: .zero, y: .vertical)
+            return .zero
         }
         return CGPoint(x: .zero, y: proxy.size.height - Self.offset.y)
     }
@@ -54,16 +54,13 @@ fileprivate struct OverView: View {
     var body: some View {
         GeometryReader { proxy in
             Group {
-                VStack(spacing: 10.0) {
+                VStack(spacing: .padding) {
                     Divider()
                     DragIndicator(orientation: .horizontal)
-                        .offset(y: 3.0)
                     SearchView(filter: $data.filter)
-                        .padding(.horizontal, .horizontal)
-                        .padding(.vertical, .vertical)
+                        .padding(.horizontal, .padding)
                     FormatPicker(filter: $data.filter)
-                        .padding(.horizontal, .horizontal)
-                        .padding(.vertical, .vertical)
+                        .padding(.horizontal, .padding)
                         .opacity(data.showFilter ? 1.0 : 0.0)
                     GenreList(genres: data.genres, filter: $data.filter)
                         .opacity(data.showFilter ? 1.0 : 0.0)
@@ -84,9 +81,9 @@ fileprivate struct OverView: View {
                 }
             }
             .frame(width: proxy.size.width, height: proxy.size.height * 2.0, alignment: .top)
-            .background(Color.secondaryBackground.shadow(color: Color.shadow, radius: 3.0))
+            .background(Color(.secondarySystemBackground).shadow(color: Color.secondary.opacity(0.5), radius: 3.0))
             .offset(y: offset(proxy).y + dragMode.translation.height)
-            .animation(.interpolatingSpring)
+            .animation(.interpolatingSpring(stiffness: 300.0, damping: 30.0, initialVelocity: 10.0))
             .gesture(DragGesture()
                         .updating($dragMode) { drag, mode, _ in
                             mode = .dragging(translation: drag.translation)

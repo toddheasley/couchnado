@@ -12,22 +12,24 @@ struct VideoList: View {
     
     // MARK: View
     var body: some View {
-        ZStack(alignment: .top) {
-            DescriptionView(description: data.description)
-            ScrollView {
-                LazyVStack(alignment: .leading, spacing: .zero) {
-                    ForEach(items) { item in
-                        VideoView(item: item)
+        GeometryReader { proxy in
+            ZStack(alignment: .top) {
+                DescriptionView(description: data.description)
+                ScrollView {
+                    LazyVStack(alignment: .leading, spacing: .zero) {
+                        ForEach(items) { item in
+                            VideoView(item: item)
+                        }
                     }
+                    .background(Color(.systemBackground))
+                    .cornerRadius(.radius)
+                    .padding(.top, DescriptionView.size.height + 5.0)
+                    .padding(.horizontal, .padding)
+                    .padding(.bottom, max(.padding - proxy.safeAreaInsets.bottom, 0.0))
                 }
-                .background(Color.background)
-                .cornerRadius(.radius)
-                .padding(.top, DescriptionView.size.height + .vertical)
-                .padding(.horizontal, .horizontal)
-                .padding(.bottom, .radius + .vertical)
             }
+            .ignoresSafeArea()
         }
-        .ignoresSafeArea()
     }
 }
 

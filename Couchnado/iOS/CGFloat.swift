@@ -1,8 +1,7 @@
 import SwiftUI
 
 extension CGFloat {
-    static let horizontal: Self = 15.0
-    static let vertical: Self = 5.0
+    static let padding: Self = 15.0
     
     static var radius: Self {
         #if targetEnvironment(macCatalyst)

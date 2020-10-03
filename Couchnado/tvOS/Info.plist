@@ -30,12 +30,5 @@
 	</array>
 	<key>UIUserInterfaceStyle</key>
 	<string>Automatic</string>
-	<key>CFBundleIcons</key>
-	<dict>
-		<key>CFBundleAlternateIcons</key>
-		<array>
-			<string>AlternateIcon</string>
-		</array>
-	</dict>
 </dict>
 </plist>
