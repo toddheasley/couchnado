@@ -17,7 +17,7 @@ struct CompactView: View {
 
 fileprivate struct OverView: View {
     static var offset: CGPoint {
-        return CGPoint(x: .zero, y: (UIFontMetrics.default.scaledValue(for: 24.0) + 57.0))
+        return CGPoint(x: .zero, y: (UIFontMetrics.default.scaledValue(for: 27.0) + 59.0))
     }
     
     private enum DragMode {

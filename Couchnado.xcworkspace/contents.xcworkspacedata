@@ -5,7 +5,7 @@
       location = "group:Couchnado/Couchnado.xcodeproj">
    </FileRef>
    <FileRef
-      location = "group:couch-data">
+      location = "group:couchdata">
    </FileRef>
    <FileRef
       location = "group:docs">
