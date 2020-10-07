@@ -4,48 +4,45 @@
 <style>
     
     :root {
-        --background: rgb(255, 255, 255);
-        --border-color: rgb(220, 220, 220);
-        --color: rgba(0, 0, 0, 0.9);
+        --background: #FFFFFF;
+        --border: #B6D3C0;
+        --color: #111111;
+        --secondary: #CBE5D1;
     }
     
     @media (prefers-color-scheme: dark) {
         :root {
-            --background: rgb(0, 0, 0);
-            --border-color: rgb(35, 35, 35);
-            --color: rgba(255, 255, 255, 0.8);
+            --background: #222222;
+            --border: #444444;
+            --color: #EEEEEE;
+            --secondary: #333333;
         }
-    }
-    
-    a {
-        opacity: 0.8;
-    }
-    
-    @media (prefers-color-scheme: dark) {
+        
         a {
             color: inherit;
-            opacity: 1.0;
         }
     }
     
     body {
         background: var(--background);
         color: var(--color);
-        font-family: system-ui, -apple-system, sans-serif;
+        font-family: ui-monospace, monospace;
         margin: 0;
     }
     
     table {
         border-collapse: collapse;
-        display: inline-block;
-        margin: 1.3em 1em;
     }
     
-    th, td {
-        border: 1px solid var(--border-color);
-        padding: 0.3em;
+    td, th {
+        border: 1px solid var(--border);
+        padding: 0.5em 1em;
         text-align: left;
         white-space: nowrap;
+    }
+    
+    tr:nth-child(even) td {
+        background: var(--secondary);
     }
     
 </style>
