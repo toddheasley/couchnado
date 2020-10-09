@@ -6,17 +6,17 @@ Couchnado combines two pandemic projects, learning [SwiftUI](https://developer.a
 
 [![Download on Apple TV](Couchnado/AppleTV.svg)](https://itunes.apple.com/app/id1534895521)
 
-![](Couchnado/Couchnado.png)
-
-[![Download on the App Store](Couchnado/AppStore.svg)](https://itunes.apple.com/app/id1534895521)
-
 ![](Couchnado/CouchnadoMac.png)
 
 [![Download on the Mac App Store](Couchnado/MacAppStore.svg)](https://itunes.apple.com/app/id1534895521)
 
+![](Couchnado/Couchnado.png)
+
+[![Download on the App Store](Couchnado/AppStore.svg)](https://itunes.apple.com/app/id1534895521)
+
 ## Powered by Spreadsheet
 
-Couchnado's powerful data store is a single, static [tab-separated values (.tsv)](https://en.wikipedia.org/wiki/Tab-separated_values) file that can be edited in [Numbers](https://www.apple.com/numbers)or [Excel.](https://www.microsoft.com/en-ww/microsoft-365/excel) The complete database can be exported as a spreadsheet or [web page](https://toddheasley.github.io/couchnado) from the Mac version of Couchnado.
+Couchnado's powerful data store is a single, static [tab-separated values (.tsv)](https://en.wikipedia.org/wiki/Tab-separated_values) file that can be edited in [Numbers](https://www.apple.com/numbers) or [Excel.](https://www.microsoft.com/en-ww/microsoft-365/excel) The complete database can be exported as a spreadsheet or [web page](https://toddheasley.github.io/couchnado) from the Mac version of Couchnado.
 
 ## Requirements
 
