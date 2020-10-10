@@ -2,13 +2,23 @@
 
 Couchnado combines two pandemic projects, learning [SwiftUI](https://developer.apple.com/xcode/swiftui) and watching all visual media ever published, into one searchable database of my favorite movies and TV shows, for Apple TV, Mac, iPad, iPhone and iPod touch.
 
+## Apple TV
+
 ![](Couchnado/CouchnadoTV.png)
+
+Symmetrical, two-column interface for quickly filtering and finding something to watch, with direct links to content available in the [Apple TV app.](https://www.apple.com/apple-tv-app)
 
 [![Download on Apple TV](Couchnado/AppleTV.svg)](https://itunes.apple.com/app/id1534895521)
 
+## Couchnado for Mac
+
 ![](Couchnado/CouchnadoMac.png)
 
+Xcode's new unified app template includes a native Cocoa target, but SwiftUI support for [AppKit](https://developer.apple.com/documentation/appkit) isn't fully baked yet. Opted for [Catalyst](https://developer.apple.com/mac-catalyst) instead.
+
 [![Download on the Mac App Store](Couchnado/MacAppStore.svg)](https://itunes.apple.com/app/id1534895521)
+
+## iPad, iPhone and iPod
 
 ![](Couchnado/Couchnado.png)
 
