@@ -68,7 +68,7 @@ fileprivate struct OverView: View {
                 .frame(width: proxy.size.width, height: proxy.size.height - offset().y)
             }
             .onReceive(data.$filter) { _ in
-                DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
+                DispatchQueue.main.asyncAfter(deadline: .now() + 0.6) {
                     data.showFilter = false
                 }
             }
@@ -76,7 +76,7 @@ fileprivate struct OverView: View {
                 guard showFilter else {
                     return
                 }
-                DispatchQueue.main.asyncAfter(deadline: .now() + 0.35) {
+                DispatchQueue.main.asyncAfter(deadline: .now() + 0.3) {
                     SearchView.endEditing()
                 }
             }
