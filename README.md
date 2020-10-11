@@ -23,7 +23,7 @@ Adaptive design tucks filter functions away in compact situations.
 
 ![](Couchnado/CouchnadoMac.png)
 
-Xcode's new unified app template includes a native Cocoa target, but SwiftUI support for [AppKit](https://developer.apple.com/documentation/appkit) isn't fully baked yet. [Catalyst](https://developer.apple.com/mac-catalyst) flubs a lot of basic Mac-ness, but leverages the pretty excellent support for [UIKit.](https://developer.apple.com/documentation/uikit)
+[Catalyst](https://developer.apple.com/mac-catalyst) flubs several qualities of basic Mac-ness, but it's the lesser of two evils relative to present-day SwiftUI support for [AppKit.](https://developer.apple.com/documentation/appkit)
 
 [![Download on the Mac App Store](Couchnado/MacAppStore.svg)](https://itunes.apple.com/app/id1534895521)
 
