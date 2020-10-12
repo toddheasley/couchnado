@@ -8,7 +8,7 @@ Couchnado combines two pandemic projects, learning [SwiftUI](https://developer.a
 
 Symmetrical, two-column interface for quickly filtering and finding something to watch, with direct links to content available in the [Apple TV app.](https://www.apple.com/apple-tv-app)
 
-[![Download on Apple TV](Couchnado/AppleTV.svg)](https://itunes.apple.com/app/id1534895521)
+[![Download on Apple TV](Couchnado/AppleTV.svg)](https://apps.apple.com/app/id1534895521)
 
 
 ## iPad, iPhone and iPod
@@ -17,7 +17,7 @@ Symmetrical, two-column interface for quickly filtering and finding something to
 
 Adaptive design tucks filter functions away in compact situations.
 
-[![Download on the App Store](Couchnado/AppStore.svg)](https://itunes.apple.com/app/id1534895521)
+[![Download on the App Store](Couchnado/AppStore.svg)](https://apps.apple.com/app/id1534895521)
 
 ## Mac (Catalyst)
 
@@ -25,7 +25,7 @@ Adaptive design tucks filter functions away in compact situations.
 
 [Catalyst](https://developer.apple.com/mac-catalyst) flubs several qualities of basic Mac-ness, but it's the lesser of two evils relative to present-day SwiftUI support for [AppKit.](https://developer.apple.com/documentation/appkit)
 
-[![Download on the Mac App Store](Couchnado/MacAppStore.svg)](https://itunes.apple.com/app/id1534895521)
+[![Download on the Mac App Store](Couchnado/MacAppStore.svg)](https://apps.apple.com/app/id1534895521)
 
 ## Powered by Spreadsheet
 
@@ -37,7 +37,7 @@ Targets [iOS](https://developer.apple.com/ios)/[iPadOS](https://developer.apple.
 
 ## Acknowledgments
 
-Couchnado cribbed elements of its user interface from a few fantastic SwiftUI examples:
+Couchnado cribbed elements of its user interface from a few fantastic examples:
 
 * [Building a Multi-platform App with SwiftUI](https://heartbeat.fritz.ai/building-a-multi-platform-app-with-swiftui-5336bce94689) by [Rick Wierenga](https://gist.github.com/rickwierenga)
 * [How to create a slide-over card using SwiftUI (like in Maps or Stocks)](https://www.mozzafiller.com/posts/swiftui-slide-over-card-like-maps-stocks) by [Michael Shafer](https://github.com/mshafer)
