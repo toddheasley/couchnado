@@ -8,6 +8,10 @@ Couchnado combines two pandemic projects, learning [SwiftUI](https://developer.a
 
 Symmetrical, two-column interface for quickly filtering and finding something to watch, with direct links to content available in the [Apple TV app.](https://www.apple.com/apple-tv-app)
 
+## Web
+
+![](Couchnado/CouchnadoWeb.png)
+
 ## iPad, iPhone and iPod
 
 ![](Couchnado/Couchnado.png)

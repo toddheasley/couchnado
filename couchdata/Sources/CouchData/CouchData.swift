@@ -174,13 +174,13 @@ extension CouchData {
     }
     
     public static func write(videos: [Video], to url: URL, file format: FileFormat = .default) throws {
-        guard let table: Table = Table(records: videos) else {
-            throw URLError(.zeroByteResource)
-        }
         switch format {
         case .html:
-            try HTML(table: table, title: url.deletingPathExtension().lastPathComponent).data.write(to: url)
+            try HTML(videos: videos, title: url.deletingPathExtension().lastPathComponent).data.write(to: url)
         case .tsv:
+            guard let table: Table = Table(records: videos) else {
+                throw URLError(.zeroByteResource)
+            }
             try table.data.write(to: url)
         }
     }

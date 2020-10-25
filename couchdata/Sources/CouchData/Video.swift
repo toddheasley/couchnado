@@ -51,6 +51,10 @@ public struct Video: Record, Identifiable, Comparable, CustomStringConvertible {
     public let era: Era
     public let links: [URL]
     
+    public func link(for service: URL.Service) -> URL? {
+        return links.compactMap({ $0.service == service ? $0 : nil }).first
+    }
+    
     func matches(_ string: String) -> Bool {
         return (franchise?.matches(string) ?? false) || title.matches(string)
     }
