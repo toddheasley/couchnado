@@ -24,7 +24,7 @@ Adaptive design tucks filter functions away in compact situations.
 
 ![](Couchnado/CouchnadoWeb.png)
 
-Apple rejected Couchnado from the App Store, because it's [not particularly useful, unique, or "app-like."](https://developer.apple.com/app-store/review/guidelines/#minimum-functionality)
+Find something to watch from any web browser.
 
 [![Couchnado Online](Couchnado/Couchnado.svg)](https://toddheasley.github.io/couchnado)
 
