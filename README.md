@@ -8,10 +8,6 @@ Couchnado combines two pandemic projects, learning [SwiftUI](https://developer.a
 
 Symmetrical, two-column interface for quickly filtering and finding something to watch, with direct links to content available in the [Apple TV app.](https://www.apple.com/apple-tv-app)
 
-## Web
-
-![](Couchnado/CouchnadoWeb.png)
-
 ## iPad, iPhone and iPod
 
 ![](Couchnado/Couchnado.png)
@@ -22,11 +18,19 @@ Adaptive design tucks filter functions away in compact situations.
 
 ![](Couchnado/CouchnadoMac.png)
 
-[Catalyst](https://developer.apple.com/mac-catalyst) flubs several qualities of basic Mac-ness, but it's the lesser of two evils relative to present-day SwiftUI support for [AppKit.](https://developer.apple.com/documentation/appkit)
+[Catalyst](https://developer.apple.com/mac-catalyst) is still pretty bobo, but, then, so is Couchnado. And there's so much less code.
+
+## Web
+
+![](Couchnado/CouchnadoWeb.png)
+
+Apple rejected Couchnado from the App Store, because it's [not particularly useful, unique, or "app-like."](https://developer.apple.com/app-store/review/guidelines/#minimum-functionality)
+
+[![Couchnado Online](Couchnado/Couchnado.svg)](https://toddheasley.github.io/couchnado)
 
 ## Powered by Spreadsheet
 
-Couchnado's powerful data store is a single, static [tab-separated values (.tsv)](https://en.wikipedia.org/wiki/Tab-separated_values) file that can be edited in [Numbers](https://www.apple.com/numbers) or [Excel.](https://www.microsoft.com/en-ww/microsoft-365/excel) The complete database can be exported as a spreadsheet or [web page](https://toddheasley.github.io/couchnado/index.html) from the Mac version of Couchnado.
+Couchnado's powerful data store is a single, static [tab-separated values (.tsv)](https://en.wikipedia.org/wiki/Tab-separated_values) file that can be edited in [Numbers](https://www.apple.com/numbers) or [Excel.](https://www.microsoft.com/en-ww/microsoft-365/excel) The complete database can be exported as a spreadsheet or web page from the Mac version of Couchnado.
 
 ## Requirements
 

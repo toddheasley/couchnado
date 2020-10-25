@@ -61,7 +61,7 @@ extension WindowGroup {
     
     func exportData(_ data: CouchData, format: CouchData.FileFormat) {
         do {
-            let url: URL = try .document(at: format.path(name: "Couchnado"))
+            let url: URL = try .document(at: format.path(name: "Couchnado Online"))
             try data.write(to: url, file: format)
             DocumentPicker.export(url: url) { url in
                 
