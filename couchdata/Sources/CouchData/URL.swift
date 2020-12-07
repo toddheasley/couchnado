@@ -5,6 +5,9 @@ extension URL: Value {
         case wikipedia = "Wikipedia"
         case apple = "Apple TV"
         case netflix = "Netflix"
+        case disney = "Disney+"
+        case amazon = "Prime Video"
+        case hulu = "Hulu"
         case hbo = "HBO"
         
         fileprivate var host: String? {
@@ -15,6 +18,12 @@ extension URL: Value {
                 return "apple.com"
             case .netflix:
                 return "netflix.com"
+            case .disney:
+                return "disneyplus.com"
+            case .amazon:
+                return "amazon.com"
+            case .hulu:
+                return "hulu.com"
             case .hbo:
                 return "hbo.com"
             }
