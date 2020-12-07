@@ -473,6 +473,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
+				MARKETING_VERSION = 1.1;
 				PRODUCT_BUNDLE_IDENTIFIER = com.toddheasley.couchnado;
 				PRODUCT_NAME = Couchnado;
 				SDKROOT = iphoneos;
@@ -497,6 +498,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
+				MARKETING_VERSION = 1.1;
 				PRODUCT_BUNDLE_IDENTIFIER = com.toddheasley.couchnado;
 				PRODUCT_NAME = Couchnado;
 				SDKROOT = iphoneos;
@@ -520,6 +522,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
+				MARKETING_VERSION = 1.1;
 				PRODUCT_BUNDLE_IDENTIFIER = com.toddheasley.couchnado;
 				PRODUCT_NAME = Couchnado;
 				SDKROOT = appletvos;
@@ -542,6 +545,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
+				MARKETING_VERSION = 1.1;
 				PRODUCT_BUNDLE_IDENTIFIER = com.toddheasley.couchnado;
 				PRODUCT_NAME = Couchnado;
 				SDKROOT = appletvos;
