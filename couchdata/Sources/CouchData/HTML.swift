@@ -28,7 +28,7 @@ struct HTML {
         for video in videos {
             html.append("    <tr data-filter=\"\(filter(for: video))\">")
             html.append("        <td>\(link("\(video.title)", href: video.link(for: .wikipedia))) <small>\(video.era) \(video.format)</small></td>")
-            if let url: URL = video.link(for: .apple) {
+            if let url: URL = video.links.last, url.service != .wikipedia {
                 html.append("        <td>\(link("&#x25B6;", href: url))</td>")
             } else {
                 html.append("        <td></td>")
