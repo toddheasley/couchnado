@@ -4,6 +4,8 @@ extension URL: Value {
     public enum Service: String, CaseIterable, CustomStringConvertible {
         case wikipedia = "Wikipedia"
         case apple = "Apple TV"
+        case netflix = "Netflix"
+        case hbo = "HBO"
         
         fileprivate var host: String? {
             switch self {
@@ -11,6 +13,10 @@ extension URL: Value {
                 return "wikipedia.org"
             case .apple:
                 return "apple.com"
+            case .netflix:
+                return "netflix.com"
+            case .hbo:
+                return "hbo.com"
             }
         }
         

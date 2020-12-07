@@ -78,7 +78,7 @@ fileprivate struct PlayButton: View {
     let video: Video
     
     private var url: URL? {
-        guard let url: URL = video.links.last, url.service == .apple else {
+        guard let url: URL = video.links.last, url.service != .wikipedia else {
             return nil
         }
         return url
