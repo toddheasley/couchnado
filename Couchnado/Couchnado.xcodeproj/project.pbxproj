@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		5C488F9626C2FF5200D7F05E /* CouchData in Frameworks */ = {isa = PBXBuildFile; productRef = 5C488F9526C2FF5200D7F05E /* CouchData */; };
+		5C488F9826C2FF5B00D7F05E /* CouchData in Frameworks */ = {isa = PBXBuildFile; productRef = 5C488F9726C2FF5B00D7F05E /* CouchData */; };
+		5C488F9A26C2FF7100D7F05E /* CouchData in Frameworks */ = {isa = PBXBuildFile; productRef = 5C488F9926C2FF7100D7F05E /* CouchData */; };
 		5CC1A7AA26C2EBF700291FD1 /* App.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CC1A79C26C2EBF600291FD1 /* App.swift */; };
 		5CC1A7AB26C2EBF700291FD1 /* App.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CC1A79C26C2EBF600291FD1 /* App.swift */; };
 		5CC1A7AC26C2EBF700291FD1 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CC1A79D26C2EBF600291FD1 /* ContentView.swift */; };
@@ -14,6 +17,8 @@
 		5CC1A7AE26C2EBF700291FD1 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5CC1A79E26C2EBF700291FD1 /* Assets.xcassets */; };
 		5CC1A7AF26C2EBF700291FD1 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5CC1A79E26C2EBF700291FD1 /* Assets.xcassets */; };
 		5CD5A2EF26C2F30E006BC655 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5CC1A79E26C2EBF700291FD1 /* Assets.xcassets */; };
+		5CE60E4826C2F4A300A614A6 /* App.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CC1A79C26C2EBF600291FD1 /* App.swift */; };
+		5CE60E4926C2F4A700A614A6 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CC1A79D26C2EBF600291FD1 /* ContentView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -30,6 +35,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5C488F9626C2FF5200D7F05E /* CouchData in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -37,6 +43,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5C488F9826C2FF5B00D7F05E /* CouchData in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -44,6 +51,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5C488F9A26C2FF7100D7F05E /* CouchData in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -94,6 +102,9 @@
 			dependencies = (
 			);
 			name = "Couchnado (iOS)";
+			packageProductDependencies = (
+				5C488F9526C2FF5200D7F05E /* CouchData */,
+			);
 			productName = "Couchnado (iOS)";
 			productReference = 5CC1A7A326C2EBF700291FD1 /* Couchnado.app */;
 			productType = "com.apple.product-type.application";
@@ -111,6 +122,9 @@
 			dependencies = (
 			);
 			name = "Couchnado (macOS)";
+			packageProductDependencies = (
+				5C488F9726C2FF5B00D7F05E /* CouchData */,
+			);
 			productName = "Couchnado (macOS)";
 			productReference = 5CC1A7A926C2EBF700291FD1 /* Couchnado.app */;
 			productType = "com.apple.product-type.application";
@@ -128,6 +142,9 @@
 			dependencies = (
 			);
 			name = "Couchnado (tvOS)";
+			packageProductDependencies = (
+				5C488F9926C2FF7100D7F05E /* CouchData */,
+			);
 			productName = "Couchnado (tvOS)";
 			productReference = 5CC1A7BD26C2EE2400291FD1 /* Couchnado.app */;
 			productType = "com.apple.product-type.application";
@@ -223,6 +240,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5CE60E4926C2F4A700A614A6 /* ContentView.swift in Sources */,
+				5CE60E4826C2F4A300A614A6 /* App.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -281,6 +300,10 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "";
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
+				MACOSX_DEPLOYMENT_TARGET = 12.0;
 				MARKETING_VERSION = 2.0;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
@@ -289,6 +312,8 @@
 				PRODUCT_NAME = Couchnado;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				TVOS_DEPLOYMENT_TARGET = 15.0;
+				WATCHOS_DEPLOYMENT_TARGET = 8.0;
 			};
 			name = Debug;
 		};
@@ -338,6 +363,10 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "";
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
+				MACOSX_DEPLOYMENT_TARGET = 12.0;
 				MARKETING_VERSION = 2.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
@@ -345,6 +374,8 @@
 				PRODUCT_NAME = Couchnado;
 				SWIFT_COMPILATION_MODE = wholemodule;
 				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				TVOS_DEPLOYMENT_TARGET = 15.0;
+				WATCHOS_DEPLOYMENT_TARGET = 8.0;
 			};
 			name = Release;
 		};
@@ -358,12 +389,13 @@
 				DEVELOPMENT_TEAM = 9Q3DL72K7D;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = $inherited;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = UIInterfaceOrientationPortrait;
-				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -388,12 +420,13 @@
 				DEVELOPMENT_TEAM = 9Q3DL72K7D;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = $inherited;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = UIInterfaceOrientationPortrait;
-				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -423,13 +456,13 @@
 				ENABLE_PREVIEWS = YES;
 				ENABLE_USER_SELECTED_FILES = readonly;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = "Couchnado--macOS--Info.plist";
+				INFOPLIST_FILE = $inherited;
 				INFOPLIST_KEY_NSHumanReadableCopyright = "";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/../Frameworks",
 				);
-				MACOSX_DEPLOYMENT_TARGET = 11.5;
+				MACOSX_DEPLOYMENT_TARGET = 12.0;
 				MARKETING_VERSION = "$(MARKETING_VERSION)";
 				PRODUCT_BUNDLE_IDENTIFIER = "$(PRODUCT_BUNDLE_IDENTIFIER)";
 				PRODUCT_NAME = "$(PRODUCT_NAME:c99extidentifier)";
@@ -453,13 +486,13 @@
 				ENABLE_PREVIEWS = YES;
 				ENABLE_USER_SELECTED_FILES = readonly;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = "Couchnado--macOS--Info.plist";
+				INFOPLIST_FILE = $inherited;
 				INFOPLIST_KEY_NSHumanReadableCopyright = "";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/../Frameworks",
 				);
-				MACOSX_DEPLOYMENT_TARGET = 11.5;
+				MACOSX_DEPLOYMENT_TARGET = 12.0;
 				MARKETING_VERSION = "$(MARKETING_VERSION)";
 				PRODUCT_BUNDLE_IDENTIFIER = "$(PRODUCT_BUNDLE_IDENTIFIER)";
 				PRODUCT_NAME = "$(PRODUCT_NAME:c99extidentifier)";
@@ -476,11 +509,11 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_ASSET_PATHS = "\"Couchnado (tvOS)/Preview Content\"";
+				DEVELOPMENT_ASSET_PATHS = "";
 				DEVELOPMENT_TEAM = 9Q3DL72K7D;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = "Couchnado--tvOS--Info.plist";
+				INFOPLIST_FILE = $inherited;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UIUserInterfaceStyle = Automatic;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -505,11 +538,11 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_ASSET_PATHS = "\"Couchnado (tvOS)/Preview Content\"";
+				DEVELOPMENT_ASSET_PATHS = "";
 				DEVELOPMENT_TEAM = 9Q3DL72K7D;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = "Couchnado--tvOS--Info.plist";
+				INFOPLIST_FILE = $inherited;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UIUserInterfaceStyle = Automatic;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -568,6 +601,21 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		5C488F9526C2FF5200D7F05E /* CouchData */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = CouchData;
+		};
+		5C488F9726C2FF5B00D7F05E /* CouchData */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = CouchData;
+		};
+		5C488F9926C2FF7100D7F05E /* CouchData */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = CouchData;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 5CC1A79726C2EBF600291FD1 /* Project object */;
 }
