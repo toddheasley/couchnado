@@ -2,6 +2,9 @@
 <Workspace
    version = "1.0">
    <FileRef
+      location = "group:README.md">
+   </FileRef>
+   <FileRef
       location = "group:Couchnado/Couchnado.xcodeproj">
    </FileRef>
    <FileRef
@@ -9,8 +12,5 @@
    </FileRef>
    <FileRef
       location = "group:docs">
-   </FileRef>
-   <FileRef
-      location = "group:README.md">
    </FileRef>
 </Workspace>
