@@ -4,9 +4,8 @@ import PackageDescription
 
 let package = Package(name: "couchdata", platforms: [
         .tvOS(.v15),
-        .iOS(.v15),
-        .watchOS(.v8),
-        .macOS(.v12)
+        .macOS(.v12),
+        .iOS(.v15)
     ],
     products: [
         .library(name: "CouchData", targets: [
