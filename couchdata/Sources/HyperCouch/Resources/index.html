@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<title><!-- Title --></title>
+<meta name="viewport" content="initial-scale=1.0">
+<meta name="og:image" content="https://toddheasley.github.io/couchnado/">
+<meta name="og:title" content="<!-- Title -->">
+<link rel="apple-touch-icon" href="apple-touch-icon.png">
+<link rel="shortcut icon" href="favicon.ico">
+<link rel="stylesheet" href="default.css">
+<style><!-- Style --></style>
+<script src="https://code.jquery.com/jquery-3.6.0.slim.min.js"></script>
+<script>
+    
+    $(function() {
+        $videos = $("tr");
+        
+        $("input").on("keyup change search", function() {
+            var filter = $(this).val().toLowerCase().replace(/[^0-9a-z]/g, "");
+            var length = 0;
+            $videos.each(function() {
+                $(this).removeClass("odd");
+                if ($(this).data("filter").includes(filter)) {
+                    if (length % 2 == 1) {
+                        $(this).addClass("odd");
+                    }
+                    $(this).show();
+                    length += 1;
+                } else {
+                    $(this).hide();
+                }
+            });
+            var caption = $videos.length + " videos";
+            if (length < $videos.length) {
+                caption = length + " of " + caption;
+            }
+            $("caption").text(caption);
+        }).change();
+        
+        $("nav").show();
+    });
+    
+</script>
+<nav>
+    <input type="search" placeholder="Search" results="0" list="filter">
+    <datalist id="filter">
+        <option>Action</option>
+        <option>&nbsp;</option>
+        <option>Movie</option>
+    </datalist>
+</nav>
+<table>
+    <caption>274 videos</caption>
+    <tr data-filter="the100 adventure sciencefiction space series">
+        <td><a href="https://en.wikipedia.org/wiki/The_100_(TV_series)" title="Wikipedia">The 100</a> <small>2016- series</small></td>
+        <td><a href="https://tv.apple.com/us/show/the-100/umc.cmc.3vq452bru4dywi1y0fzildivg" title="Apple TV">&#x25B6;</a></td>
+    </tr>
+</table>

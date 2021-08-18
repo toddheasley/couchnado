@@ -1,7 +1,7 @@
 import Foundation
 import CouchData
 
-public struct CouchSite {
+public struct HyperCouch {
     public let data: CouchData
     
     public func save(_ url: URL) throws {

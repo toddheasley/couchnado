@@ -11,23 +11,25 @@ let package = Package(name: "couchdata", platforms: [
         .library(name: "CouchData", targets: [
             "CouchData"
         ]),
-        .library(name: "CouchSite", targets: [
-            "CouchSite"
+        .library(name: "HyperCouch", targets: [
+            "HyperCouch"
         ])
     ],
     targets: [
-        .target(name: "CouchData", dependencies: [], resources: []),
+        .target(name: "CouchData", dependencies: []),
         .testTarget(name: "CouchDataTests", dependencies: [
             "CouchData"
         ], resources: [
             .process("Resources")
         ]),
-        .target(name: "CouchSite", dependencies: [
+        .target(name: "HyperCouch", dependencies: [
             "CouchData"
-        ], resources: []),
-        .testTarget(name: "CouchSiteTests", dependencies: [
+        ], resources: [
+            .process("Resources")
+        ]),
+        .testTarget(name: "HyperCouchTests", dependencies: [
             "CouchData",
-            "CouchSite"
+            "HyperCouch"
         ], resources: [
             .process("Resources")
         ])
