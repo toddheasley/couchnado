@@ -17,11 +17,12 @@ public class CouchData: ObservableObject, CustomStringConvertible {
         }
     }
     
-    public func save(_ url: URL) throws {
+    @discardableResult public func save(_ url: URL) throws -> URL {
         guard let table: Table = Table(records: videos) else {
             throw URLError(.zeroByteResource)
         }
         try table.data.write(to: url)
+        return url
     }
     
     public func load(_ url: URL? = nil) {

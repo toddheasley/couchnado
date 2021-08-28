@@ -18,7 +18,7 @@ extension URLTests {
         XCTAssertEqual(URL.data, URL(string: "index.tsv", relativeTo: .docs))
     }
     
-    func testDataThrows() throws {
+    func testNameData() throws {
         var url: URL = try .data("data", relativeTo: .docs)
         XCTAssertEqual(url, URL(string: "data.tsv", relativeTo: .docs))
         let httpURL: URL = URL(string: "http://example.com/couchnado/")!

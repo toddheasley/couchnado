@@ -7,8 +7,8 @@ final class CouchDataTests: XCTestCase {
         let data: CouchData = CouchData(Bundle.module.url(forResource: "index", withExtension: "tsv")!)
         DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
             do {
-                let url: URL = try .data("index", relativeTo: URL(fileURLWithPath: NSTemporaryDirectory()))
-                try data.save(url)
+                let url: URL = try .data(relativeTo: URL(fileURLWithPath: NSTemporaryDirectory()))
+                XCTAssertEqual(try data.save(url), url)
                 let file: Data = try Data(contentsOf: url)
                 XCTAssertEqual(Table(data: file)?.records.count, 6)
                 XCTAssertEqual(file.count, 1461)

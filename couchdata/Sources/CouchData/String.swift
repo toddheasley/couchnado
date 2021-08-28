@@ -1,16 +1,16 @@
 import Foundation
 
 extension String {
+    public func tokenized() -> String {
+        return value.replacingOccurrences(of: " ", with: "")
+    }
+    
     var unwrappedValue: String {
         return self.replacingOccurrences(of: "\"=\"\"", with: "").replacingOccurrences(of: "\"\"\"", with: "")
     }
     
     var wrappedValue: String {
         return "\"=\"\"\(self)\"\"\""
-    }
-    
-    func tokenized() -> String {
-        return value.replacingOccurrences(of: " ", with: "")
     }
 }
 

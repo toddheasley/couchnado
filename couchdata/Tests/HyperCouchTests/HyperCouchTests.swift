@@ -8,8 +8,12 @@ final class HyperCouchTests: XCTestCase {
         let data: CouchData = CouchData(Bundle.module.url(forResource: "index", withExtension: "tsv")!)
         DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
             do {
-                let url: URL = URL(fileURLWithPath: NSTemporaryDirectory())
-                try HyperCouch(data).save(url)
+                let url: URL = try .base(relativeTo: URL(fileURLWithPath: NSTemporaryDirectory()))
+                XCTAssertEqual(try HyperCouch(data).save(url), URL(string: "index.html", relativeTo: url))
+                XCTAssertEqual(try Data(contentsOf: URL(string: "apple-touch-icon.png", relativeTo: url)!).count, 138)
+                XCTAssertEqual(try Data(contentsOf: URL(string: "favicon.ico", relativeTo: url)!).count, 100)
+                XCTAssertEqual(try Data(contentsOf: URL(string: "image.png", relativeTo: url)!).count, 3574)
+                XCTAssertEqual(try Data(contentsOf: url).count, 3749)
             } catch {
                 XCTFail(error.localizedDescription)
             }
