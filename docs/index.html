@@ -1,3 +1,169 @@
 <!DOCTYPE html>
-<title>Couchnado</title>
+<title>HyperCouch</title>
 <meta name="viewport" content="initial-scale=1.0">
+<meta name="og:image" content="https://toddheasley.github.io/couchnado/image.png">
+<meta name="og:title" content="HyperCouch">
+<link rel="apple-touch-icon" href="apple-touch-icon.png">
+<link rel="shortcut icon" href="favicon.ico">
+<style>
+    
+    :root {
+        --alternate: rgb(203, 229, 209);
+        --background: white;
+        --color: rgb(37, 37, 37);
+    }
+    
+    @media (prefers-color-scheme: dark) {
+        :root {
+            --alternate: rgb(45, 51, 55);
+            --background: rgb(35, 41, 45);
+            --color: rgb(231 231 231);
+        }
+        
+        a {
+            color: inherit;
+        }
+    }
+    
+    body {
+        background: var(--background);
+        color: var(--color);
+        font-family: ui-monospace, monospace;
+        margin: 1em 0;
+    }
+    
+    caption {
+        font-size: smaller;
+        margin: 1em;
+        opacity:  0.5;
+    }
+    
+    input {
+        font-size: 1em;
+    }
+    
+    nav {
+        display: none;
+        margin: 0 0.5em;
+    }
+    
+    small {
+        display: block;
+        font-weight:  normal;
+        margin-top: 0.25em;
+    }
+    
+    table {
+        border-collapse: collapse;
+        width: 100%;
+    }
+    
+    td {
+        background: var(--alternate);
+        padding: 0.5em 1em;
+    }
+    
+    td:first-child {
+        font-weight: bold;
+    }
+    
+    td:last-child {
+        text-align: right;
+    }
+    
+    tr.odd td {
+        background: none;
+    }
+    
+    @media (min-width: 540px) {
+        body {
+            margin: 1em;
+        }
+        
+        nav {
+            margin: 0;
+        }
+        
+        td:first-child {
+            border-bottom-left-radius: 0.5em;
+            border-top-left-radius: 0.5em;
+        }
+        
+        td:last-child {
+            border-bottom-right-radius: 0.5em;
+            border-top-right-radius: 0.5em;
+        }
+    }
+    
+</style>
+<script src="https://code.jquery.com/jquery-3.6.0.slim.min.js"></script>
+<script>
+    
+    $(function() {
+        $videos = $("tr");
+        
+        $("input").on("keyup change search", function() {
+            var filter = $(this).val().toLowerCase().replace(/[^0-9a-z]/g, "");
+            var length = 0;
+            $videos.each(function() {
+                $(this).removeClass("odd");
+                if ($(this).data("filter").includes(filter)) {
+                    if (length % 2 == 1) {
+                        $(this).addClass("odd");
+                    }
+                    $(this).show();
+                    length += 1;
+                } else {
+                    $(this).hide();
+                }
+            });
+            var caption = $videos.length + " videos";
+            if (length < $videos.length) {
+                caption = length + " of " + caption;
+            }
+            $("caption").text(caption);
+        }).change();
+        
+        $("nav").show();
+    });
+    
+</script>
+<nav>
+    <input type="search" placeholder="Search" results="0" list="filter">
+    <datalist id="filter">
+        <option>Action</option>
+        <option>Horror</option>
+        <option>Politics</option>
+        <option>&nbsp;</option>
+        <option>Movie</option>
+        <option>Miniseries</option>
+        <option>Series</option>
+    </datalist>
+</nav>
+<table>
+    <caption>6 videos</caption>
+    <tr data-filter="thefirstpurge action horror politics movie">
+        <td><a href="https://en.wikipedia.org/wiki/The_First_Purge" title="Wikipedia">The First Purge</a> <small>2018 movie</small></td>
+        <td><a href="https://tv.apple.com/us/movie/the-first-purge/umc.cmc.7gv6zt29z4lv0ihxmubcrxr49" title="Apple TV">Apple TV</a></td>
+    </tr>
+    <tr data-filter="theforeverpurge action horror politics movie">
+        <td><a href="https://en.wikipedia.org/wiki/The_Forever_Purge" title="Wikipedia">The Forever Purge</a> <small>2021 movie</small></td>
+        <td><a href="https://tv.apple.com/us/movie/the-forever-purge/umc.cmc.2e88twsx8z6pr6646h8u90nj0" title="Apple TV">Apple TV</a></td>
+    </tr>
+    <tr data-filter="thepurge action horror politics movie">
+        <td><a>The Purge</a> <small>2013 movie</small></td>
+        <td><a href="https://tv.apple.com/us/movie/the-purge/umc.cmc.3xr9smisneill7xtb2s3x1qgb" title="Apple TV">Apple TV</a></td>
+    </tr>
+    <tr data-filter="thepurge action horror politics series">
+        <td><a href="https://en.wikipedia.org/wiki/The_Purge_(TV_series)" title="Wikipedia">The Purge</a> <small>2018-2019 series</small></td>
+        <td><a href="https://tv.apple.com/us/show/the-purge/umc.cmc.da2aw197swossjz0sikg1hjk" title="Apple TV">Apple TV</a></td>
+    </tr>
+    <tr data-filter="thepurgeanarchy action horror politics movie">
+        <td><a href="https://en.wikipedia.org/wiki/The_Purge%3A_Anarchy" title="Wikipedia">The Purge: Anarchy</a> <small>2014 movie</small></td>
+        <td><a href="https://tv.apple.com/us/movie/the-purge-anarchy/umc.cmc.722zq16insez9n3gi37gt82qo" title="Apple TV">Apple TV</a></td>
+    </tr>
+    <tr data-filter="thepurgeelectionyear action horror politics movie">
+        <td><a href="https://en.wikipedia.org/wiki/The_Purge%3A_Election_Year" title="Wikipedia">The Purge: Election Year</a> <small>2016 movie</small></td>
+        <td>&nbsp;</td>
+    </tr>
+</table>

@@ -41,9 +41,9 @@ struct Index: CustomStringConvertible {
                 videos.replace(("video_filter", nil), with: video.filter)
                 if let about: String = videos.values(for: ("video_about?", "?video_about")).first {
                     var about: String = about
-                    if let url: URL = video.about {
-                        about.replace(("video_about", nil), with: url.absoluteString)
-                        about.replace(("video_about_description", nil), with: url.service?.description ?? url.host ?? "")
+                    if let link: (url: URL, description: String) = video.about {
+                        about.replace(("video_about", nil), with: link.url.absoluteString)
+                        about.replace(("video_about_description", nil), with: link.description)
                     } else {
                         about = ""
                     }
@@ -53,9 +53,9 @@ struct Index: CustomStringConvertible {
                 videos.replace(("video_subtitle", nil), with: video.subtitle)
                 if let watch: String = videos.values(for: ("video_watch?", "?video_watch")).first {
                     var watch: String = watch
-                    if let url: URL = video.watch {
-                        watch.replace(("video_watch", nil), with: url.absoluteString)
-                        watch.replace(("video_watch_description", nil), with: url.service?.description ?? url.host ?? "")
+                    if let link: (url: URL, description: String) = video.watch {
+                        watch.replace(("video_watch", nil), with: link.url.absoluteString)
+                        watch.replace(("video_watch_description", nil), with: link.description)
                     } else {
                         watch = "&nbsp;"
                     }

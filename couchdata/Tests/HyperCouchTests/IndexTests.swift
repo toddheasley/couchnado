@@ -11,7 +11,7 @@ final class IndexTests: XCTestCase {
                 let url: URL = try .base(relativeTo: URL(fileURLWithPath: NSTemporaryDirectory()))
                 XCTAssertEqual(try Index(data, title: "HyperCouch").save(url), URL(string: "index.html", relativeTo: url))
                 let file: Data = try Data(contentsOf: url)
-                XCTAssertEqual(file.count, 3749)
+                XCTAssertEqual(file.count, 5322)
             } catch {
                 XCTFail(error.localizedDescription)
             }
@@ -26,7 +26,7 @@ final class IndexTests: XCTestCase {
         DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
             do {
                 let index: Index = try Index(data, title: "Couchnado")
-                XCTAssertEqual(index.description.data(using: .utf8)?.count, 3747)
+                XCTAssertEqual(index.description.data(using: .utf8)?.count, 5320)
                 XCTAssertEqual(index.name, "index.html")
             } catch {
                 XCTFail(error.localizedDescription)

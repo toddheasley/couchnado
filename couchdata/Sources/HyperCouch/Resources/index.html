@@ -7,8 +7,92 @@
 <link rel="shortcut icon" href="favicon.ico">
 <style>
     
+    :root {
+        --alternate: rgb(203, 229, 209);
+        --background: white;
+        --color: rgb(37, 37, 37);
+    }
+    
+    @media (prefers-color-scheme: dark) {
+        :root {
+            --alternate: rgb(45, 51, 55);
+            --background: rgb(35, 41, 45);
+            --color: rgb(231 231 231);
+        }
+        
+        a {
+            color: inherit;
+        }
+    }
+    
+    body {
+        background: var(--background);
+        color: var(--color);
+        font-family: ui-monospace, monospace;
+        margin: 1em 0;
+    }
+    
+    caption {
+        font-size: smaller;
+        margin: 1em;
+        opacity:  0.5;
+    }
+    
+    input {
+        font-size: 1em;
+    }
+    
     nav {
         display: none;
+        margin: 0 0.5em;
+    }
+    
+    small {
+        display: block;
+        font-weight:  normal;
+        margin-top: 0.25em;
+    }
+    
+    table {
+        border-collapse: collapse;
+        width: 100%;
+    }
+    
+    td {
+        background: var(--alternate);
+        padding: 0.5em 1em;
+    }
+    
+    td:first-child {
+        font-weight: bold;
+    }
+    
+    td:last-child {
+        text-align: right;
+    }
+    
+    tr.odd td {
+        background: none;
+    }
+    
+    @media (min-width: 540px) {
+        body {
+            margin: 1em;
+        }
+        
+        nav {
+            margin: 0;
+        }
+        
+        td:first-child {
+            border-bottom-left-radius: 0.5em;
+            border-top-left-radius: 0.5em;
+        }
+        
+        td:last-child {
+            border-bottom-right-radius: 0.5em;
+            border-top-right-radius: 0.5em;
+        }
     }
     
 </style>
@@ -63,7 +147,7 @@
 <!-- videos[ -->
     <tr data-filter="<!-- video_filter -->">
         <td><a<!-- video_about? --> href="<!-- video_about -->" title="<!-- video_about_description -->"<!-- ?video_about -->><!-- video_title --></a> <small><!-- video_subtitle --></small></td>
-        <td><!-- video_watch? --><a href="<!-- video_watch -->" title="<!-- video_watch_description -->">&#x25B6;</a><!-- ?video_watch --></td>
+        <td><!-- video_watch? --><a href="<!-- video_watch -->" title="<!-- video_watch_description -->"><!-- video_watch_description --></a><!-- ?video_watch --></td>
     </tr>
 <!-- ]videos -->
 </table>

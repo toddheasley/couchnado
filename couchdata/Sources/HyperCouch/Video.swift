@@ -14,11 +14,17 @@ extension Video {
         return "\(era) \(format)"
     }
     
-    var watch: URL? {
-        return links.filter { [URL.Service.apple, .netflix].contains($0.service) }.first
+    var watch: (url: URL, description: String)? {
+        guard let url: URL = link(for: .apple) ?? link(for: .netflix) else {
+            return nil
+        }
+        return (url, url.service?.description ?? url.host ?? "")
     }
     
-    var about: URL? {
-        return link(for: .wikipedia)
+    var about: (url: URL, description: String)? {
+        guard let url: URL = link(for: .wikipedia) else {
+            return nil
+        }
+        return (url, url.service?.description ?? url.host ?? "")
     }
 }
