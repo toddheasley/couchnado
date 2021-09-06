@@ -1,19 +1,21 @@
-import Foundation
+import SwiftUI
+import UniformTypeIdentifiers
 import CouchData
 
-public struct HyperCouch {
+public struct HyperCouch: Exportable {
     public let data: CouchData
     public let title: String
-    
-    @discardableResult public func save(_ url: URL) throws -> URL {
-        try Resource("apple-touch-icon.png").save(url)
-        try Resource("favicon.ico").save(url)
-        try Resource("image.png").save(url)
-        return try Index(data, title: title).save(url)
-    }
     
     public init(_ data: CouchData, title: String = "HyperCouch") {
         self.data = data
         self.title = title
+    }
+    
+    // MARK: Exportable
+    public static let contentType: UTType = WebPage.readableContentTypes.first!
+    public static let defaultFilename: String? = URL.base.deletingPathExtension().relativeString
+    
+    public var file: FileDocument? {
+        return try? WebPage(data, title: title)
     }
 }

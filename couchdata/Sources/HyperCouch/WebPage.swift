@@ -1,21 +1,17 @@
-import Foundation
+import SwiftUI
+import UniformTypeIdentifiers
 import CouchData
 
-struct Index: CustomStringConvertible {
-    let data: CouchData
-    
-    var name: String {
-        return resource.name
-    }
-    
-    @discardableResult func save(_ url: URL) throws -> URL {
-        let url: URL = try .base(string: name, relativeTo: url)
-        try description.data(using: .utf8)?.write(to: url)
-        return url
-    }
+struct WebPage: CustomStringConvertible {
+    let resources: [Resource]
     
     init(_ data: CouchData, title: String) throws {
-        resource = try Resource(URL.base.relativeString)
+        resources = [
+            try Resource("image.png"),
+            try Resource("apple-touch-icon.png"),
+            try Resource("favicon.ico")
+        ]
+        let resource: Resource = try Resource(URL.base.relativeString)
         guard var description: String = String(data: resource.data, encoding: .utf8) else {
             throw URLError(.cannotDecodeContentData)
         }
@@ -66,11 +62,25 @@ struct Index: CustomStringConvertible {
         }
         description = description.replacingOccurrences(of: "\n\n", with: "\n")
         self.description = description.trimmingCharacters(in: .whitespacesAndNewlines)
-        self.data = data
     }
-    
-    private let resource: Resource
     
     // MARK: CustomStringConvertible
     let description: String
+}
+
+extension WebPage: FileDocument {
+    
+    // MARK: FileDocument
+    public static let readableContentTypes: [UTType] = [.html]
+    
+    public init(configuration: ReadConfiguration) throws {
+        throw URLError(.cannotDecodeContentData)
+    }
+    
+    public func fileWrapper(configuration: WriteConfiguration) throws -> FileWrapper {
+        guard let data: Data = description.data(using: .utf8) else {
+            throw URLError(.cannotDecodeRawData)
+        }
+        return FileWrapper(regularFileWithContents: data)
+    }
 }

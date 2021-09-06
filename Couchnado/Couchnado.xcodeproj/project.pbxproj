@@ -10,6 +10,9 @@
 		5C488F9626C2FF5200D7F05E /* CouchData in Frameworks */ = {isa = PBXBuildFile; productRef = 5C488F9526C2FF5200D7F05E /* CouchData */; };
 		5C488F9826C2FF5B00D7F05E /* CouchData in Frameworks */ = {isa = PBXBuildFile; productRef = 5C488F9726C2FF5B00D7F05E /* CouchData */; };
 		5C488F9A26C2FF7100D7F05E /* CouchData in Frameworks */ = {isa = PBXBuildFile; productRef = 5C488F9926C2FF7100D7F05E /* CouchData */; };
+		5C69568B26E53E9300CA5818 /* ViewCommands.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C69568A26E53E9300CA5818 /* ViewCommands.swift */; };
+		5C69568D26E53FDB00CA5818 /* FormatCommands.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C69568C26E53FDB00CA5818 /* FormatCommands.swift */; };
+		5C69569026E63BEE00CA5818 /* HyperCouch in Frameworks */ = {isa = PBXBuildFile; productRef = 5C69568F26E63BEE00CA5818 /* HyperCouch */; };
 		5CC1A7AA26C2EBF700291FD1 /* App.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CC1A79C26C2EBF600291FD1 /* App.swift */; };
 		5CC1A7AB26C2EBF700291FD1 /* App.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CC1A79C26C2EBF600291FD1 /* App.swift */; };
 		5CC1A7AC26C2EBF700291FD1 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CC1A79D26C2EBF600291FD1 /* ContentView.swift */; };
@@ -19,15 +22,26 @@
 		5CD5A2EF26C2F30E006BC655 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5CC1A79E26C2EBF700291FD1 /* Assets.xcassets */; };
 		5CE60E4826C2F4A300A614A6 /* App.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CC1A79C26C2EBF600291FD1 /* App.swift */; };
 		5CE60E4926C2F4A700A614A6 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CC1A79D26C2EBF600291FD1 /* ContentView.swift */; };
+		5CF0CA5526E44D3000B45CB9 /* View.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CF0CA5426E44D3000B45CB9 /* View.swift */; };
+		5CF0CA5626E44D3000B45CB9 /* View.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CF0CA5426E44D3000B45CB9 /* View.swift */; };
+		5CF0CA5726E44D3000B45CB9 /* View.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CF0CA5426E44D3000B45CB9 /* View.swift */; };
+		5CF0CA5E26E4516D00B45CB9 /* HelpCommands.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CF0CA5D26E4516D00B45CB9 /* HelpCommands.swift */; };
+		5CF0CA6E26E4684300B45CB9 /* FileCommands.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CF0CA6D26E4684300B45CB9 /* FileCommands.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		5C69568A26E53E9300CA5818 /* ViewCommands.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewCommands.swift; sourceTree = "<group>"; };
+		5C69568C26E53FDB00CA5818 /* FormatCommands.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FormatCommands.swift; sourceTree = "<group>"; };
 		5CC1A79C26C2EBF600291FD1 /* App.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = App.swift; sourceTree = "<group>"; };
 		5CC1A79D26C2EBF600291FD1 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		5CC1A79E26C2EBF700291FD1 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		5CC1A7A326C2EBF700291FD1 /* Couchnado.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Couchnado.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		5CC1A7A926C2EBF700291FD1 /* Couchnado.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Couchnado.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		5CC1A7BD26C2EE2400291FD1 /* Couchnado.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Couchnado.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		5CF0CA5426E44D3000B45CB9 /* View.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = View.swift; sourceTree = "<group>"; };
+		5CF0CA5C26E4508D00B45CB9 /* Couchnado (macOS).entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "Couchnado (macOS).entitlements"; sourceTree = "<group>"; };
+		5CF0CA5D26E4516D00B45CB9 /* HelpCommands.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HelpCommands.swift; sourceTree = "<group>"; };
+		5CF0CA6D26E4684300B45CB9 /* FileCommands.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FileCommands.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -43,6 +57,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5C69569026E63BEE00CA5818 /* HyperCouch in Frameworks */,
 				5C488F9826C2FF5B00D7F05E /* CouchData in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -58,22 +73,26 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		5C69568E26E63BEE00CA5818 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		5CC1A79626C2EBF600291FD1 = {
 			isa = PBXGroup;
 			children = (
-				5CC1A79B26C2EBF600291FD1 /* Shared */,
-				5CC1A7A426C2EBF700291FD1 /* Products */,
-			);
-			sourceTree = "<group>";
-		};
-		5CC1A79B26C2EBF600291FD1 /* Shared */ = {
-			isa = PBXGroup;
-			children = (
 				5CC1A79C26C2EBF600291FD1 /* App.swift */,
-				5CC1A79D26C2EBF600291FD1 /* ContentView.swift */,
 				5CC1A79E26C2EBF700291FD1 /* Assets.xcassets */,
+				5CF0CA5F26E4517600B45CB9 /* macOS */,
+				5CF0CA6626E4619800B45CB9 /* tvOS */,
+				5CF0CA6526E4618A00B45CB9 /* iOS */,
+				5CC1A79D26C2EBF600291FD1 /* ContentView.swift */,
+				5CF0CA5426E44D3000B45CB9 /* View.swift */,
+				5CC1A7A426C2EBF700291FD1 /* Products */,
+				5C69568E26E63BEE00CA5818 /* Frameworks */,
 			);
-			path = Shared;
 			sourceTree = "<group>";
 		};
 		5CC1A7A426C2EBF700291FD1 /* Products */ = {
@@ -84,6 +103,32 @@
 				5CC1A7BD26C2EE2400291FD1 /* Couchnado.app */,
 			);
 			name = Products;
+			sourceTree = "<group>";
+		};
+		5CF0CA5F26E4517600B45CB9 /* macOS */ = {
+			isa = PBXGroup;
+			children = (
+				5CF0CA5C26E4508D00B45CB9 /* Couchnado (macOS).entitlements */,
+				5CF0CA6D26E4684300B45CB9 /* FileCommands.swift */,
+				5C69568C26E53FDB00CA5818 /* FormatCommands.swift */,
+				5CF0CA5D26E4516D00B45CB9 /* HelpCommands.swift */,
+				5C69568A26E53E9300CA5818 /* ViewCommands.swift */,
+			);
+			path = macOS;
+			sourceTree = "<group>";
+		};
+		5CF0CA6526E4618A00B45CB9 /* iOS */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = iOS;
+			sourceTree = "<group>";
+		};
+		5CF0CA6626E4619800B45CB9 /* tvOS */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = tvOS;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -126,6 +171,7 @@
 			name = "Couchnado (macOS)";
 			packageProductDependencies = (
 				5C488F9726C2FF5B00D7F05E /* CouchData */,
+				5C69568F26E63BEE00CA5818 /* HyperCouch */,
 			);
 			productName = "Couchnado (macOS)";
 			productReference = 5CC1A7A926C2EBF700291FD1 /* Couchnado.app */;
@@ -284,6 +330,7 @@
 			files = (
 				5CC1A7AC26C2EBF700291FD1 /* ContentView.swift in Sources */,
 				5CC1A7AA26C2EBF700291FD1 /* App.swift in Sources */,
+				5CF0CA5526E44D3000B45CB9 /* View.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -291,8 +338,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5CF0CA5E26E4516D00B45CB9 /* HelpCommands.swift in Sources */,
 				5CC1A7AD26C2EBF700291FD1 /* ContentView.swift in Sources */,
+				5C69568D26E53FDB00CA5818 /* FormatCommands.swift in Sources */,
+				5C69568B26E53E9300CA5818 /* ViewCommands.swift in Sources */,
 				5CC1A7AB26C2EBF700291FD1 /* App.swift in Sources */,
+				5CF0CA6E26E4684300B45CB9 /* FileCommands.swift in Sources */,
+				5CF0CA5626E44D3000B45CB9 /* View.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -302,6 +354,7 @@
 			files = (
 				5CE60E4926C2F4A700A614A6 /* ContentView.swift in Sources */,
 				5CE60E4826C2F4A300A614A6 /* App.swift in Sources */,
+				5CF0CA5726E44D3000B45CB9 /* View.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -507,6 +560,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = "macOS/Couchnado (macOS).entitlements";
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
 				CURRENT_PROJECT_VERSION = 0;
@@ -537,6 +591,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = "macOS/Couchnado (macOS).entitlements";
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
 				CURRENT_PROJECT_VERSION = 0;
@@ -674,6 +729,10 @@
 		5C488F9926C2FF7100D7F05E /* CouchData */ = {
 			isa = XCSwiftPackageProductDependency;
 			productName = CouchData;
+		};
+		5C69568F26E63BEE00CA5818 /* HyperCouch */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = HyperCouch;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};

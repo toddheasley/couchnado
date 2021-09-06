@@ -1,4 +1,5 @@
-import Foundation
+import SwiftUI
+import UniformTypeIdentifiers
 
 public class CouchData: ObservableObject, CustomStringConvertible {
     @Published public private(set) var videos: [Video] = []
@@ -17,24 +18,24 @@ public class CouchData: ObservableObject, CustomStringConvertible {
         }
     }
     
-    @discardableResult public func save(_ url: URL) throws -> URL {
-        guard let table: Table = Table(records: videos) else {
-            throw URLError(.zeroByteResource)
-        }
-        try table.data.write(to: url)
-        return url
+    public var isEmpty: Bool {
+        return allVideos.isEmpty
     }
     
     public func load(_ url: URL? = nil) {
         Task.init {
             do {
                 let (data, _) = try await URLSession.shared.data(from: url ?? .data)
-                guard let videos: [Video] = Table(data: data)?.records(Video.self) else {
+                guard let allVideos: [Video] = Table(data: data)?.records(Video.self) else {
                     throw URLError(.cannotDecodeContentData)
                 }
-                allVideos = videos
+                DispatchQueue.main.async {
+                    self.allVideos = allVideos
+                }
             } catch {
-                self.error = error as? URLError
+                DispatchQueue.main.async {
+                    self.error = error as? URLError
+                }
             }
         }
     }
@@ -58,5 +59,16 @@ public class CouchData: ObservableObject, CustomStringConvertible {
         case .none:
             return "\(videos.count) videos"
         }
+    }
+}
+
+extension CouchData: Portable {
+    
+    // MARK: Portable
+    public static let contentType: UTType = Spreadsheet.readableContentTypes.first!
+    public static let defaultFilename: String? = URL.data.deletingPathExtension().relativeString
+    
+    public var file: FileDocument? {
+        return Spreadsheet(Table(records: allVideos))
     }
 }

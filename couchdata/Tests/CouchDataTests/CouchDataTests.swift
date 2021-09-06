@@ -2,24 +2,6 @@ import XCTest
 @testable import CouchData
 
 final class CouchDataTests: XCTestCase {
-    func testSave() {
-        let expectation: XCTestExpectation = XCTestExpectation()
-        let data: CouchData = CouchData(Bundle.module.url(forResource: "index", withExtension: "tsv")!)
-        DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
-            do {
-                let url: URL = try .data(relativeTo: URL(fileURLWithPath: NSTemporaryDirectory()))
-                XCTAssertEqual(try data.save(url), url)
-                let file: Data = try Data(contentsOf: url)
-                XCTAssertEqual(Table(data: file)?.records.count, 6)
-                XCTAssertEqual(file.count, 1461)
-            } catch {
-                XCTFail(error.localizedDescription)
-            }
-            expectation.fulfill()
-        }
-        wait(for: [expectation], timeout: 1.0)
-    }
-    
     func testLoad() {
         let expectation: XCTestExpectation = XCTestExpectation()
         let data: CouchData = CouchData()
@@ -39,5 +21,28 @@ final class CouchDataTests: XCTestCase {
             }
         }
         wait(for: [expectation], timeout: 2.0)
+    }
+}
+
+extension CouchDataTests {
+    
+    // MARK: Portable
+    func testContentType() {
+        XCTAssertEqual(CouchData.contentType, .tabSeparatedText)
+    }
+    
+    func testDefaultFilename() {
+        XCTAssertEqual(CouchData.defaultFilename, "index")
+    }
+    
+    func testFile() {
+        let expectation: XCTestExpectation = XCTestExpectation()
+        let data: CouchData = CouchData(Bundle.module.url(forResource: "index", withExtension: "tsv")!)
+        XCTAssertNil(data.file)
+        DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
+            XCTAssertNotNil(data.file as? Spreadsheet)
+            expectation.fulfill()
+        }
+        wait(for: [expectation], timeout: 1.0)
     }
 }

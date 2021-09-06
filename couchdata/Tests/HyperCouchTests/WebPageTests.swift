@@ -2,26 +2,18 @@ import XCTest
 import CouchData
 @testable import HyperCouch
 
-final class HyperCouchTests: XCTestCase {
-    
-}
-
-extension HyperCouchTests {
-    
-    // MARK: Exportable
-    func testContentType() {
-        XCTAssertEqual(HyperCouch.contentType, .html)
-    }
-    
-    func testDefaultFilename() {
-        XCTAssertEqual(HyperCouch.defaultFilename, "index")
-    }
-    
-    func testFile() {
+final class WebPageTests: XCTestCase {
+    func testInit() {
         let expectation: XCTestExpectation = XCTestExpectation()
         let data: CouchData = CouchData(Bundle.module.url(forResource: "index", withExtension: "tsv")!)
         DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
-            XCTAssertNotNil(HyperCouch(data).file as? WebPage)
+            do {
+                let page: WebPage = try WebPage(data, title: "Couchnado")
+                XCTAssertEqual(page.description.data(using: .utf8)?.count, 5320)
+                XCTAssertEqual(page.resources.count, 3)
+            } catch {
+                XCTFail(error.localizedDescription)
+            }
             expectation.fulfill()
         }
         wait(for: [expectation], timeout: 1.0)
