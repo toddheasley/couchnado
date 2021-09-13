@@ -2,7 +2,7 @@ import SwiftUI
 import UniformTypeIdentifiers
 import CouchData
 
-public struct HyperCouch: Exportable {
+public struct HyperCouch {
     public let data: CouchData
     public let title: String
     
@@ -10,6 +10,10 @@ public struct HyperCouch: Exportable {
         self.data = data
         self.title = title
     }
+}
+
+#if !os(tvOS)
+extension HyperCouch: Exportable {
     
     // MARK: Exportable
     public static let contentType: UTType = WebPage.readableContentTypes.first!
@@ -19,3 +23,4 @@ public struct HyperCouch: Exportable {
         return try? WebPage(data, title: title)
     }
 }
+#endif

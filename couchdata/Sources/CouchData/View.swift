@@ -1,3 +1,4 @@
+#if !os(tvOS)
 import SwiftUI
 
 extension View {
@@ -23,3 +24,4 @@ extension View {
         }
     }
 }
+#endif

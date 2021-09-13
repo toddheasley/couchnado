@@ -29,3 +29,11 @@ extension String: Value {
         self = value
     }
 }
+
+extension String: Identifiable {
+    
+    // MARK: Identifiable
+    public var id: Self {
+        return self
+    }
+}

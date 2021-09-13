@@ -6,6 +6,7 @@ final class HyperCouchTests: XCTestCase {
     
 }
 
+#if !os(tvOS)
 extension HyperCouchTests {
     
     // MARK: Exportable
@@ -27,3 +28,4 @@ extension HyperCouchTests {
         wait(for: [expectation], timeout: 1.0)
     }
 }
+#endif

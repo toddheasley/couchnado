@@ -68,6 +68,7 @@ struct WebPage: CustomStringConvertible {
     let description: String
 }
 
+#if !os(tvOS)
 extension WebPage: FileDocument {
     
     // MARK: FileDocument
@@ -84,3 +85,4 @@ extension WebPage: FileDocument {
         return FileWrapper(regularFileWithContents: data)
     }
 }
+#endif

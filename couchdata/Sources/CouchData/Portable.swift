@@ -15,8 +15,10 @@ public protocol Exportable {
     static var defaultFilename: String? {
         get
     }
+#if !os(tvOS)
     
     var file: FileDocument? {
         get
     }
+#endif
 }

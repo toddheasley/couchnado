@@ -1,3 +1,4 @@
+#if !os(tvOS)
 import SwiftUI
 import CouchData
 
@@ -20,3 +21,4 @@ extension View {
         }
     }
 }
+#endif

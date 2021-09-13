@@ -61,6 +61,7 @@ public class CouchData: ObservableObject, CustomStringConvertible {
         }
     }
 }
+#if !os(tvOS)
 
 extension CouchData: Portable {
     
@@ -72,3 +73,4 @@ extension CouchData: Portable {
         return Spreadsheet(Table(records: allVideos))
     }
 }
+#endif

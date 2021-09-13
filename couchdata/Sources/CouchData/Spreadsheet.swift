@@ -1,3 +1,4 @@
+#if !os(tvOS)
 import SwiftUI
 import UniformTypeIdentifiers
 
@@ -26,3 +27,4 @@ public struct Spreadsheet: FileDocument {
         return FileWrapper(regularFileWithContents: table.data)
     }
 }
+#endif

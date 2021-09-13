@@ -19,6 +19,7 @@ struct ViewCommands_Previews: PreviewProvider {
     static var previews: some View {
         ViewCommands()
             .environmentObject(CouchData())
+            .padding()
     }
 }
 

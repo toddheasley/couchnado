@@ -24,6 +24,7 @@ final class CouchDataTests: XCTestCase {
     }
 }
 
+#if !os(tvOS)
 extension CouchDataTests {
     
     // MARK: Portable
@@ -46,3 +47,4 @@ extension CouchDataTests {
         wait(for: [expectation], timeout: 1.0)
     }
 }
+#endif

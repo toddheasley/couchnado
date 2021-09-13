@@ -9,14 +9,57 @@ struct App: SwiftUI.App {
     
     // MARK: App
     var body: some Scene {
-#if os(macOS)
         WindowGroup(Self.title) {
-            ContentView()
-                .environmentObject(data)
-                .alert(error: $data.error) {
-                    data.error = nil
+#if os(macOS)
+            NavigationView {
+                GenreList()
+                    .frame(minWidth: 210.0, idealWidth: 320.0)
+                    .toolbar {
+                        ToolbarItem {
+                            SidebarToolbarItem()
+                        }
+                    }
+                VideoList()
+                    .frame(minWidth: 540.0, maxWidth: .infinity, minHeight: 360.0, maxHeight: .infinity)
+                    .background()
+                    .toolbar {
+                        ToolbarItemGroup {
+                            Spacer()
+                            SearchToolbarItem(filter: $data.filter)
+                        }
+                    }
+            }
+            .environmentObject(data)
+            .alert(error: $data.error) {
+                data.error = nil
+            }
+#elseif os(tvOS)
+            GeometryReader { proxy in
+                HStack {
+                    GenreList()
+                        .frame(width: proxy.size.width * 0.33)
+                    Divider()
+                    VideoList()
                 }
+            }
+            .environmentObject(data)
+            .alert(error: $data.error) {
+                data.error = nil
+            }
+#elseif os(iOS)
+            ZStack {
+                VideoList()
+                SearchView(filter: $data.filter)
+                    .background()
+                //GenreList()
+            }
+            .environmentObject(data)
+            .alert(error: $data.error) {
+                data.error = nil
+            }
+#endif
         }
+#if os(macOS)
         .windowToolbarStyle(UnifiedWindowToolbarStyle(showsTitle: false))
         .commands {
             CommandGroup(replacing: CommandGroupPlacement.newItem) {
@@ -35,22 +78,6 @@ struct App: SwiftUI.App {
             CommandGroup(replacing: .help) {
                 HelpCommands()
             }
-        }
-#elseif os(tvOS)
-        WindowGroup(Self.title) {
-            ContentView()
-                .environmentObject(data)
-                .alert(error: $data.error) {
-                    data.error = nil
-                }
-        }
-#elseif os(iOS)
-        WindowGroup(Self.title) {
-            ContentView()
-                .environmentObject(data)
-                .alert(error: $data.error) {
-                    data.error = nil
-                }
         }
 #endif
     }

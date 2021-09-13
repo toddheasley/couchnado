@@ -2,29 +2,31 @@ import Foundation
 import CouchData
 
 extension Video {
-    var filter: String {
-        return [
-            "\(title)".tokenized(),
-            genres.map({ $0.tokenized() }).joined(separator: " "),
-            "\(format)".tokenized()
-        ].joined(separator: " ")
-    }
-    
-    var subtitle: String {
+    public var subtitle: String {
         return "\(era) \(format)"
     }
     
-    var watch: (url: URL, description: String)? {
+    public var watch: (url: URL, description: String)? {
         guard let url: URL = link(for: .apple) ?? link(for: .netflix) else {
             return nil
         }
         return (url, url.service?.description ?? url.host ?? "")
     }
     
-    var about: (url: URL, description: String)? {
-        guard let url: URL = link(for: .wikipedia) else {
-            return nil
+    public var about: (url: URL, description: String)? {
+#if !os(tvOS)
+        if let url: URL = link(for: .wikipedia) {
+            return (url, url.service?.description ?? url.host ?? "")
         }
-        return (url, url.service?.description ?? url.host ?? "")
+#endif
+        return nil
+    }
+    
+    var filter: String {
+        return [
+            "\(title)".tokenized(),
+            genres.map({ $0.tokenized() }).joined(separator: " "),
+            "\(format)".tokenized()
+        ].joined(separator: " ")
     }
 }

@@ -49,6 +49,7 @@ struct FileCommands_Previews: PreviewProvider {
     static var previews: some View {
         FileCommands()
             .environmentObject(CouchData())
+            .padding()
     }
 }
 

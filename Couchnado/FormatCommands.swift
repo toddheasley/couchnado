@@ -20,6 +20,7 @@ struct FormatCommands_Previews: PreviewProvider {
     static var previews: some View {
         FormatCommands()
             .environmentObject(CouchData())
+            .padding()
     }
 }
 
