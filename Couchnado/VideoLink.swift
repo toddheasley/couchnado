@@ -14,12 +14,12 @@ struct VideoLink: View {
                     SubtitleView(video.subtitle)
                 }
                 Spacer()
-                // TODO: Add watch URL service icon
+                Text(video.watch?.description ?? "")
             }
         }
         .help(video.watch?.description ?? "")
         #if os(tvOS)
-        .opacity(video.watch != nil ? 1.0 : 0.25)
+        .opacity(video.watch != nil ? 1.0 : 0.35)
         #else
         .disabled(video.watch == nil)
         #endif

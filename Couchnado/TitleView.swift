@@ -7,6 +7,7 @@ struct TitleView: View {
     // MARK: View
     var body: some View {
         Text(title.description)
+            .fontWeight(.bold)
             .truncationMode(.tail)
             .lineLimit(1)
     }

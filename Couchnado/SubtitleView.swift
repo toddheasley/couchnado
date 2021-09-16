@@ -10,6 +10,7 @@ struct SubtitleView: View {
     // MARK: View
     var body: some View {
         Text(subtitle)
+            .foregroundColor(.secondary)
             .truncationMode(.tail)
             .lineLimit(1)
     }

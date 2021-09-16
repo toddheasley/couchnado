@@ -6,32 +6,30 @@ struct SearchView: View {
     
     @State private var text: String = ""
     
-    @State private var isEditing: Bool = false {
-        didSet {
-            // TODO: End editing
-        }
-    }
-    
     // MARK: View
     var body: some View {
-        TextField("Search titles", text: $text) { isEditing in
-            self.isEditing = isEditing
-        }
-        .textFieldStyle(SearchTextFieldStyle(text: $text))
-        .onChange(of: text) { text in
-            filter = !text.isEmpty ? .title(text) : .none
-        }
-        .onChange(of: filter) { filter in
-            switch filter {
-            case .title(let text):
-                self.text = text
-            case .format, .genre:
-                isEditing = false
-                fallthrough
-            case .none:
-                text = ""
+        TextField("Search Titles", text: $text)
+            .textFieldStyle(SearchTextFieldStyle(text: $text))
+            .onChange(of: text) { text in
+                if !text.isEmpty {
+                    filter = .title(text)
+                } else {
+                    switch filter {
+                    case .title:
+                        filter = .none
+                    default:
+                        break
+                    }
+                }
             }
-        }
+            .onChange(of: filter) { filter in
+                switch filter {
+                case .title(let text):
+                    self.text = text
+                default:
+                    text = ""
+                }
+            }
     }
 }
 
@@ -42,7 +40,6 @@ private struct SearchTextFieldStyle: TextFieldStyle {
     func _body(configuration: TextField<_Label>) -> some View {
         HStack {
             Image(systemName:"magnifyingglass")
-                .imageScale(.large)
                 .foregroundColor(.secondary)
             configuration
                 .textFieldStyle(PlainTextFieldStyle())
@@ -55,20 +52,32 @@ private struct SearchTextFieldStyle: TextFieldStyle {
                     text = ""
                 }) {
                     Image(systemName:"xmark.circle.fill")
-                        .foregroundColor(.secondary.opacity(0.5))
+                        .foregroundColor(.secondary.opacity(0.75))
                 }
                 .buttonStyle(PlainButtonStyle())
             }
         }
+#if os(macOS)
+        .padding(EdgeInsets(top: 5.0, leading: 9.0, bottom: 6.0, trailing: 9.0))
+        .cornerRadius(6.5)
+        .overlay(
+            RoundedRectangle(cornerRadius: 6.0)
+                .stroke(lineWidth: 1.0)
+                .foregroundColor(.secondary.opacity(0.1))
+        )
+#elseif os(iOS)
+        .padding(EdgeInsets(top: 7.0, leading: 6.0, bottom: 7.0, trailing: 6.0))
+        .background(Color.secondary.opacity(0.25))
+        .cornerRadius(10.0)
+#endif
     }
 }
 
 struct SearchView_Previews: PreviewProvider {
-    @State private static var filter: Video.Filter = .none
     
     // MARK: PreviewProvider
     static var previews: some View {
-        SearchView(filter: $filter)
+        SearchView(filter: .constant(.none))
             .padding()
     }
 }
