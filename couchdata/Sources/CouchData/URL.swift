@@ -21,9 +21,7 @@ extension URL {
 
 extension URL {
     public enum Service: String, CaseIterable, CustomStringConvertible {
-        case wikipedia = "Wikipedia"
-        case apple = "Apple TV"
-        case netflix = "Netflix"
+        case wikipedia, apple, netflix
         
         fileprivate var host: String? {
             switch self {
@@ -38,7 +36,12 @@ extension URL {
         
         // MARK: CustomStringConvertible
         public var description: String {
-            return rawValue
+            switch self {
+            case .apple:
+                return "Apple TV"
+            default:
+                return rawValue.capitalized
+            }
         }
     }
     

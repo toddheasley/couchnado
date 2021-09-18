@@ -23,3 +23,11 @@ extension URLTests {
         XCTAssertEqual(try URL.base(string: "favicon.ico", relativeTo: url), URL(string: "favicon.ico", relativeTo: url))
     }
 }
+
+extension URLTests {
+    func testServiceName() {
+        XCTAssertEqual(URL.Service.wikipedia.name, "wikipedia.png")
+        XCTAssertEqual(URL.Service.apple.name, "apple.png")
+        XCTAssertEqual(URL.Service.netflix.name, "netflix.png")
+    }
+}

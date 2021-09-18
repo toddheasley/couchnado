@@ -14,6 +14,9 @@
 		5C69568B26E53E9300CA5818 /* ViewCommands.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C69568A26E53E9300CA5818 /* ViewCommands.swift */; };
 		5C69568D26E53FDB00CA5818 /* FormatCommands.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C69568C26E53FDB00CA5818 /* FormatCommands.swift */; };
 		5C69569026E63BEE00CA5818 /* HyperCouch in Frameworks */ = {isa = PBXBuildFile; productRef = 5C69568F26E63BEE00CA5818 /* HyperCouch */; };
+		5C84FD9A26F4E2E700D76A08 /* ServiceImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C84FD9926F4E2E700D76A08 /* ServiceImage.swift */; };
+		5C84FD9B26F4E2E700D76A08 /* ServiceImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C84FD9926F4E2E700D76A08 /* ServiceImage.swift */; };
+		5C84FD9C26F4E2E700D76A08 /* ServiceImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C84FD9926F4E2E700D76A08 /* ServiceImage.swift */; };
 		5CC1A7AA26C2EBF700291FD1 /* App.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CC1A79C26C2EBF600291FD1 /* App.swift */; };
 		5CC1A7AB26C2EBF700291FD1 /* App.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CC1A79C26C2EBF600291FD1 /* App.swift */; };
 		5CC1A7AE26C2EBF700291FD1 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5CC1A79E26C2EBF700291FD1 /* Assets.xcassets */; };
@@ -73,6 +76,7 @@
 		5C06A63B26F2230900C89C0A /* SearchBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchBar.swift; sourceTree = "<group>"; };
 		5C69568A26E53E9300CA5818 /* ViewCommands.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewCommands.swift; sourceTree = "<group>"; };
 		5C69568C26E53FDB00CA5818 /* FormatCommands.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FormatCommands.swift; sourceTree = "<group>"; };
+		5C84FD9926F4E2E700D76A08 /* ServiceImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServiceImage.swift; sourceTree = "<group>"; };
 		5CC1A79C26C2EBF600291FD1 /* App.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = App.swift; sourceTree = "<group>"; };
 		5CC1A79E26C2EBF700291FD1 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		5CC1A7A326C2EBF700291FD1 /* Couchnado.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Couchnado.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -155,6 +159,7 @@
 				5CD2A70F26ED243000A31EC2 /* NSWindow.swift */,
 				5CD2A75526EE5BDB00A31EC2 /* SearchView.swift */,
 				5C06A63B26F2230900C89C0A /* SearchBar.swift */,
+				5C84FD9926F4E2E700D76A08 /* ServiceImage.swift */,
 				5CD2A70B26ED23DC00A31EC2 /* SidebarToggle.swift */,
 				5CD2A73326EDACE900A31EC2 /* SubtitleView.swift */,
 				5CD2A74D26EE476300A31EC2 /* TitleLink.swift */,
@@ -392,6 +397,7 @@
 				5CD2A75626EE5BDB00A31EC2 /* SearchView.swift in Sources */,
 				5CD2A72C26ED9A1E00A31EC2 /* TitleView.swift in Sources */,
 				5CD2A73426EDACE900A31EC2 /* SubtitleView.swift in Sources */,
+				5C84FD9A26F4E2E700D76A08 /* ServiceImage.swift in Sources */,
 				5CD2A6F826ECEEB300A31EC2 /* GenreList.swift in Sources */,
 				5CF0CA5526E44D3000B45CB9 /* View.swift in Sources */,
 			);
@@ -406,6 +412,7 @@
 				5CF0CA5E26E4516D00B45CB9 /* HelpCommands.swift in Sources */,
 				5CD2A71126ED243000A31EC2 /* NSWindow.swift in Sources */,
 				5CD2A73126EDABCF00A31EC2 /* VideoLink.swift in Sources */,
+				5C84FD9B26F4E2E700D76A08 /* ServiceImage.swift in Sources */,
 				5CD2A72D26ED9A1E00A31EC2 /* TitleView.swift in Sources */,
 				5CD2A70D26ED23DC00A31EC2 /* SidebarToggle.swift in Sources */,
 				5CD2A70526ED0CF500A31EC2 /* DescriptionView.swift in Sources */,
@@ -436,6 +443,7 @@
 				5CD2A6FE26ED09A600A31EC2 /* GenreView.swift in Sources */,
 				5CD2A70626ED0CF500A31EC2 /* DescriptionView.swift in Sources */,
 				5CD2A75026EE476300A31EC2 /* TitleLink.swift in Sources */,
+				5C84FD9C26F4E2E700D76A08 /* ServiceImage.swift in Sources */,
 				5CE60E4826C2F4A300A614A6 /* App.swift in Sources */,
 				5CD2A70226ED09B000A31EC2 /* VideoView.swift in Sources */,
 				5CD2A6F226ECED0000A31EC2 /* Alert.swift in Sources */,

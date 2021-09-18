@@ -6,20 +6,16 @@ extension Video {
         return "\(era) \(format)"
     }
     
-    public var watch: (url: URL, description: String)? {
-        guard let url: URL = link(for: .apple) ?? link(for: .netflix) else {
-            return nil
-        }
-        return (url, url.service?.description ?? url.host ?? "")
+    public var watch: URL? {
+        return link(for: .apple) ?? link(for: .netflix)
     }
     
-    public var about: (url: URL, description: String)? {
+    public var about: URL? {
 #if !os(tvOS)
-        if let url: URL = link(for: .wikipedia) {
-            return (url, url.service?.description ?? url.host ?? "")
-        }
-#endif
+        return link(for: .wikipedia)
+#else
         return nil
+#endif
     }
     
     var filter: String {

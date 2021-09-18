@@ -16,11 +16,11 @@ struct VideoView: View {
                 SubtitleView(video.subtitle)
             }
             Spacer()
-            if let watch: (url: URL, description: String) = video.watch {
-                Link(destination: watch.url) {
-                    Text(watch.description)
+            if let url: URL = video.watch {
+                Link(destination: url) {
+                    ServiceImage(service: url.service!)
                 }
-                .help(watch.description)
+                .help(url.service!.description)
             }
         }
 #endif

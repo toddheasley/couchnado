@@ -9,8 +9,8 @@ final class WebPageTests: XCTestCase {
         DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
             do {
                 let page: WebPage = try WebPage(data, title: "Couchnado")
-                XCTAssertEqual(page.description.data(using: .utf8)?.count, 5320)
-                XCTAssertEqual(page.resources.count, 3)
+                XCTAssertEqual(page.description.data(using: .utf8)?.count, 5421)
+                XCTAssertEqual(page.resources.count, 5)
             } catch {
                 XCTFail(error.localizedDescription)
             }

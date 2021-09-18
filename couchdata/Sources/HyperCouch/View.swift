@@ -3,8 +3,8 @@ import SwiftUI
 import CouchData
 
 extension View {
-    public func webPage(_ data: CouchData, isExporting: Binding<Bool>) -> some View {
-        let page: WebPage? = HyperCouch(data).file as? WebPage
+    public func webPage(_ data: CouchData, title: String? = nil, isExporting: Binding<Bool>) -> some View {
+        let page: WebPage? = HyperCouch(data, title: title).file as? WebPage
         return fileExporter(isPresented: isExporting, document: page, contentType: HyperCouch.contentType, defaultFilename: HyperCouch.defaultFilename) { result in
             switch result {
             case .success(let url):

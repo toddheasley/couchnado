@@ -7,14 +7,17 @@ struct VideoLink: View {
     
     // MARK: View
     var body: some View {
-        Link(destination: video.watch?.url ?? .void) {
+        Link(destination: video.watch ?? .void) {
             HStack {
                 VStack(alignment: .leading) {
                     TitleView(title: video.title)
                     SubtitleView(video.subtitle)
                 }
                 Spacer()
-                Text(video.watch?.description ?? "")
+                if let service: URL.Service = video.watch?.service {
+                    ServiceImage(service: service)
+                        .opacity(0.5)
+                }
             }
         }
         .help(video.watch?.description ?? "")

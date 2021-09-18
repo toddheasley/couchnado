@@ -7,13 +7,16 @@ final class ResourceTests: XCTestCase {
         let resource: Resource = try Resource("apple-touch-icon.png")
         try resource.save(url)
         let file: Data = try Data(contentsOf: URL(string: resource.name, relativeTo: url)!)
-        XCTAssertEqual(file.count, 6218)
+        XCTAssertEqual(file.count, 5172)
     }
     
     func testInit() throws {
-        XCTAssertEqual(try Resource("apple-touch-icon.png").data.count, 6218)
-        XCTAssertEqual(try Resource("favicon.ico").data.count, 1066)
-        XCTAssertEqual(try Resource("image.png").data.count, 48811)
-        XCTAssertEqual(try Resource("index.html").data.count, 3807)
+        XCTAssertEqual(try Resource("image.png").data.count, 50215)
+        XCTAssertEqual(try Resource("apple-touch-icon.png").data.count, 5172)
+        XCTAssertEqual(try Resource("favicon.ico").data.count, 861)
+        XCTAssertEqual(try Resource(URL.Service.wikipedia.name).data.count, 3143)
+        XCTAssertEqual(try Resource(URL.Service.apple.name).data.count, 3295)
+        XCTAssertEqual(try Resource(URL.Service.netflix.name).data.count, 3041)
+        XCTAssertEqual(try Resource("index.html").data.count, 3860)
     }
 }

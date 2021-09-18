@@ -38,7 +38,7 @@ struct FileCommands: View {
             Text("Export Web Page…")
         }
         .keyboardShortcut("s", modifiers: [.command, .option])
-        .webPage(data, isExporting: $isExportingWebPage)
+        .webPage(data, title: App.title, isExporting: $isExportingWebPage)
         .disabled(data.isEmpty)
     }
 }

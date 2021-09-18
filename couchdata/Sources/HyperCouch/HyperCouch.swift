@@ -6,9 +6,9 @@ public struct HyperCouch {
     public let data: CouchData
     public let title: String
     
-    public init(_ data: CouchData, title: String = "HyperCouch") {
+    public init(_ data: CouchData, title: String? = nil) {
         self.data = data
-        self.title = title
+        self.title = title ?? "HyperCouch"
     }
 }
 

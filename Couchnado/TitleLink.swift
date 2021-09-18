@@ -7,11 +7,11 @@ struct TitleLink: View {
     
     // MARK: View
     var body: some View {
-        if let watch: (url: URL, description: String) = video.watch {
-            Link(destination: watch.url) {
+        if let url: URL = video.watch {
+            Link(destination: url) {
                 TitleView(title: video.title)
             }
-            .help(watch.description)
+            .help(url.service!.description)
         } else {
             TitleView(title: video.title)
         }
