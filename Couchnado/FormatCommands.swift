@@ -23,5 +23,3 @@ struct FormatCommands_Previews: PreviewProvider {
             .padding()
     }
 }
-
-
