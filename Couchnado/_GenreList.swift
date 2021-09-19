@@ -8,9 +8,9 @@ struct GenreList: View {
     var body: some View {
         ScrollView {
             LazyVStack {
-                GenreView(genre: .allGenres, filter: $data.filter)
+                GenreView(.allGenres, filter: $data.filter)
                 ForEach(data.genres) { genre in
-                    GenreView(genre: genre, filter: $data.filter)
+                    GenreView(genre, filter: $data.filter)
                 }
             }
             .padding(.default)

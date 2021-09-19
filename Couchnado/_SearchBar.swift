@@ -9,8 +9,7 @@ struct SearchBar: View {
         VStack(spacing: 0.0) {
             Divider()
             SearchView(filter: $filter)
-                .padding(.horizontal)
-                .padding(.vertical, 8.0)
+                .padding(.default)
         }
         .background(Color.gray.opacity(0.2))
     }

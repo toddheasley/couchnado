@@ -8,34 +8,22 @@ struct FileCommands: View {
     @State private var isExportingSpreadsheet: Bool = false
     @State private var isExportingWebPage: Bool = false
     
-    private func importSpreadsheet() {
-        isImportingSpreadsheet = true
-    }
-    
-    private func exportSpreadsheet() {
-        isExportingSpreadsheet = true
-    }
-    
-    private func exportWebPage() {
-        isExportingWebPage = true
-    }
-    
     // MARK: View
     var body: some View {
-        Button(action: importSpreadsheet) {
-            Text("Import Spreadsheet…")
+        Button("Import Spreadsheet…") {
+            isImportingSpreadsheet = true
         }
         .keyboardShortcut("o", modifiers: .command)
         .spreadsheet(data, isImporting: $isImportingSpreadsheet)
         Divider()
-        Button(action: exportSpreadsheet) {
-            Text("Export Spreadsheet…")
+        Button("Export Spreadsheet…") {
+            isExportingSpreadsheet = true
         }
         .keyboardShortcut("s", modifiers: .command)
         .spreadsheet(data, isExporting: $isExportingSpreadsheet)
         .disabled(data.isEmpty)
-        Button(action: exportWebPage) {
-            Text("Export Web Page…")
+        Button("Export Web Page…") {
+            isExportingWebPage = true
         }
         .keyboardShortcut("s", modifiers: [.command, .option])
         .webPage(data, title: App.title, isExporting: $isExportingWebPage)

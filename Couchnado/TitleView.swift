@@ -4,6 +4,10 @@ import CouchData
 struct TitleView: View {
     let title: Title
     
+    init(_ title: Title) {
+        self.title = title
+    }
+    
     // MARK: View
     var body: some View {
         Text(title.description)
@@ -17,7 +21,7 @@ struct TitleView_Previews: PreviewProvider {
     
     // MARK: PreviewProvider
     static var previews: some View {
-        TitleView(title: "The X-Files")
+        TitleView("The X-Files")
             .padding()
     }
 }

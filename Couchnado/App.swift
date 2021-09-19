@@ -36,7 +36,7 @@ struct App: SwiftUI.App {
         }
         .windowToolbarStyle(UnifiedWindowToolbarStyle(showsTitle: false))
         .commands {
-            CommandGroup(replacing: CommandGroupPlacement.newItem) {
+            CommandGroup(replacing: .newItem) {
                 FileCommands()
                     .environmentObject(data)
             }

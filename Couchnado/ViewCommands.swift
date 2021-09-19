@@ -22,5 +22,3 @@ struct ViewCommands_Previews: PreviewProvider {
             .padding()
     }
 }
-
-

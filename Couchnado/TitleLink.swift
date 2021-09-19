@@ -1,6 +1,6 @@
 import SwiftUI
-import CouchData
 import HyperCouch
+import CouchData
 
 struct TitleLink: View {
     let video: Video
@@ -9,11 +9,11 @@ struct TitleLink: View {
     var body: some View {
         if let url: URL = video.watch {
             Link(destination: url) {
-                TitleView(title: video.title)
+                TitleView(video.title)
             }
             .help(url.service!.description)
         } else {
-            TitleView(title: video.title)
+            TitleView(video.title)
         }
     }
 }

@@ -14,6 +14,11 @@ struct GenreView: View {
         }
     }
     
+    init(_ genre: String, filter: Binding<Video.Filter>) {
+        self.genre = genre
+        _filter = filter
+    }
+    
     // MARK: View
     var body: some View {
         Button(action: {
@@ -39,11 +44,11 @@ struct GenreView_Previews: PreviewProvider {
     
     // MARK: PreviewProvider
     static var previews: some View {
-        GenreView(genre: .allGenres, filter: .constant(.none))
+        GenreView(.allGenres, filter: .constant(.none))
             .padding()
-        GenreView(genre: "high school", filter: .constant(.genre("high school")))
+        GenreView("high school", filter: .constant(.genre("high school")))
             .padding()
-        GenreView(genre: "high school", filter: .constant(.none))
+        GenreView("high school", filter: .constant(.none))
             .padding()
     }
 }

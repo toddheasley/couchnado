@@ -2,13 +2,12 @@ import SwiftUI
 import CouchData
 
 struct HelpCommands: View {
-    private func viewSource() {
-        NSWorkspace.shared.open(.repo)
-    }
     
     // MARK: View
     var body: some View {
-        Button(action: viewSource) {
+        Button(action: {
+            NSWorkspace.shared.open(.repo)
+        }) {
             Text("\(App.title) Documentation and Source Code")
         }
     }
