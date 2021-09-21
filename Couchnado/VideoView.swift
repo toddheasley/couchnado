@@ -14,21 +14,26 @@ struct VideoView: View {
     // MARK: View
     var body: some View {
         HStack {
-            VStack(alignment: .leading) {
+            VStack(alignment: .leading, spacing: 1.0) {
                 TitleLink(video: video)
+                    .foregroundColor(.tableLink(video.about))
                 SubtitleView(video.subtitle)
+                    .foregroundColor(.tableForeground)
             }
+            .foregroundColor(.tableForeground)
             Spacer()
             if let url: URL = video.watch {
                 Link(destination: url) {
                     ServiceImage(url.service!)
-                        .frame(height: 19.0)
+                        .foregroundColor(.tableForeground.opacity(0.5))
+                        .frame(height: 22.0)
                 }
-                .foregroundColor(.primary.opacity(0.35))
                 .help(url.service!.description)
             }
         }
-        .background(Color.alternate(index))
-        .cornerRadius(5.0)
+        .padding(.horizontal)
+        .padding(.vertical, 9.5)
+        .background(Color.tableRow(index))
+        .cornerRadius(7.0)
     }
 }

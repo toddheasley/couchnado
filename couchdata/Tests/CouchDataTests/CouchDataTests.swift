@@ -23,8 +23,8 @@ final class CouchDataTests: XCTestCase {
         wait(for: [expectation], timeout: 2.0)
     }
 }
+#if os(macOS) || os(iOS)
 
-#if !os(tvOS)
 extension CouchDataTests {
     
     // MARK: Portable

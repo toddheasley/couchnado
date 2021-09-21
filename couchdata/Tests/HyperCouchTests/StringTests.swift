@@ -6,6 +6,16 @@ final class StringTests: XCTestCase {
 }
 
 extension StringTests {
+    func testCommentReplace() {
+        var string: String = "--background: /* background-dark */;"
+        string.replace("background-dark", with: "rgb(0, 0, 0)")
+        XCTAssertEqual(string, "--background: rgb(0, 0, 0);")
+    }
+    
+    func testCommentReplacing() {
+        XCTAssertEqual("--background: /* background-dark */;".replacing("background-dark", with: "rgb(0, 0, 0)"), "--background: rgb(0, 0, 0);")
+    }
+    
     func testTagReplace() {
         var string: String = "<title><!-- title --></title>"
         string.replace(("title", nil), with: "HyperCouch")

@@ -10,8 +10,10 @@ struct DescriptionView: View {
     // MARK: View
     var body: some View {
         Text(description)
+            .font(.tableDescription)
             .truncationMode(.tail)
             .lineLimit(1)
+            .padding(.vertical, 10.0)
     }
 }
 

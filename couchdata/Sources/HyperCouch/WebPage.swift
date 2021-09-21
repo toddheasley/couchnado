@@ -1,5 +1,4 @@
-import SwiftUI
-import UniformTypeIdentifiers
+import Foundation
 import CouchData
 
 struct WebPage: CustomStringConvertible {
@@ -17,6 +16,14 @@ struct WebPage: CustomStringConvertible {
         guard var description: String = String(data: resource.data, encoding: .utf8) else {
             throw URLError(.cannotDecodeContentData)
         }
+        description.replace("alternate", with: RGBA.alternate.light.description)
+        description.replace("alternate-dark", with: RGBA.alternate.dark.description)
+        description.replace("background", with: RGBA.background.light.description)
+        description.replace("background-dark", with: RGBA.background.dark.description)
+        description.replace("color", with: RGBA.color.light.description)
+        description.replace("color-dark", with: RGBA.color.dark.description)
+        description.replace("link", with: RGBA.link.light.description)
+        description.replace("link-dark", with: RGBA.link.dark.description)
         description.replace(("title", nil), with: title.description)
         description.replace(("image", nil), with: try URL.base(string: "image.png").absoluteString)
         if let genres: String = description.values(for: ("genres[", "]genres")).first {
@@ -70,8 +77,11 @@ struct WebPage: CustomStringConvertible {
     // MARK: CustomStringConvertible
     let description: String
 }
+#if os(macOS) || os(iOS)
 
-#if !os(tvOS)
+import SwiftUI
+import UniformTypeIdentifiers
+
 extension WebPage: FileDocument {
     
     // MARK: FileDocument

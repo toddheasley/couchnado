@@ -68,7 +68,7 @@ private struct SearchTextFieldStyle: TextFieldStyle {
 #elseif os(iOS)
         .padding(EdgeInsets(top: 7.0, leading: 6.0, bottom: 7.0, trailing: 6.0))
         .background(Color.secondary.opacity(0.25))
-        .cornerRadius(10.0)
+        .cornerRadius(10.5)
 #endif
     }
 }

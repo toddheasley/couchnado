@@ -5,8 +5,8 @@ import CouchData
 final class HyperCouchTests: XCTestCase {
     
 }
+#if os(macOS) || os(iOS)
 
-#if !os(tvOS)
 extension HyperCouchTests {
     
     // MARK: Exportable

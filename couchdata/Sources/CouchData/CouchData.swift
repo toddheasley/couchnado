@@ -1,5 +1,4 @@
-import SwiftUI
-import UniformTypeIdentifiers
+import Foundation
 
 public class CouchData: ObservableObject, CustomStringConvertible {
     @Published public private(set) var videos: [Video] = []
@@ -61,7 +60,10 @@ public class CouchData: ObservableObject, CustomStringConvertible {
         }
     }
 }
-#if !os(tvOS)
+#if os(macOS) || os(iOS)
+
+import SwiftUI
+import UniformTypeIdentifiers
 
 extension CouchData: Portable {
     

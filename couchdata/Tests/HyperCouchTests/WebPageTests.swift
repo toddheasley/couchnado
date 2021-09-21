@@ -2,7 +2,6 @@ import XCTest
 import CouchData
 @testable import HyperCouch
 
-#if !os(tvOS)
 final class WebPageTests: XCTestCase {
     func testInit() {
         let expectation: XCTestExpectation = XCTestExpectation()
@@ -10,7 +9,11 @@ final class WebPageTests: XCTestCase {
         DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
             do {
                 let page: WebPage = try WebPage(data, title: "Couchnado")
-                XCTAssertEqual(page.description.count, 5421)
+#if os(macOS) || os(iOS)
+                XCTAssertEqual(page.description.count, 5491)
+#elseif os(tvOS)
+                XCTAssertEqual(page.description.count, 5112)
+#endif
                 XCTAssertEqual(page.resources.count, 5)
             } catch {
                 XCTFail(error.localizedDescription)
@@ -20,4 +23,3 @@ final class WebPageTests: XCTestCase {
         wait(for: [expectation], timeout: 1.0)
     }
 }
-#endif

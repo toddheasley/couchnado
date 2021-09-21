@@ -19,7 +19,6 @@ struct App: SwiftUI.App {
                     }
                 VideoList()
                     .frame(minWidth: 540.0, maxWidth: .infinity, minHeight: 360.0, maxHeight: .infinity)
-                    .background()
                     .toolbar {
                         Spacer()
                         Spacer()

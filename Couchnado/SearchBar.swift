@@ -8,10 +8,11 @@ struct SearchBar: View {
     var body: some View {
         VStack(spacing: 0.0) {
             Divider()
+                .padding(.bottom, 9.0)
             SearchView(filter: $filter)
-                .padding(.default)
+                    .padding(.default)
         }
-        .background(Color.gray.opacity(0.2))
+        .background(Color.keyboard)
     }
 }
 

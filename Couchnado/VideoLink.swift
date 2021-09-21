@@ -16,17 +16,18 @@ struct VideoLink: View {
                 VStack(alignment: .leading) {
                     TitleView(video.title)
                     SubtitleView(video.subtitle)
+                        .foregroundColor(.secondary)
                 }
                 Spacer()
                 if let service: URL.Service = video.watch?.service {
                     ServiceImage(service)
+                        .foregroundColor(.secondary.opacity(0.75))
                         .frame(height: 47.0)
-                        .opacity(0.5)
                 }
             }
         }
         .help(video.watch?.description ?? "")
-        .opacity(video.watch != nil ? 1.0 : 0.35)
+        .opacity(video.watch != nil ? 1.0 : 0.5)
     }
 }
 

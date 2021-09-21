@@ -1,4 +1,4 @@
-#if !os(tvOS)
+#if os(macOS) || os(iOS)
 import SwiftUI
 import UniformTypeIdentifiers
 

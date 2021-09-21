@@ -1,8 +1,16 @@
 import Foundation
 
 extension String {
+    mutating func replace(_ comment: Self, with value: Self) {
+        self = replacing(comment, with: value)
+    }
+    
+    func replacing(_ comment: Self, with value: Self) -> Self {
+        return replacingOccurrences(of: "/* \(comment) */", with: value)
+    }
+    
     mutating func replace(_ tag: (Self, Self?), with value: Self) {
-        self = self.replacing(tag, with: value)
+        self = replacing(tag, with: value)
     }
     
     func replacing(_ tag: (Self, Self?), with value: Self) -> Self {

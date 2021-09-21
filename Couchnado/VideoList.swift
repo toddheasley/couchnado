@@ -13,23 +13,24 @@ struct VideoList: View {
     }
     
     @EnvironmentObject private var data: CouchData
+#if os(macOS) || os(iOS)
     @State private var items: [Item] = []
+#endif
     
     // MARK: View
     var body: some View {
+#if os(macOS) || os(iOS)
         ScrollView {
-            LazyVStack {
+            LazyVStack(spacing: 0.0) {
                 DescriptionView(data.description)
+                    .foregroundColor(.tableForeground.opacity(0.75))
                 ForEach(items) { item in
-#if os(tvOS)
-                    VideoLink(item.video)
-#else
                     VideoView(item.video, index: item.index)
-#endif
                 }
             }
             .padding(.default)
         }
+        .background(Color.tableBackground)
         .onChange(of: data.videos) { videos in
             var items: [Item] = []
             for (index, video) in videos.enumerated() {
@@ -37,6 +38,19 @@ struct VideoList: View {
             }
             self.items = items
         }
+
+#elseif os(tvOS)
+        ScrollView {
+            LazyVStack {
+                DescriptionView(data.description)
+                    .foregroundColor(.secondary)
+                ForEach(data.videos) { video in
+                    VideoLink(video)
+                }
+            }
+            .padding(.default)
+        }
+#endif
     }
 }
 

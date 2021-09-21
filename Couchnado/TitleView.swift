@@ -11,7 +11,7 @@ struct TitleView: View {
     // MARK: View
     var body: some View {
         Text(title.description)
-            .fontWeight(.bold)
+            .font(.tableTitle)
             .truncationMode(.tail)
             .lineLimit(1)
     }

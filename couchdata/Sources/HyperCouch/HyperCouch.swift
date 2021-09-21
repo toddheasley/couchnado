@@ -1,5 +1,4 @@
-import SwiftUI
-import UniformTypeIdentifiers
+import Foundation
 import CouchData
 
 public struct HyperCouch {
@@ -11,8 +10,11 @@ public struct HyperCouch {
         self.title = title ?? "HyperCouch"
     }
 }
+#if os(macOS) || os(iOS)
 
-#if !os(tvOS)
+import SwiftUI
+import UniformTypeIdentifiers
+
 extension HyperCouch: Exportable {
     
     // MARK: Exportable

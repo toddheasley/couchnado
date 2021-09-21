@@ -15,7 +15,7 @@ public protocol Exportable {
     static var defaultFilename: String? {
         get
     }
-#if !os(tvOS)
+#if os(macOS) || os(iOS)
     
     var file: FileDocument? {
         get
