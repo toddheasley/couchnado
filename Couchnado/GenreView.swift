@@ -33,8 +33,28 @@ struct GenreView: View {
                     .opacity(isSelected ? 1.0 : 0.0)
             }
         })
+#if os(macOS)
+        .buttonStyle(GenreButtonStyle(isSelected: isSelected))
+#endif
     }
 }
+#if os(macOS)
+
+private struct GenreButtonStyle: ButtonStyle {
+    var isSelected: Bool
+    
+    // MARK: ButtonStyle
+    func makeBody(configuration: Configuration) -> some View {
+        configuration.label
+            .buttonStyle(BorderlessButtonStyle())
+            .foregroundColor(.secondary)
+            .padding(.horizontal, EdgeInsets.default.leading)
+            .padding(.vertical, 7.0)
+            .background(Color.secondary.opacity(isSelected ? 0.1 : 0.05))
+            .cornerRadius(6.5)
+    }
+}
+#endif
 
 extension String {
     static let allGenres: String = "all genres"

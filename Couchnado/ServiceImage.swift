@@ -15,7 +15,18 @@ struct ServiceImage: View {
             .renderingMode(.template)
             .resizable()
             .aspectRatio(contentMode: .fit)
-            .frame(idealHeight: 22.0)
+            .frame(maxHeight: 44.0)
             .help(service.description)
+    }
+}
+
+struct ServiceImage_Previews: PreviewProvider {
+    
+    // MARK: PreviewProvider
+    static var previews: some View {
+        ForEach(URL.Service.allCases) { service in
+            ServiceImage(service)
+                .padding()
+        }
     }
 }

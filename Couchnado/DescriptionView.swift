@@ -21,7 +21,7 @@ struct DescriptionView_Previews: PreviewProvider {
     
     // MARK: PreviewProvider
     static var previews: some View {
-        DescriptionView("276 videos")
+        DescriptionView("3 of 276 videos filtered by title \"x-files\"")
             .padding()
     }
 }

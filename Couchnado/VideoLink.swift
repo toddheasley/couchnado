@@ -22,7 +22,6 @@ struct VideoLink: View {
                 if let service: URL.Service = video.watch?.service {
                     ServiceImage(service)
                         .foregroundColor(.secondary.opacity(0.75))
-                        .frame(height: 47.0)
                 }
             }
         }

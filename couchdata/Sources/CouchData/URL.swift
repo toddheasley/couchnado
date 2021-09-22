@@ -20,7 +20,7 @@ extension URL {
 }
 
 extension URL {
-    public enum Service: String, CaseIterable, CustomStringConvertible {
+    public enum Service: String, CaseIterable, Identifiable, CustomStringConvertible {
         case wikipedia, apple, netflix
         
         fileprivate var host: String? {
@@ -32,6 +32,11 @@ extension URL {
             case .netflix:
                 return "netflix.com"
             }
+        }
+        
+        // MARK: Identifiable
+        public var id: String {
+            return rawValue
         }
         
         // MARK: CustomStringConvertible

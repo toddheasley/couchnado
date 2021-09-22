@@ -10,10 +10,15 @@ struct SearchBar: View {
             Divider()
                 .padding(.bottom, 9.0)
             SearchView(filter: $filter)
-                    .padding(.default)
+                .frame(maxWidth: 420.0)
+                .padding(.default)
         }
         .background(Color.keyboard)
     }
+}
+
+private extension Color {
+    static let keyboard: Self = Self(white: 0.52).opacity(0.327)
 }
 
 struct SearchBar_Previews: PreviewProvider {
