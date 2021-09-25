@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Scheme
-   LastUpgradeVersion = "1200"
+   LastUpgradeVersion = "1300"
    version = "1.3">
    <BuildAction
       parallelizeBuildables = "YES"
@@ -14,7 +14,7 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "5C6B905724C340F50035808A"
+               BlueprintIdentifier = "5CC1A7A226C2EBF700291FD1"
                BuildableName = "Couchnado.app"
                BlueprintName = "Couchnado (iOS)"
                ReferencedContainer = "container:Couchnado.xcodeproj">
@@ -44,7 +44,7 @@
          runnableDebuggingMode = "0">
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "5C6B905724C340F50035808A"
+            BlueprintIdentifier = "5CC1A7A226C2EBF700291FD1"
             BuildableName = "Couchnado.app"
             BlueprintName = "Couchnado (iOS)"
             ReferencedContainer = "container:Couchnado.xcodeproj">
@@ -61,7 +61,7 @@
          runnableDebuggingMode = "0">
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "5C6B905724C340F50035808A"
+            BlueprintIdentifier = "5CC1A7A226C2EBF700291FD1"
             BuildableName = "Couchnado.app"
             BlueprintName = "Couchnado (iOS)"
             ReferencedContainer = "container:Couchnado.xcodeproj">

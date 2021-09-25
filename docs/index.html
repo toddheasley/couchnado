@@ -8,21 +8,23 @@
 <style>
     
     :root {
-        --alternate: rgb(203, 229, 209);
-        --background: white;
-        --color: rgb(37, 37, 37);
+        --alternate: rgba(203, 229, 209, 0.9);
+        --background: rgb(255, 255, 255);
+        --color: rgba(37, 37, 37, 0.9);
+        --link: rgba(0, 0, 238, 0.9);
     }
     
     @media (prefers-color-scheme: dark) {
         :root {
-            --alternate: rgb(45, 51, 55);
+            --alternate: rgba(45, 51, 55, 0.75);
             --background: rgb(35, 41, 45);
-            --color: rgb(231 231 231);
+            --color: rgb(221, 221, 221);
+            --link: rgb(221, 221, 221);
         }
-        
-        a {
-            color: inherit;
-        }
+    }
+    
+    a:link {
+        color: var(--link);
     }
     
     body {
@@ -33,9 +35,12 @@
     }
     
     caption {
-        font-size: smaller;
         margin: 1em;
-        opacity:  0.5;
+        opacity:  0.75;
+    }
+    
+    caption, small {
+        font-size: 0.75em;
     }
     
     input {
@@ -49,7 +54,6 @@
     
     small {
         display: block;
-        font-weight:  normal;
         margin-top: 0.25em;
     }
     
@@ -63,16 +67,13 @@
         padding: 0.5em 1em;
     }
     
-    td:first-child {
-        font-weight: bold;
-    }
-    
     td:last-child {
         text-align: right;
     }
     
     td img {
         height: 22px;
+        opacity: 0.75;
     }
     
     tr.odd td {
