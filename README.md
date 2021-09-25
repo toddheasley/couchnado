@@ -2,13 +2,11 @@
 
 ![](Couchnado/CouchnadoTV.png)
 
-Couchnado keeps my favorite movies and TV shows handy on Apple TV, with a simple, irritation-free interface.
-
-Version 2 ditches Catalyst for Cocoa on the Mac. And, of course, the iPhone and iPad get all new UI as well.
-
-![](Couchnado/CouchnadoMac.png)
+Couchnado keeps my favorite movies and TV shows handy on Apple TV. Version 2 gets new UI across platforms -- and ditches Catalyst for Cocoa on the Mac.
 
 ![](Couchnado/Couchnado.png)
+
+![](Couchnado/CouchnadoMac.png)
 
 ## Powered by Spreadsheet
 
