@@ -17,6 +17,6 @@ final class ResourceTests: XCTestCase {
         XCTAssertEqual(try Resource(URL.Service.wikipedia.name).data.count, 3173)
         XCTAssertEqual(try Resource(URL.Service.apple.name).data.count, 3286)
         XCTAssertEqual(try Resource(URL.Service.netflix.name).data.count, 3014)
-        XCTAssertEqual(try Resource("index.html").data.count, 3898)
+        XCTAssertEqual(try Resource("index.html").data.count, 3899)
     }
 }

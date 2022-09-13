@@ -10,9 +10,9 @@ final class WebPageTests: XCTestCase {
             do {
                 let page: WebPage = try WebPage(data, title: "Couchnado")
 #if os(macOS) || os(iOS)
-                XCTAssertEqual(page.description.count, 5491)
+                XCTAssertEqual(page.description.count, 5492)
 #elseif os(tvOS)
-                XCTAssertEqual(page.description.count, 5112)
+                XCTAssertEqual(page.description.count, 5113)
 #endif
                 XCTAssertEqual(page.resources.count, 5)
             } catch {

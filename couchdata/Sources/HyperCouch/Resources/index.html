@@ -63,7 +63,6 @@
     }
     
     td {
-        background: var(--alternate);
         padding: 0.5em 1em;
     }
     
@@ -77,7 +76,7 @@
     }
     
     tr.odd td {
-        background: none;
+        background: var(--alternate);
     }
     
     @media (min-width: 540px) {
@@ -101,38 +100,6 @@
     }
     
 </style>
-<script src="https://code.jquery.com/jquery-3.6.0.slim.min.js"></script>
-<script>
-    
-    $(function() {
-        $videos = $("tr");
-        
-        $("input").on("keyup change search", function() {
-            var filter = $(this).val().toLowerCase().replace(/[^0-9a-z]/g, "");
-            var length = 0;
-            $videos.each(function() {
-                $(this).removeClass("odd");
-                if ($(this).data("filter").includes(filter)) {
-                    if (length % 2 == 1) {
-                        $(this).addClass("odd");
-                    }
-                    $(this).show();
-                    length += 1;
-                } else {
-                    $(this).hide();
-                }
-            });
-            var caption = $videos.length + " videos";
-            if (length < $videos.length) {
-                caption = length + " of " + caption;
-            }
-            $("caption").text(caption);
-        }).change();
-        
-        $("nav").show();
-    });
-    
-</script>
 <nav>
     <input type="search" placeholder="Search" results="0" list="filter">
     <datalist id="filter">
@@ -156,3 +123,44 @@
     </tr>
 <!-- ]videos -->
 </table>
+<script>
+    
+    function filterVideos(filter) {
+        filter = filter.toLowerCase().replace(/[^0-9a-z]/g, "");
+        let videos = document.querySelectorAll("tr");
+        var length = 0;
+        videos.forEach(function(video) {
+            video.classList.remove("odd");
+            if (video.dataset.filter.includes(filter)) {
+                video.style.display = "table-row";
+                if (length % 2 == 0) {
+                    video.classList.add("odd");
+                }
+                length += 1;
+            } else {
+                video.style.display = "none";
+            }
+        });
+        captionVideos(length, videos.length);
+    };
+    
+    function captionVideos(length, total) {
+        var text = total + " videos";
+        if (length < total) {
+            text = length + " of " + text;
+        }
+        document.querySelector("caption").innerText = text;
+    }
+    
+    let input = document.querySelector("input");
+    input.addEventListener("change", function() {
+        filterVideos(this.value);
+    });
+    input.addEventListener("keyup", function() {
+        filterVideos(this.value);
+    });
+    filterVideos(input.value);
+    
+    document.querySelector("nav").style.display = "block";
+    
+</script>
