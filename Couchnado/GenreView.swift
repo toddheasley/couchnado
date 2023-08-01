@@ -36,18 +36,12 @@ struct GenreView: View {
     }
 }
 
-struct GenreView_Previews: PreviewProvider {
-    
-    // MARK: PreviewProvider
-    static var previews: some View {
+#Preview {
+    VStack {
+        GenreView()
         GenreView("high school")
-            .environment(CouchData())
-            .padding()
-        GenreView(.allGenres)
-            .environment(CouchData())
-            .previewDisplayName("Genre View (All)")
-            .padding()
     }
+    .environment(CouchData())
 }
 
 private extension String {

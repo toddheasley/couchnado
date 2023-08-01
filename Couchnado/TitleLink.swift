@@ -27,11 +27,6 @@ struct TitleLink: View {
     }
 }
 
-struct TitleLink_Previews: PreviewProvider {
-    
-    // MARK: PreviewProvider
-    static var previews: some View {
-        TitleLink("The X-Files", url: URL(string: "https://en.wikipedia.org/wiki/The_X-Files_(franchise)"))
-            .padding()
-    }
+#Preview {
+    TitleLink("The X-Files", url: URL(string: "https://en.wikipedia.org/wiki/The_X-Files_(franchise)"))
 }

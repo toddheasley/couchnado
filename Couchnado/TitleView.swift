@@ -18,11 +18,6 @@ struct TitleView: View {
     }
 }
 
-struct TitleView_Previews: PreviewProvider {
-    
-    // MARK: PreviewProvider
-    static var previews: some View {
-        TitleView("The X-Files")
-            .padding()
-    }
+#Preview {
+    TitleView("The X-Files")
 }

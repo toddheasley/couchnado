@@ -16,18 +16,14 @@ struct ServiceImage: View {
             .aspectRatio(contentMode: .fit)
             .frame(maxHeight: 44.0)
             .help(service.description)
+            .previewDisplayName(service.description)
     }
 }
 
-struct ServiceImage_Previews: PreviewProvider {
-    
-    // MARK: PreviewProvider
-    static var previews: some View {
+#Preview {
+    HStack {
+        ServiceImage(.wikipedia)
         ServiceImage(.apple)
-            .previewDisplayName(URL.Service.apple.description)
-            .padding()
         ServiceImage(.netflix)
-            .previewDisplayName(URL.Service.netflix.description)
-            .padding()
     }
 }

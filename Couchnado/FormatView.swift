@@ -35,20 +35,13 @@ struct FormatView: View {
         }
     }
 }
-    
 
-struct FormatView_Previews: PreviewProvider {
-    
-    // MARK: PreviewProvider
-    static var previews: some View {
-        FormatView(.miniseries)
-            .environment(CouchData())
-            .padding()
+#Preview {
+    VStack {
         FormatView()
-            .environment(CouchData())
-            .previewDisplayName("Format View (All)")
-            .padding()
+        FormatView(.miniseries)
     }
+    .environment(CouchData())
 }
 
 private extension String {

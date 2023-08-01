@@ -7,16 +7,11 @@ extension Image {
     }
 }
 
-struct Image_Previews: PreviewProvider {
-    
-    // MARK: PreviewProvider
-    static var previews: some View {
+#Preview {
+    HStack {
         Image(service: .wikipedia)
-            .previewDisplayName(URL.Service.wikipedia.description)
         Image(service: .apple)
-            .previewDisplayName(URL.Service.apple.description)
         Image(service: .netflix)
-            .previewDisplayName(URL.Service.netflix.description)
     }
 }
 

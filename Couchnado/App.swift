@@ -4,7 +4,6 @@ import CouchData
 @main
 struct App: SwiftUI.App {
     static let title: String = "Couchnado"
-    
     @State private var data: CouchData = CouchData()
     @State private var text: String = ""
     
@@ -21,9 +20,13 @@ struct App: SwiftUI.App {
             })
             .environment(data)
         }
-        /*.commands {
-            SidebarCommands()
-        } */
+        .commands {
+            CommandGroup(replacing: .newItem) {
+                FileCommands()
+                    .environment(data)
+            }
+            //SidebarCommands()
+        }
     }
 }
 

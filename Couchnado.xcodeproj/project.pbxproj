@@ -22,6 +22,10 @@
 		5CF933C82A7970D3006E8DC8 /* VideoLink.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CF933BD2A7970D3006E8DC8 /* VideoLink.swift */; };
 		5CF933C92A7970D3006E8DC8 /* EdgeInsets.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CF933BE2A7970D3006E8DC8 /* EdgeInsets.swift */; };
 		5CF933CA2A7970D3006E8DC8 /* FormatView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CF933BF2A7970D3006E8DC8 /* FormatView.swift */; };
+		5CF933CC2A7971C8006E8DC8 /* FormatCommands.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CF933CB2A7971C8006E8DC8 /* FormatCommands.swift */; };
+		5CF933CE2A79724D006E8DC8 /* FileCommands.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CF933CD2A79724D006E8DC8 /* FileCommands.swift */; };
+		5CF933D02A7972EB006E8DC8 /* HelpCommands.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CF933CF2A7972EB006E8DC8 /* HelpCommands.swift */; };
+		5CF933D22A79749B006E8DC8 /* ViewCommands.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CF933D12A79749B006E8DC8 /* ViewCommands.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -40,6 +44,10 @@
 		5CF933BD2A7970D3006E8DC8 /* VideoLink.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VideoLink.swift; sourceTree = "<group>"; };
 		5CF933BE2A7970D3006E8DC8 /* EdgeInsets.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EdgeInsets.swift; sourceTree = "<group>"; };
 		5CF933BF2A7970D3006E8DC8 /* FormatView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FormatView.swift; sourceTree = "<group>"; };
+		5CF933CB2A7971C8006E8DC8 /* FormatCommands.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FormatCommands.swift; sourceTree = "<group>"; };
+		5CF933CD2A79724D006E8DC8 /* FileCommands.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FileCommands.swift; sourceTree = "<group>"; };
+		5CF933CF2A7972EB006E8DC8 /* HelpCommands.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HelpCommands.swift; sourceTree = "<group>"; };
+		5CF933D12A79749B006E8DC8 /* ViewCommands.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewCommands.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -87,15 +95,19 @@
 				5CD5CF752A796D8B003D8687 /* Couchnado.entitlements */,
 				5CF933BC2A7970D3006E8DC8 /* DescriptionView.swift */,
 				5CF933BE2A7970D3006E8DC8 /* EdgeInsets.swift */,
+				5CF933CD2A79724D006E8DC8 /* FileCommands.swift */,
+				5CF933CB2A7971C8006E8DC8 /* FormatCommands.swift */,
 				5CF933B92A7970D3006E8DC8 /* FormatPicker.swift */,
 				5CF933BF2A7970D3006E8DC8 /* FormatView.swift */,
 				5CF933B52A7970D2006E8DC8 /* GenreView.swift */,
+				5CF933CF2A7972EB006E8DC8 /* HelpCommands.swift */,
 				5CF933BB2A7970D3006E8DC8 /* ServiceImage.swift */,
 				5CF933B62A7970D2006E8DC8 /* SubtitleView.swift */,
 				5CF933B72A7970D2006E8DC8 /* TitleLink.swift */,
 				5CF933BA2A7970D3006E8DC8 /* TitleView.swift */,
 				5CF933BD2A7970D3006E8DC8 /* VideoLink.swift */,
 				5CF933B82A7970D3006E8DC8 /* VideoView.swift */,
+				5CF933D12A79749B006E8DC8 /* ViewCommands.swift */,
 			);
 			path = Couchnado;
 			sourceTree = "<group>";
@@ -174,6 +186,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				5CF933C32A7970D3006E8DC8 /* VideoView.swift in Sources */,
+				5CF933CE2A79724D006E8DC8 /* FileCommands.swift in Sources */,
 				5CF933C42A7970D3006E8DC8 /* FormatPicker.swift in Sources */,
 				5CF933C92A7970D3006E8DC8 /* EdgeInsets.swift in Sources */,
 				5CF933C12A7970D3006E8DC8 /* SubtitleView.swift in Sources */,
@@ -182,9 +195,12 @@
 				5CD5CF702A796D88003D8687 /* App.swift in Sources */,
 				5CF933C82A7970D3006E8DC8 /* VideoLink.swift in Sources */,
 				5CF933C62A7970D3006E8DC8 /* ServiceImage.swift in Sources */,
+				5CF933D22A79749B006E8DC8 /* ViewCommands.swift in Sources */,
 				5CF933CA2A7970D3006E8DC8 /* FormatView.swift in Sources */,
 				5CF933C52A7970D3006E8DC8 /* TitleView.swift in Sources */,
+				5CF933D02A7972EB006E8DC8 /* HelpCommands.swift in Sources */,
 				5CF933C72A7970D3006E8DC8 /* DescriptionView.swift in Sources */,
+				5CF933CC2A7971C8006E8DC8 /* FormatCommands.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

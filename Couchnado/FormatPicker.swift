@@ -39,12 +39,7 @@ struct FormatPicker: View {
     }
 }
 
-struct FormatPicker_Previews: PreviewProvider {
-    
-    // MARK: PreviewProvider
-    static var previews: some View {
-        FormatPicker()
-            .environment(CouchData())
-            .padding()
-    }
+#Preview {
+    FormatPicker()
+        .environment(CouchData())
 }

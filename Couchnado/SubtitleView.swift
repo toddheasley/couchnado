@@ -1,4 +1,5 @@
 import SwiftUI
+import HyperCouch
 
 struct SubtitleView: View {
     let subtitle: String
@@ -16,11 +17,6 @@ struct SubtitleView: View {
     }
 }
 
-struct SubtitleView_Previews: PreviewProvider {
-    
-    // MARK: PreviewProvider
-    static var previews: some View {
-        SubtitleView("1993-2002, 2016-2018 series")
-            .padding()
-    }
+#Preview {
+    SubtitleView("1993-2002, 2016-2018 series")
 }

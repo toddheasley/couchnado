@@ -38,14 +38,9 @@ struct VideoView: View {
     }
 }
 
-struct VideoView_Previews: PreviewProvider {
-    
-    // MARK: PreviewProvider
-    static var previews: some View {
-        VideoView(Video("The First Purge", format: .movie, era: "2018", links: [
+#Preview {
+    VideoView(Video("The First Purge", format: .movie, era: "2018", links: [
             URL(string: "https://tv.apple.com/us/movie/the-first-purge/umc.cmc.7gv6zt29z4lv0ihxmubcrxr49")!,
             URL(string: "https://en.wikipedia.org/wiki/The_First_Purge")!
         ]))
-        .padding()
-    }
 }
