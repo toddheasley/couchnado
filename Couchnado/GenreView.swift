@@ -32,6 +32,9 @@ struct GenreView: View {
                 Image(systemName: "checkmark")
                     .opacity(isSelected ? 1.0 : 0.0)
             }
+#if !os(tvOS)
+            .padding(.vertical, 3.5)
+#endif
         }
     }
 }

@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		5C9978CF2A79B9450056A598 /* FilterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C9978CE2A79B9450056A598 /* FilterView.swift */; };
+		5C9978D12A79BEFC0056A598 /* VideoList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C9978D02A79BEFB0056A598 /* VideoList.swift */; };
 		5CAB6AD22A797004002BEB93 /* CouchData in Frameworks */ = {isa = PBXBuildFile; productRef = 5CAB6AD12A797004002BEB93 /* CouchData */; };
 		5CAB6AD42A797004002BEB93 /* HyperCouch in Frameworks */ = {isa = PBXBuildFile; productRef = 5CAB6AD32A797004002BEB93 /* HyperCouch */; };
 		5CD5CF702A796D88003D8687 /* App.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CD5CF6F2A796D88003D8687 /* App.swift */; };
@@ -29,6 +31,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		5C9978CE2A79B9450056A598 /* FilterView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FilterView.swift; sourceTree = "<group>"; };
+		5C9978D02A79BEFB0056A598 /* VideoList.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VideoList.swift; sourceTree = "<group>"; };
 		5CD5CF6C2A796D88003D8687 /* Couchnado.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Couchnado.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		5CD5CF6F2A796D88003D8687 /* App.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = App.swift; sourceTree = "<group>"; };
 		5CD5CF732A796D8B003D8687 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -96,6 +100,7 @@
 				5CF933BC2A7970D3006E8DC8 /* DescriptionView.swift */,
 				5CF933BE2A7970D3006E8DC8 /* EdgeInsets.swift */,
 				5CF933CD2A79724D006E8DC8 /* FileCommands.swift */,
+				5C9978CE2A79B9450056A598 /* FilterView.swift */,
 				5CF933CB2A7971C8006E8DC8 /* FormatCommands.swift */,
 				5CF933B92A7970D3006E8DC8 /* FormatPicker.swift */,
 				5CF933BF2A7970D3006E8DC8 /* FormatView.swift */,
@@ -106,6 +111,7 @@
 				5CF933B72A7970D2006E8DC8 /* TitleLink.swift */,
 				5CF933BA2A7970D3006E8DC8 /* TitleView.swift */,
 				5CF933BD2A7970D3006E8DC8 /* VideoLink.swift */,
+				5C9978D02A79BEFB0056A598 /* VideoList.swift */,
 				5CF933B82A7970D3006E8DC8 /* VideoView.swift */,
 				5CF933D12A79749B006E8DC8 /* ViewCommands.swift */,
 			);
@@ -194,6 +200,8 @@
 				5CF933C22A7970D3006E8DC8 /* TitleLink.swift in Sources */,
 				5CD5CF702A796D88003D8687 /* App.swift in Sources */,
 				5CF933C82A7970D3006E8DC8 /* VideoLink.swift in Sources */,
+				5C9978D12A79BEFC0056A598 /* VideoList.swift in Sources */,
+				5C9978CF2A79B9450056A598 /* FilterView.swift in Sources */,
 				5CF933C62A7970D3006E8DC8 /* ServiceImage.swift in Sources */,
 				5CF933D22A79749B006E8DC8 /* ViewCommands.swift in Sources */,
 				5CF933CA2A7970D3006E8DC8 /* FormatView.swift in Sources */,
@@ -334,6 +342,7 @@
 				ENABLE_HARDENED_RUNTIME = YES;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_NSFileProviderPresenceUsageDescription = "Why is there a usage description for this?";
 				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphoneos*]" = YES;
 				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphonesimulator*]" = YES;
 				"INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents[sdk=iphoneos*]" = YES;
@@ -374,6 +383,7 @@
 				ENABLE_HARDENED_RUNTIME = YES;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_NSFileProviderPresenceUsageDescription = "Why is there a usage description for this?";
 				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphoneos*]" = YES;
 				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphonesimulator*]" = YES;
 				"INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents[sdk=iphoneos*]" = YES;

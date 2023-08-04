@@ -14,9 +14,9 @@ final class ResourceTests: XCTestCase {
         XCTAssertEqual(try Resource("share-image.png").data.count, 40711)
         XCTAssertEqual(try Resource("apple-touch-icon.png").data.count, 5172)
         XCTAssertEqual(try Resource("favicon.ico").data.count, 861)
-        XCTAssertEqual(try Resource("wikipedia.svg").data.count, 2326)
-        XCTAssertEqual(try Resource("apple-tv.svg").data.count, 2071)
-        XCTAssertEqual(try Resource("netflix.svg").data.count, 2421)
-        XCTAssertEqual(try Resource("index.html").data.count, 4131)
+        XCTAssertEqual(try Resource("wikipedia.svg").data.count, 2342)
+        XCTAssertEqual(try Resource("apple-tv.svg").data.count, 2087)
+        XCTAssertEqual(try Resource("netflix.svg").data.count, 2437)
+        XCTAssertEqual(try Resource("index.html").data.count, 4010)
     }
 }

@@ -4,106 +4,98 @@ import CouchData
 @main
 struct App: SwiftUI.App {
     static let title: String = "Couchnado"
+    
     @State private var data: CouchData = CouchData()
     @State private var text: String = ""
     
     // MARK: App
     var body: some Scene {
+#if os(tvOS)
         WindowGroup(Self.title) {
-            NavigationSplitView(sidebar: {
-                /*
-                GenreList()
-                    .listStyle(.sidebar)
-                    .frame(minWidth: 210.0, idealWidth: 320.0) */
-            }, detail: {
-                /* VideoList() */
-            })
+            GeometryReader { proxy in
+                HStack {
+                    FilterView(format: true)
+                        .frame(maxWidth: proxy.size.width * 0.33)
+                    Divider()
+                        .padding()
+                    VideoList()
+                }
+            }
             .environment(data)
+            .alert(error: $data.error) {
+                data.error = nil
+            }
         }
+#elseif os(macOS)
+        Window(Self.title, id: Self.title) {
+            NavigationSplitView(sidebar: {
+                FilterView()
+                    .frame(minWidth: 128.0, idealWidth: 192.0)
+            }, detail: {
+                VideoList()
+                    .background(Color.tableBackground)
+                    .frame(minWidth: 384.0, idealWidth: 512.0, minHeight: 256.0)
+                    .toolbar {
+                        ToolbarItem(placement: .status) {
+                            FormatPicker()
+                                .padding(.horizontal)
+                        }
+                    }
+            })
+            .searchable(text: $text)
+            .onChange(of: text) {
+                data.filter = text.isEmpty ? .none : .title(text)
+            }
+            .environment(data)
+            .alert(error: $data.error) {
+                data.error = nil
+            }
+        }
+        .windowToolbarStyle(.unified(showsTitle: false))
         .commands {
             CommandGroup(replacing: .newItem) {
                 FileCommands()
                     .environment(data)
             }
-            //SidebarCommands()
-        }
-    }
-}
-
-/*
-    // MARK: App
-    var body: some Scene {
-#if os(macOS)
-        WindowGroup(Self.title) {
-            NavigationView {
-                GenreList()
-                    .frame(minWidth: 210.0, idealWidth: 320.0)
-                    .toolbar {
-                        SidebarToggle()
-                    }
-                VideoList()
-                    .frame(minWidth: 540.0, maxWidth: .infinity, minHeight: 360.0, maxHeight: .infinity)
-                    .toolbar {
-                        Spacer()
-                        Spacer()
-                        FormatPicker(filter: $data.filter)
-                        Spacer()
-                        SearchView(filter: $data.filter)
-                            .frame(width: 140.0)
-                    }
-            }
-            .environmentObject(data)
-            .alert(error: $data.error) {
-                data.error = nil
-            }
-        WindowGroup {
-            ContentView()
-        }
-        .windowToolbarStyle(UnifiedWindowToolbarStyle(showsTitle: false))
-        .commands {
-            CommandGroup(replacing: .newItem) {
-                FileCommands()
-                    .environmentObject(data)
-            }
             CommandGroup(replacing: .textFormatting) {
                 FormatCommands()
-                    .environmentObject(data)
+                    .environment(data)
             }
             CommandGroup(replacing: .toolbar) {
                 ViewCommands()
-                    .environmentObject(data)
+                    .environment(data)
             }
             SidebarCommands()
             CommandGroup(replacing: .help) {
                 HelpCommands()
             }
         }
-#elseif os(tvOS)
-        WindowGroup(Self.title) {
-            GeometryReader { proxy in
-                HStack {
-                    GenreList()
-                        .frame(width: proxy.size.width * 0.35)
-                    Divider()
-                    VideoList()
-                }
-            }
-            .environmentObject(data)
-            .alert(error: $data.error) {
-                data.error = nil
-            }
-        }
 #elseif os(iOS)
         WindowGroup(Self.title) {
-            VStack(spacing: 0.0) {
+            NavigationStack {
                 VideoList()
-                SearchBar(filter: $data.filter)
+                    .background(Color.tableBackground)
+                    .refreshable {
+                        data.load()
+                    }
             }
-            .environmentObject(data)
+            .searchable(text: $text)
+            .onChange(of: text) {
+                data.filter = text.isEmpty ? .none : .title(text)
+            }
+            .environment(data)
             .alert(error: $data.error) {
                 data.error = nil
             }
         }
 #endif
     }
-} */
+}
+
+private extension View {
+    func alert(error: Binding<URLError?>, action: @escaping () -> Void = {}) -> some View {
+        return alert(item: error) { error in
+            Alert(title: Text("Error"), message: Text(error.description), dismissButton: .default(Text("OK"), action: action))
+        }
+    }
+}

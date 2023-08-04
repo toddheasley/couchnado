@@ -32,7 +32,7 @@ struct VideoView: View {
             }
         }
         .padding(.horizontal)
-        .padding(.vertical, 9.5)
+        .padding(.vertical, 10.0)
         .background(Color.tableRow(index))
         .cornerRadius(7.0)
     }

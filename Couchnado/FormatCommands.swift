@@ -1,3 +1,4 @@
+#if os(macOS) || os(iOS)
 import SwiftUI
 import CouchData
 
@@ -19,3 +20,4 @@ struct FormatCommands: View {
     FormatCommands()
         .environment(CouchData())
 }
+#endif

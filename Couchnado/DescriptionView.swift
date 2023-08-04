@@ -14,6 +14,7 @@ struct DescriptionView: View {
             .truncationMode(.tail)
             .lineLimit(1)
             .padding(.vertical, 10.0)
+            .opacity(0.67)
     }
 }
 

@@ -1,3 +1,4 @@
+#if os(macOS) || os(iOS)
 import SwiftUI
 import CouchData
 
@@ -17,3 +18,4 @@ struct ViewCommands: View {
     ViewCommands()
         .environment(CouchData())
 }
+#endif

@@ -1,3 +1,4 @@
+#if os(macOS) || os(iOS)
 import SwiftUI
 import CouchData
 
@@ -15,3 +16,4 @@ struct HelpCommands: View {
 #Preview {
     HelpCommands()
 }
+#endif
