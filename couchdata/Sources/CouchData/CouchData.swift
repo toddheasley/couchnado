@@ -56,7 +56,7 @@ import SwiftUI
         }
     }
 }
-#if os(macOS) || os(iOS)
+#if os(macOS)
 
 import UniformTypeIdentifiers
 

@@ -20,7 +20,7 @@ extension Color {
         self.init(_Color(rgb: rgb))
     }
 }
-#if os(macOS)
+#if canImport(Cocoa)
 
 private typealias _Color = NSColor
 
@@ -39,12 +39,15 @@ private extension _Color {
         self.init(srgbRed: rgb.red, green: rgb.green, blue: rgb.blue, alpha: rgb.alpha)
     }
 }
-#elseif os(tvOS) || os(iOS)
+#elseif canImport(UIKit)
 
 private typealias _Color = UIColor
 
 private extension _Color {
     convenience init(rgb: RGB.Pair) {
+#if os(watchOS)
+        self.init(rgb: rgb.dark)
+#else
         self.init { traits in
             switch traits.userInterfaceStyle {
             case .dark:
@@ -53,6 +56,7 @@ private extension _Color {
                 return UIColor(rgb: rgb.light)
             }
         }
+#endif
     }
     
     convenience init(rgb: RGB) {

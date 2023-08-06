@@ -1,4 +1,3 @@
-import Foundation
 import CouchData
 
 public struct HyperCouch {
@@ -10,7 +9,7 @@ public struct HyperCouch {
         self.title = title ?? "HyperCouch"
     }
 }
-#if !os(tvOS)
+#if os(macOS)
 
 import SwiftUI
 import UniformTypeIdentifiers

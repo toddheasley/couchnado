@@ -1,4 +1,5 @@
 import SwiftUI
+import HyperCouch
 import CouchData
 
 @main
@@ -6,6 +7,7 @@ struct App: SwiftUI.App {
     static let title: String = "Couchnado"
     
     @State private var data: CouchData = CouchData()
+    @State private var options: FileCommands.Options = FileCommands.Options()
     @State private var text: String = ""
     
     // MARK: App
@@ -31,6 +33,7 @@ struct App: SwiftUI.App {
             NavigationSplitView(sidebar: {
                 FilterView()
                     .frame(minWidth: 128.0, idealWidth: 192.0)
+                    .webPage(data, title: App.title, isExporting: $options.isExportingWebPage)
             }, detail: {
                 VideoList()
                     .background(Color.tableBackground)
@@ -47,6 +50,8 @@ struct App: SwiftUI.App {
                 data.filter = text.isEmpty ? .none : .title(text)
             }
             .environment(data)
+            .spreadsheet(data, isExporting: $options.isExportingSpreadsheet)
+            .spreadsheet(data, isImporting: $options.isImportingSpreadsheet)
             .alert(error: $data.error) {
                 data.error = nil
             }
@@ -55,6 +60,7 @@ struct App: SwiftUI.App {
         .commands {
             CommandGroup(replacing: .newItem) {
                 FileCommands()
+                    .environment(options)
                     .environment(data)
             }
             CommandGroup(replacing: .textFormatting) {

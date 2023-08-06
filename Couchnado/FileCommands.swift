@@ -1,34 +1,35 @@
-#if os(macOS) || os(iOS)
+#if os(macOS)
 import SwiftUI
 import HyperCouch
 import CouchData
 
 struct FileCommands: View {
+    @Observable class Options {
+        var isImportingSpreadsheet: Bool = false
+        var isExportingSpreadsheet: Bool = false
+        var isExportingWebPage: Bool = false
+    }
+    
+    @Environment(Options.self) private var options: Options
     @Environment(CouchData.self) private var data: CouchData
-    @State private var isImportingSpreadsheet: Bool = false
-    @State private var isExportingSpreadsheet: Bool = false
-    @State private var isExportingWebPage: Bool = false
     
     // MARK: View
     var body: some View {
         VStack {
             Button("Import Spreadsheet…") {
-                isImportingSpreadsheet = true
+                options.isImportingSpreadsheet = true
             }
             .keyboardShortcut("o", modifiers: .command)
-            .spreadsheet(data, isImporting: $isImportingSpreadsheet)
             Divider()
             Button("Export Spreadsheet…") {
-                isExportingSpreadsheet = true
+                options.isExportingSpreadsheet = true
             }
             .keyboardShortcut("s", modifiers: .command)
-            .spreadsheet(data, isExporting: $isExportingSpreadsheet)
             .disabled(data.isEmpty)
             Button("Export Web Page…") {
-                isExportingWebPage = true
+                options.isExportingWebPage = true
             }
             .keyboardShortcut("s", modifiers: [.command, .option])
-            .webPage(data, title: App.title, isExporting: $isExportingWebPage)
             .disabled(data.isEmpty)
         }
     }

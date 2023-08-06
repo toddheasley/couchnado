@@ -77,7 +77,7 @@ struct WebPage: CustomStringConvertible {
     // MARK: CustomStringConvertible
     let description: String
 }
-#if os(macOS) || os(iOS)
+#if os(macOS)
 
 import SwiftUI
 import UniformTypeIdentifiers

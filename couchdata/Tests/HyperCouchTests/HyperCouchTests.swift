@@ -5,7 +5,7 @@ import CouchData
 final class HyperCouchTests: XCTestCase {
     
 }
-#if !os(tvOS)
+#if os(macOS)
 
 extension HyperCouchTests {
     

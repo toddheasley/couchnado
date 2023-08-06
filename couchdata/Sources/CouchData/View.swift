@@ -1,6 +1,5 @@
-#if os(macOS) || os(iOS)
+#if os(macOS)
 import SwiftUI
-import UniformTypeIdentifiers
 
 extension View {
     public func spreadsheet(_ data: CouchData, isImporting: Binding<Bool>) -> some View {
