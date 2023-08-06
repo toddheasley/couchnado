@@ -18,3 +18,4 @@ Behind Couchnado's slick interface and powerful user features sits a single, sta
 * Exporting spreadsheets [for the web](https://toddheasley.github.io/couchnado)
 
 | ![](../docs/platform.svg) | Written in [Swift](https://developer.apple.com/documentation/swift) 5.9 for [iOS](https://developer.apple.com/ios) 17 and aligned releases. Builds in [Xcode](https://developer.apple.com/xcode) 15 or newer. |
+| ----- | ----- |
