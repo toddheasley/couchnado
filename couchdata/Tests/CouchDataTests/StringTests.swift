@@ -10,7 +10,6 @@ extension StringTests {
     // MARK: Value
     func testValue() {
         XCTAssertEqual(" Science Fiction \n".value, "science fiction")
-        
     }
     
     func testvalueInit() {

@@ -1,8 +1,9 @@
+#if os(macOS) || os(iOS)
 import SwiftUI
 import CouchData
 
 struct FormatCommands: View {
-    @EnvironmentObject private var data: CouchData
+    @Environment(CouchData.self) private var data: CouchData
     
     // MARK: View
     var body: some View {
@@ -11,15 +12,12 @@ struct FormatCommands: View {
         }
         .keyboardShortcut(.delete, modifiers: .command)
         .disabled(data.filter == .none)
+        .previewDisplayName("Remove Videos Filter")
     }
 }
 
-struct FormatCommands_Previews: PreviewProvider {
-    
-    // MARK: PreviewProvider
-    static var previews: some View {
-        FormatCommands()
-            .environmentObject(CouchData())
-            .padding()
-    }
+#Preview {
+    FormatCommands()
+        .environment(CouchData())
 }
+#endif

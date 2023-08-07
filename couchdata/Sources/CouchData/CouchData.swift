@@ -1,17 +1,17 @@
-import Foundation
+import SwiftUI
 
-public class CouchData: ObservableObject, CustomStringConvertible {
-    @Published public private(set) var videos: [Video] = []
-    @Published public private(set) var genres: [String] = []
-    @Published public var error: URLError?
+@Observable public class CouchData: CustomStringConvertible {
+    public private(set) var videos: [Video] = []
+    public private(set) var genres: [String] = []
+    public var error: URLError?
     
-    @Published public var filter: Video.Filter = .none {
+    public var filter: Video.Filter = .none {
         didSet {
             allVideos = nil ?? allVideos
         }
     }
     
-    @Published public var sort: Video.Sort = .default {
+    public var sort: Video.Sort = .default {
         didSet {
             allVideos = nil ?? allVideos
         }
@@ -22,19 +22,15 @@ public class CouchData: ObservableObject, CustomStringConvertible {
     }
     
     public func load(_ url: URL? = nil) {
-        Task.init {
+        Task {
             do {
                 let (data, _) = try await URLSession.shared.data(from: url ?? .data)
                 guard let allVideos: [Video] = Table(data: data)?.records(Video.self) else {
                     throw URLError(.cannotDecodeContentData)
                 }
-                DispatchQueue.main.async {
-                    self.allVideos = allVideos
-                }
+                self.allVideos = allVideos
             } catch {
-                DispatchQueue.main.async {
-                    self.error = error as? URLError
-                }
+                self.error = error as? URLError
             }
         }
     }
@@ -60,9 +56,8 @@ public class CouchData: ObservableObject, CustomStringConvertible {
         }
     }
 }
-#if os(macOS) || os(iOS)
+#if os(macOS)
 
-import SwiftUI
 import UniformTypeIdentifiers
 
 extension CouchData: Portable {

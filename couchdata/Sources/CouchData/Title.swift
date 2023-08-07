@@ -1,6 +1,4 @@
-import Foundation
-
-public struct Title: Value, Comparable, ExpressibleByStringLiteral, CustomStringConvertible {
+public struct Title: Value, ExpressibleByStringLiteral, CustomStringConvertible {
     public var sortDescription: String {
         var components: [String] = value.components(separatedBy: " ")
         if components.count > 1, ["a", "an", "the"].contains(components[0].lowercased()) {
@@ -26,11 +24,6 @@ public struct Title: Value, Comparable, ExpressibleByStringLiteral, CustomString
         self.value = value
     }
     
-    // MARK: Comparable
-    public static func < (lhs: Self, rhs: Self) -> Bool {
-        return lhs.sortDescription.lowercased() < rhs.sortDescription.lowercased()
-    }
-    
     // MARK: ExpressibleByStringLiteral
     public init(stringLiteral value: String) {
         self.value = value
@@ -39,5 +32,13 @@ public struct Title: Value, Comparable, ExpressibleByStringLiteral, CustomString
     // MARK: CustomStringConvertible
     public var description: String {
         return value
+    }
+}
+
+extension Title: Comparable {
+    
+    // MARK: Comparable
+    public static func < (lhs: Self, rhs: Self) -> Bool {
+        return lhs.sortDescription.lowercased() < rhs.sortDescription.lowercased()
     }
 }

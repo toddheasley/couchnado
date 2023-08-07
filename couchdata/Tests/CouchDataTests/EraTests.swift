@@ -3,6 +3,10 @@ import XCTest
 
 final class EraTests: XCTestCase {
     
+}
+
+extension EraTests {
+    
     // MARK: Value
     func testValue() {
         XCTAssertEqual(Era(value: "1964-2020")?.value, "1964-2020")

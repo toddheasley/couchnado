@@ -1,11 +1,6 @@
 import Foundation
 
-extension URLError: Identifiable, CustomStringConvertible {
-    
-    // MARK: Identifiable
-    public var id: String {
-        return "\(code.rawValue)"
-    }
+extension URLError: CustomStringConvertible {
     
     // MARK: CustomStringConvertible
     public var description: String {
@@ -13,5 +8,13 @@ extension URLError: Identifiable, CustomStringConvertible {
             return "I'm sorry, Dave. I'm afraid I can't do that."
         }
         return localizedDescription
+    }
+}
+
+extension URLError: Identifiable {
+    
+    // MARK: Identifiable
+    public var id: String {
+        return "\(code.rawValue)"
     }
 }

@@ -1,19 +1,32 @@
 import SwiftUI
-import HyperCouch
 import CouchData
 
 struct TitleLink: View {
-    let video: Video
+    let title: Title
+    let url: URL?
+    
+    init(_ title: Title, url: URL? = nil) {
+        self.title = title
+        self.url = url
+    }
+    
+    init(video: Video) {
+        self.init(video.title, url: video.about)
+    }
     
     // MARK: View
     var body: some View {
-        if let url: URL = video.about {
+        if let url {
             Link(destination: url) {
-                TitleView(video.title)
+                TitleView(title)
             }
-            .help(url.service!.description)
+            .help(url.service?.description ?? url.absoluteString)
         } else {
-            TitleView(video.title)
+            TitleView(title)
         }
     }
+}
+
+#Preview {
+    TitleLink("The X-Files", url: URL(string: "https://en.wikipedia.org/wiki/The_X-Files_(franchise)"))
 }

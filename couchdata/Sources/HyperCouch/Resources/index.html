@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <title><!-- title --></title>
+<meta charset="UTF-8">
 <meta name="viewport" content="initial-scale=1.0">
 <meta name="og:image" content="<!-- image -->">
 <meta name="og:title" content="<!-- title -->">
@@ -12,6 +13,7 @@
         --background: /* background */;
         --color: /* color */;
         --link: /* link */;
+        --margin: 9px;
     }
     
     @media (prefers-color-scheme: dark) {
@@ -23,6 +25,12 @@
         }
     }
     
+    @media (min-width: 512px) {
+        :root {
+            --margin: 11px;
+        }
+    }
+    
     a:link {
         color: var(--link);
     }
@@ -31,7 +39,7 @@
         background: var(--background);
         color: var(--color);
         font-family: ui-monospace, monospace;
-        margin: 1em 0;
+        margin: 1em var(--margin);
     }
     
     caption {
@@ -49,7 +57,6 @@
     
     nav {
         display: none;
-        margin: 0 0.5em;
     }
     
     small {
@@ -66,7 +73,14 @@
         padding: 0.5em 1em;
     }
     
+    td:first-child {
+        border-bottom-left-radius: 7px;
+        border-top-left-radius: 7px;
+    }
+    
     td:last-child {
+        border-bottom-right-radius: 7px;
+        border-top-right-radius: 7px;
         text-align: right;
     }
     
@@ -77,26 +91,6 @@
     
     tr.odd td {
         background: var(--alternate);
-    }
-    
-    @media (min-width: 540px) {
-        body {
-            margin: 1em;
-        }
-        
-        nav {
-            margin: 0;
-        }
-        
-        td:first-child {
-            border-bottom-left-radius: 0.5em;
-            border-top-left-radius: 0.5em;
-        }
-        
-        td:last-child {
-            border-bottom-right-radius: 0.5em;
-            border-top-right-radius: 0.5em;
-        }
     }
     
 </style>

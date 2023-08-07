@@ -59,6 +59,15 @@ public struct Video: Record, Identifiable, Comparable, CustomStringConvertible {
         return (franchise?.matches(string) ?? false) || title.matches(string)
     }
     
+    public init(_ title: Title, franchise: Title? = nil, format: Format, genres: [String] = [], era: Era, links: [URL] = []) {
+        self.title = title
+        self.franchise = franchise
+        self.format = format
+        self.genres = genres
+        self.era = era
+        self.links = links
+    }
+    
     // MARK: Record
     let schema: [String] = ["Title", "Franchise", "Format", "Genres", "Era", "Links"]
     

@@ -1,5 +1,3 @@
-import Foundation
-
 protocol Record {
     var schema: [String] {
         get

@@ -1,3 +1,4 @@
+#if os(macOS) || os(iOS)
 import SwiftUI
 import CouchData
 
@@ -5,19 +6,14 @@ struct HelpCommands: View {
     
     // MARK: View
     var body: some View {
-        Button(action: {
-            NSWorkspace.shared.open(.repo)
-        }) {
-            Text("\(App.title) Documentation and Source Code")
+        VStack {
+            Link("GitHub Repository", destination: .repo)
+            Link("HyperCouch", destination: .docs)
         }
     }
 }
 
-struct HelpCommands_Previews: PreviewProvider {
-    
-    // MARK: PreviewProvider
-    static var previews: some View {
-        HelpCommands()
-            .padding()
-    }
+#Preview {
+    HelpCommands()
 }
+#endif

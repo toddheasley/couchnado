@@ -6,7 +6,7 @@ struct WebPage: CustomStringConvertible {
     
     init(_ data: CouchData, title: String) throws {
         resources = [
-            try Resource("image.png"),
+            try Resource("share-image.png"),
             try Resource("apple-touch-icon.png"),
             try Resource("favicon.ico"),
             try Resource(URL.Service.apple.name),
@@ -16,16 +16,16 @@ struct WebPage: CustomStringConvertible {
         guard var description: String = String(data: resource.data, encoding: .utf8) else {
             throw URLError(.cannotDecodeContentData)
         }
-        description.replace("alternate", with: RGBA.alternate.light.description)
-        description.replace("alternate-dark", with: RGBA.alternate.dark.description)
-        description.replace("background", with: RGBA.background.light.description)
-        description.replace("background-dark", with: RGBA.background.dark.description)
-        description.replace("color", with: RGBA.color.light.description)
-        description.replace("color-dark", with: RGBA.color.dark.description)
-        description.replace("link", with: RGBA.link.light.description)
-        description.replace("link-dark", with: RGBA.link.dark.description)
+        description.replace("alternate", with: RGB.alternate.light.description)
+        description.replace("alternate-dark", with: RGB.alternate.dark.description)
+        description.replace("background", with: RGB.background.light.description)
+        description.replace("background-dark", with: RGB.background.dark.description)
+        description.replace("color", with: RGB.color.light.description)
+        description.replace("color-dark", with: RGB.color.dark.description)
+        description.replace("link", with: RGB.link.light.description)
+        description.replace("link-dark", with: RGB.link.dark.description)
         description.replace(("title", nil), with: title.description)
-        description.replace(("image", nil), with: try URL.base(string: "image.png").absoluteString)
+        description.replace(("image", nil), with: try URL.base(string: "share-image.png").absoluteString)
         if let genres: String = description.values(for: ("genres[", "]genres")).first {
             description.replace(("genres[", "]genres"), with: data.genres.map { genre in
                 return genres.replacing(("genre", nil), with: genre.description.capitalized)
@@ -77,7 +77,7 @@ struct WebPage: CustomStringConvertible {
     // MARK: CustomStringConvertible
     let description: String
 }
-#if os(macOS) || os(iOS)
+#if os(macOS)
 
 import SwiftUI
 import UniformTypeIdentifiers
@@ -99,3 +99,18 @@ extension WebPage: FileDocument {
     }
 }
 #endif
+
+private extension URL.Service {
+    var name: String {
+        return "\(uri).svg"
+    }
+    
+    private var uri: String {
+        switch self {
+        case .apple:
+            return "apple-tv"
+        default:
+            return rawValue
+        }
+    }
+}

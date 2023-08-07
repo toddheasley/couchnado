@@ -11,7 +11,7 @@ extension Video {
     }
     
     public var about: URL? {
-#if !os(tvOS)
+#if canImport(WebKit)
         return link(for: .wikipedia)
 #else
         return nil

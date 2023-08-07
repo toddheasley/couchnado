@@ -3,11 +3,27 @@ import CouchData
 
 extension Image {
     public init(service: URL.Service) {
-        let resource: Resource = try! Resource(service.name)
-#if os(macOS)
-        self.init(nsImage: NSImage(data: resource.data)!)
-#elseif os(tvOS) || os(iOS)
-        self.init(uiImage: UIImage(data: resource.data)!)
-#endif
+        self.init(service.name, bundle: .module)
+    }
+}
+
+#Preview {
+    HStack {
+        Image(service: .wikipedia)
+        Image(service: .apple)
+        Image(service: .netflix)
+    }
+}
+
+private extension URL.Service {
+    var name: String {
+        switch self {
+        case .wikipedia:
+            return "Wikipedia"
+        case .apple:
+            return "AppleTV"
+        case .netflix:
+            return "Netflix"
+        }
     }
 }

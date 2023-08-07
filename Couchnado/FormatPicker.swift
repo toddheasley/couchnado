@@ -2,8 +2,7 @@ import SwiftUI
 import CouchData
 
 struct FormatPicker: View {
-    @Binding var filter: Video.Filter
-    
+    @Environment(CouchData.self) private var data: CouchData
     @State private var selection: String = ""
     
     // MARK: View
@@ -17,20 +16,20 @@ struct FormatPicker: View {
             }
         }
         .pickerStyle(SegmentedPickerStyle())
-        .onChange(of: selection) { selection in
+        .onChange(of: selection) {
             if let format: Video.Format = Video.Format(rawValue: selection) {
-                filter = .format(format)
+                data.filter = .format(format)
             } else {
-                switch filter {
+                switch data.filter {
                 case .format:
-                    filter = .none
+                    data.filter = .none
                 default:
                     break
                 }
             }
         }
-        .onChange(of: filter) { filter in
-            switch filter {
+        .onChange(of: data.filter) {
+            switch data.filter {
             case .format(let format):
                 selection = format.id
             default:
@@ -40,11 +39,7 @@ struct FormatPicker: View {
     }
 }
 
-struct FormatPicker_Previews: PreviewProvider {
-    
-    // MARK: PreviewProvider
-    static var previews: some View {
-        FormatPicker(filter: .constant(.none))
-            .padding()
-    }
+#Preview {
+    FormatPicker()
+        .environment(CouchData())
 }

@@ -1,5 +1,3 @@
-import Foundation
-
 extension String {
     public func tokenized() -> String {
         return value.replacingOccurrences(of: " ", with: "")

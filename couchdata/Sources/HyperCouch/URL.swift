@@ -18,9 +18,3 @@ extension URL {
         return url
     }
 }
-
-extension URL.Service {
-    var name: String {
-        return "\(rawValue).png"
-    }
-}

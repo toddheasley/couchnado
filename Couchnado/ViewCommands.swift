@@ -1,8 +1,9 @@
+#if os(macOS) || os(iOS)
 import SwiftUI
 import CouchData
 
 struct ViewCommands: View {
-    @EnvironmentObject private var data: CouchData
+    @Environment(CouchData.self) private var data: CouchData
     
     // MARK: View
     var body: some View {
@@ -13,12 +14,8 @@ struct ViewCommands: View {
     }
 }
 
-struct ViewCommands_Previews: PreviewProvider {
-    
-    // MARK: PreviewProvider
-    static var previews: some View {
-        ViewCommands()
-            .environmentObject(CouchData())
-            .padding()
-    }
+#Preview {
+    ViewCommands()
+        .environment(CouchData())
 }
+#endif

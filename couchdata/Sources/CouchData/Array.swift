@@ -1,5 +1,3 @@
-import Foundation
-
 extension Array where Element == Video {
     var genres: [String] {
         var genres: [String] = []

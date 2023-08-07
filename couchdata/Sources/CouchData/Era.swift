@@ -1,6 +1,4 @@
-import Foundation
-
-public struct Era: Value, Comparable, CustomStringConvertible {
+public struct Era: ExpressibleByStringLiteral, CustomStringConvertible {
     public let years: [ClosedRange<Int>]
     
     init?(years: [ClosedRange<Int>]) {
@@ -9,6 +7,22 @@ public struct Era: Value, Comparable, CustomStringConvertible {
         }
         self.years = years
     }
+    
+    // MARK: ExpressibleByStringLiteral
+    public init(stringLiteral value: String) {
+        guard let era: Self = Self(value: value) else {
+            fatalError()
+        }
+        self = era
+    }
+    
+    // MARK: CustomStringConvertible
+    public var description: String {
+        return value
+    }
+}
+
+extension Era: Value {
     
     // MARK: Value
     var value: String {
@@ -36,14 +50,11 @@ public struct Era: Value, Comparable, CustomStringConvertible {
             return first...last
         })
     }
-    
+}
+
+extension Era: Comparable {
     // MARK: Comparable
     public static func < (lhs: Self, rhs: Self) -> Bool {
         return lhs.value < rhs.value
-    }
-    
-    // MARK: CustomStringConvertible
-    public var description: String {
-        return value
     }
 }

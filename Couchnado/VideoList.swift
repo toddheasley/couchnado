@@ -2,55 +2,49 @@ import SwiftUI
 import CouchData
 
 struct VideoList: View {
+    @Environment(CouchData.self) private var data: CouchData
+    @State private var items: [Item] = []
+    
     private struct Item: Identifiable {
         let video: Video
         let index: Int
         
-        // MARK: Identifiable
-        var id: String {
-            return video.id
+        init(_ video: Video, index: Int) {
+            self.video = video
+            self.index = index
+            id = "\(index)"
         }
+        
+        // MARK: Identifiable
+        let id: String
     }
     
-    @EnvironmentObject private var data: CouchData
-#if os(macOS) || os(iOS)
-    @State private var items: [Item] = []
+    private var spacing: CGFloat? {
+#if os(tvOS)
+        return nil
+#else
+        return 1.0
 #endif
+    }
     
     // MARK: View
     var body: some View {
-#if os(macOS) || os(iOS)
         ScrollView {
-            LazyVStack(spacing: 0.0) {
+            LazyVStack(spacing: spacing) {
                 DescriptionView(data.description)
-                    .foregroundColor(.tableForeground.opacity(0.75))
                 ForEach(items) { item in
+#if os(tvOS)
+                    VideoLink(item.video)
+#else
                     VideoView(item.video, index: item.index)
-                }
-            }
-            .padding(.default)
-        }
-        .background(Color.tableBackground)
-        .onChange(of: data.videos) { videos in
-            var items: [Item] = []
-            for (index, video) in videos.enumerated() {
-                items.append(Item(video: video, index: index))
-            }
-            self.items = items
-        }
-
-#elseif os(tvOS)
-        ScrollView {
-            LazyVStack {
-                DescriptionView(data.description)
-                    .foregroundColor(.secondary)
-                ForEach(data.videos) { video in
-                    VideoLink(video)
-                }
-            }
-            .padding(.default)
-        }
 #endif
+                }
+            }
+            .padding(.default)
+        }
+        .onChange(of: data.videos, initial: true) {
+            items = data.videos.enumerated().map { Item($1, index: $0) }
+        }
     }
 }
 
@@ -59,7 +53,6 @@ struct Video_Previews: PreviewProvider {
     // MARK: PreviewProvider
     static var previews: some View {
         VideoList()
-            .environmentObject(CouchData())
-            .padding()
+            .environment(CouchData())
     }
 }

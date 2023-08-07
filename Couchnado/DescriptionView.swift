@@ -14,14 +14,10 @@ struct DescriptionView: View {
             .truncationMode(.tail)
             .lineLimit(1)
             .padding(.vertical, 10.0)
+            .opacity(0.67)
     }
 }
 
-struct DescriptionView_Previews: PreviewProvider {
-    
-    // MARK: PreviewProvider
-    static var previews: some View {
-        DescriptionView("3 of 276 videos filtered by title \"x-files\"")
-            .padding()
-    }
+#Preview {
+    DescriptionView("3 of 276 videos filtered by title \"x-files\"")
 }

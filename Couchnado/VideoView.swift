@@ -32,8 +32,15 @@ struct VideoView: View {
             }
         }
         .padding(.horizontal)
-        .padding(.vertical, 9.5)
+        .padding(.vertical, 10.0)
         .background(Color.tableRow(index))
         .cornerRadius(7.0)
     }
+}
+
+#Preview {
+    VideoView(Video("The First Purge", format: .movie, era: "2018", links: [
+            URL(string: "https://tv.apple.com/us/movie/the-first-purge/umc.cmc.7gv6zt29z4lv0ihxmubcrxr49")!,
+            URL(string: "https://en.wikipedia.org/wiki/The_First_Purge")!
+        ]))
 }

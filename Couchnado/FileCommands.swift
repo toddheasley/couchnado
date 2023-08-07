@@ -1,43 +1,42 @@
+#if os(macOS)
 import SwiftUI
 import HyperCouch
 import CouchData
 
 struct FileCommands: View {
-    @EnvironmentObject private var data: CouchData
-    @State private var isImportingSpreadsheet: Bool = false
-    @State private var isExportingSpreadsheet: Bool = false
-    @State private var isExportingWebPage: Bool = false
+    @Observable class Options {
+        var isImportingSpreadsheet: Bool = false
+        var isExportingSpreadsheet: Bool = false
+        var isExportingWebPage: Bool = false
+    }
+    
+    @Environment(Options.self) private var options: Options
+    @Environment(CouchData.self) private var data: CouchData
     
     // MARK: View
     var body: some View {
-        Button("Import Spreadsheet…") {
-            isImportingSpreadsheet = true
+        VStack {
+            Button("Import Spreadsheet…") {
+                options.isImportingSpreadsheet = true
+            }
+            .keyboardShortcut("o", modifiers: .command)
+            Divider()
+            Button("Export Spreadsheet…") {
+                options.isExportingSpreadsheet = true
+            }
+            .keyboardShortcut("s", modifiers: .command)
+            .disabled(data.isEmpty)
+            Button("Export Web Page…") {
+                options.isExportingWebPage = true
+            }
+            .keyboardShortcut("s", modifiers: [.command, .option])
+            .disabled(data.isEmpty)
         }
-        .keyboardShortcut("o", modifiers: .command)
-        .spreadsheet(data, isImporting: $isImportingSpreadsheet)
-        Divider()
-        Button("Export Spreadsheet…") {
-            isExportingSpreadsheet = true
-        }
-        .keyboardShortcut("s", modifiers: .command)
-        .spreadsheet(data, isExporting: $isExportingSpreadsheet)
-        .disabled(data.isEmpty)
-        Button("Export Web Page…") {
-            isExportingWebPage = true
-        }
-        .keyboardShortcut("s", modifiers: [.command, .option])
-        .webPage(data, title: App.title, isExporting: $isExportingWebPage)
-        .disabled(data.isEmpty)
     }
 }
 
-struct FileCommands_Previews: PreviewProvider {
-    
-    // MARK: PreviewProvider
-    static var previews: some View {
-        FileCommands()
-            .environmentObject(CouchData())
-            .padding()
-    }
+#Preview {
+    FileCommands()
+        .environment(CouchData())
 }
-
+#endif

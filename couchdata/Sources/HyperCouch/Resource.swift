@@ -10,11 +10,16 @@ struct Resource {
         return url
     }
     
+    init(_ name: String, data: Data) {
+        self.name = name
+        self.data = data
+    }
+    
     init(_ name: String) throws {
         guard let url: URL = Bundle.module.url(forResource: name, withExtension: nil) else {
             throw URLError(.badURL)
         }
-        self.name = name
-        data = try Data(contentsOf: url)
+        let data: Data = try Data(contentsOf: url)
+        self.init(name, data: data)
     }
 }

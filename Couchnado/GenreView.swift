@@ -3,10 +3,9 @@ import CouchData
 
 struct GenreView: View {
     let genre: String
-    @Binding var filter: Video.Filter
     
     var isSelected: Bool {
-        switch filter {
+        switch data.filter {
         case .genre(let genre):
             return genre == self.genre
         default:
@@ -14,16 +13,17 @@ struct GenreView: View {
         }
     }
     
-    init(_ genre: String, filter: Binding<Video.Filter>) {
+    init(_ genre: String = .allGenres) {
         self.genre = genre
-        _filter = filter
     }
+    
+    @Environment(CouchData.self) private var data: CouchData
     
     // MARK: View
     var body: some View {
         Button(action: {
-            filter = (!isSelected && genre != .allGenres) ? .genre(genre) : .none
-        }, label: {
+            data.filter = (!isSelected && genre != .allGenres) ? .genre(genre) : .none
+        }) {
             HStack(alignment: .center) {
                 Text(genre.capitalized)
                     .truncationMode(.tail)
@@ -32,43 +32,21 @@ struct GenreView: View {
                 Image(systemName: "checkmark")
                     .opacity(isSelected ? 1.0 : 0.0)
             }
-        })
-#if os(macOS)
-        .buttonStyle(GenreButtonStyle(isSelected: isSelected))
+#if !os(tvOS)
+            .padding(.vertical, 3.5)
 #endif
+        }
     }
 }
-#if os(macOS)
 
-private struct GenreButtonStyle: ButtonStyle {
-    var isSelected: Bool
-    
-    // MARK: ButtonStyle
-    func makeBody(configuration: Configuration) -> some View {
-        configuration.label
-            .buttonStyle(BorderlessButtonStyle())
-            .foregroundColor(.secondary)
-            .padding(.horizontal, EdgeInsets.default.leading)
-            .padding(.vertical, 7.0)
-            .background(Color.secondary.opacity(isSelected ? 0.1 : 0.05))
-            .cornerRadius(6.5)
+#Preview {
+    VStack {
+        GenreView()
+        GenreView("high school")
     }
+    .environment(CouchData())
 }
-#endif
 
-extension String {
+private extension String {
     static let allGenres: String = "all genres"
-}
-
-struct GenreView_Previews: PreviewProvider {
-    
-    // MARK: PreviewProvider
-    static var previews: some View {
-        GenreView(.allGenres, filter: .constant(.none))
-            .padding()
-        GenreView("high school", filter: .constant(.genre("high school")))
-            .padding()
-        GenreView("high school", filter: .constant(.none))
-            .padding()
-    }
 }

@@ -11,12 +11,12 @@ final class ResourceTests: XCTestCase {
     }
     
     func testInit() throws {
-        XCTAssertEqual(try Resource("image.png").data.count, 50215)
+        XCTAssertEqual(try Resource("share-image.png").data.count, 40711)
         XCTAssertEqual(try Resource("apple-touch-icon.png").data.count, 5172)
         XCTAssertEqual(try Resource("favicon.ico").data.count, 861)
-        XCTAssertEqual(try Resource(URL.Service.wikipedia.name).data.count, 3173)
-        XCTAssertEqual(try Resource(URL.Service.apple.name).data.count, 3286)
-        XCTAssertEqual(try Resource(URL.Service.netflix.name).data.count, 3014)
-        XCTAssertEqual(try Resource("index.html").data.count, 3899)
+        XCTAssertEqual(try Resource("wikipedia.svg").data.count, 2342)
+        XCTAssertEqual(try Resource("apple-tv.svg").data.count, 2087)
+        XCTAssertEqual(try Resource("netflix.svg").data.count, 2437)
+        XCTAssertEqual(try Resource("index.html").data.count, 4010)
     }
 }
