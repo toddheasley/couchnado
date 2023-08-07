@@ -7,7 +7,9 @@ struct App: SwiftUI.App {
     static let title: String = "Couchnado"
     
     @State private var data: CouchData = CouchData()
+#if os(macOS)
     @State private var options: FileCommands.Options = FileCommands.Options()
+#endif
     @State private var text: String = ""
     
     // MARK: App
