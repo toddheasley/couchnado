@@ -22,14 +22,25 @@ import SwiftUI
     }
     
     public func load(_ url: URL? = nil) {
+        let url: URL = url ?? .data
         Task {
             do {
-                let (data, _) = try await URLSession.shared.data(from: url ?? .data)
-                guard let allVideos: [Video] = Table(data: data)?.records(Video.self) else {
-                    throw URLError(.cannotDecodeContentData)
+                switch url.scheme {
+                case "file":
+                    guard url.startAccessingSecurityScopedResource() else {
+                        throw URLError(.noPermissionsToReadFile)
+                    }
+                    let data: Data = try Data(contentsOf: url)
+                    try load(data: data)
+                    url.stopAccessingSecurityScopedResource()
+                default:
+                    let (data, _) = try await URLSession.shared.data(from: url)
+                    try load(data: data)
                 }
-                self.allVideos = allVideos
             } catch {
+                
+                print(error)
+                
                 self.error = error as? URLError
             }
         }
@@ -44,6 +55,13 @@ import SwiftUI
             videos = allVideos.filtered(by: filter).sorted(by: sort)
             genres = allVideos.genres
         }
+    }
+    
+    private func load(data: Data) throws {
+        guard let allVideos: [Video] = Table(data: data)?.records(Video.self) else {
+            throw URLError(.cannotDecodeContentData)
+        }
+        self.allVideos = allVideos
     }
     
     // MARK: CustomStringConvertible
