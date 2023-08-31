@@ -38,9 +38,6 @@ import SwiftUI
                     try load(data: data)
                 }
             } catch {
-                
-                print(error)
-                
                 self.error = error as? URLError
             }
         }
