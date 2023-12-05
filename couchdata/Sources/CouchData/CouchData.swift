@@ -38,7 +38,9 @@ import SwiftUI
                     try load(data: data)
                 }
             } catch {
-                self.error = error as? URLError
+                DispatchQueue.main.async {
+                    self.error = error as? URLError
+                }
             }
         }
     }
@@ -58,7 +60,9 @@ import SwiftUI
         guard let allVideos: [Video] = Table(data: data)?.records(Video.self) else {
             throw URLError(.cannotDecodeContentData)
         }
-        self.allVideos = allVideos
+        DispatchQueue.main.async {
+            self.allVideos = allVideos
+        }
     }
     
     // MARK: CustomStringConvertible
