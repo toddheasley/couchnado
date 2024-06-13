@@ -28,7 +28,7 @@ extension String: Value {
     }
 }
 
-extension String: Identifiable {
+extension String: @retroactive Identifiable {
     
     // MARK: Identifiable
     public var id: Self {

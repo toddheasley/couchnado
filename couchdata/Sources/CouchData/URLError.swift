@@ -1,6 +1,6 @@
 import Foundation
 
-extension URLError: CustomStringConvertible {
+extension URLError: @retroactive CustomStringConvertible {
     
     // MARK: CustomStringConvertible
     public var description: String {
@@ -11,7 +11,7 @@ extension URLError: CustomStringConvertible {
     }
 }
 
-extension URLError: Identifiable {
+extension URLError: @retroactive Identifiable {
     
     // MARK: Identifiable
     public var id: String {
