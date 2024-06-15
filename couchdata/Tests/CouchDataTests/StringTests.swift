@@ -1,20 +1,16 @@
-import XCTest
+import Testing
 @testable import CouchData
 
-final class StringTests: XCTestCase {
-    
-}
-
-extension StringTests {
+struct StringTests {
     
     // MARK: Value
-    func testValue() {
-        XCTAssertEqual(" Science Fiction \n".value, "science fiction")
+    @Test func value() {
+        #expect(" Science Fiction \n".value == "science fiction")
     }
     
-    func testvalueInit() {
-        XCTAssertEqual(String(value: "\nScience fiction"), "science fiction")
-        XCTAssertNil(String(value: " "))
-        XCTAssertNil(String(value: ""))
+    @Test func valueInit() {
+        #expect(String(value: "\nScience fiction") == "science fiction")
+        #expect(String(value: " ") == nil)
+        #expect(String(value: "") == nil)
     }
 }

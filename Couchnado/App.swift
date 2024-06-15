@@ -29,6 +29,7 @@ struct App: SwiftUI.App {
             .alert(error: $data.error) {
                 data.error = nil
             }
+            .tint(.primary)
         }
 #elseif os(macOS)
         Window(Self.title, id: Self.title) {
