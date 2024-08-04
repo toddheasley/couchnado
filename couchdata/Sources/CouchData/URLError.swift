@@ -4,17 +4,12 @@ extension URLError: @retroactive CustomStringConvertible {
     
     // MARK: CustomStringConvertible
     public var description: String {
-        guard !localizedDescription.contains("\(code.rawValue)") else {
-            return "I'm sorry, Dave. I'm afraid I can't do that."
-        }
-        return localizedDescription
+        !localizedDescription.contains(id) ? localizedDescription : "I'm sorry, Dave. I'm afraid I can't do that."
     }
 }
 
 extension URLError: @retroactive Identifiable {
     
     // MARK: Identifiable
-    public var id: String {
-        return "\(code.rawValue)"
-    }
+    public var id: String { "\(code.rawValue)" }
 }

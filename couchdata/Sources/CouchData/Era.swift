@@ -1,4 +1,4 @@
-public struct Era: ExpressibleByStringLiteral, CustomStringConvertible {
+public struct Era: Sendable, ExpressibleByStringLiteral, CustomStringConvertible {
     public let years: [ClosedRange<Int>]
     
     init?(years: [ClosedRange<Int>]) {
@@ -17,9 +17,7 @@ public struct Era: ExpressibleByStringLiteral, CustomStringConvertible {
     }
     
     // MARK: CustomStringConvertible
-    public var description: String {
-        return value
-    }
+    public var description: String { value }
 }
 
 extension Era: Value {
@@ -53,8 +51,9 @@ extension Era: Value {
 }
 
 extension Era: Comparable {
+    
     // MARK: Comparable
     public static func < (lhs: Self, rhs: Self) -> Bool {
-        return lhs.value < rhs.value
+        lhs.value < rhs.value
     }
 }

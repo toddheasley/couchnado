@@ -1,21 +1,17 @@
 import Foundation
 
-public struct Video: Record, Identifiable, Comparable, CustomStringConvertible {
-    public enum Format: String, Value, CaseIterable, Identifiable, CustomStringConvertible {
+public struct Video: Record, Sendable, Identifiable, Comparable, CustomStringConvertible {
+    public enum Format: String, Sendable, Value, CaseIterable, Identifiable, CustomStringConvertible {
         case movie, miniseries, series
         
         // MARK: Identifiable
-        public var id: String {
-            return value
-        }
+        public var id: String { value }
         
         // MARK: CustomStringConvertible
-        public var description: String {
-            return value
-        }
+        public var description: String { value }
     }
     
-    public enum Filter: Equatable, CustomStringConvertible {
+    public enum Filter: Sendable, Equatable, CustomStringConvertible {
         case title(String), genre(String), format(Format), none
         
         // MARK: CustomStringConvertible
@@ -33,15 +29,13 @@ public struct Video: Record, Identifiable, Comparable, CustomStringConvertible {
         }
     }
 
-    public enum Sort: String, CustomStringConvertible {
+    public enum Sort: String, Sendable, CustomStringConvertible {
         case title, era
         
         public static let `default`: Self = .title
         
         // MARK: CustomStringConvertible
-        public var description: String {
-            return rawValue
-        }
+        public var description: String { rawValue }
     }
     
     public let title: Title
@@ -52,11 +46,11 @@ public struct Video: Record, Identifiable, Comparable, CustomStringConvertible {
     public let links: [URL]
     
     public func link(for service: URL.Service) -> URL? {
-        return links.compactMap({ $0.service == service ? $0 : nil }).first
+        links.compactMap({ $0.service == service ? $0 : nil }).first
     }
     
     func matches(_ string: String) -> Bool {
-        return (franchise?.matches(string) ?? false) || title.matches(string)
+        (franchise?.matches(string) ?? false) || title.matches(string)
     }
     
     public init(_ title: Title, franchise: Title? = nil, format: Format, genres: [String] = [], era: Era, links: [URL] = []) {
@@ -71,9 +65,7 @@ public struct Video: Record, Identifiable, Comparable, CustomStringConvertible {
     // MARK: Record
     let schema: [String] = ["Title", "Franchise", "Format", "Genres", "Era", "Links"]
     
-    var record: [String] {
-        return [title.value, franchise?.value ?? "", format.value, genres.value, era.value, links.value]
-    }
+    var record: [String] { [title.value, franchise?.value ?? "", format.value, genres.value, era.value, links.value] }
     
     init?(record: [String]) {
         guard record.count == schema.count,
@@ -93,17 +85,11 @@ public struct Video: Record, Identifiable, Comparable, CustomStringConvertible {
     }
     
     // MARK: Identifiable
-    public var id: String {
-        return description.lowercased()
-    }
+    public var id: String { description.lowercased() }
         
     // MARK: Comparable
-    public static func < (lhs: Self, rhs: Self) -> Bool {
-        return lhs.title < rhs.title
-    }
+    public static func < (lhs: Self, rhs: Self) -> Bool { lhs.title < rhs.title }
     
     // MARK: CustomStringConvertible
-    public var description: String {
-        return "\(title) (\(era) \(format))"
-    }
+    public var description: String { "\(title) (\(era) \(format))" }
 }

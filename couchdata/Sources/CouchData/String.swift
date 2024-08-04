@@ -1,23 +1,17 @@
 extension String {
     public func tokenized() -> String {
-        return value.replacingOccurrences(of: " ", with: "")
+        value.replacingOccurrences(of: " ", with: "")
     }
     
-    var unwrappedValue: String {
-        return self.replacingOccurrences(of: "\"=\"\"", with: "").replacingOccurrences(of: "\"\"\"", with: "")
-    }
+    var unwrappedValue: String { replacingOccurrences(of: "\"=\"\"", with: "").replacingOccurrences(of: "\"\"\"", with: "") }
     
-    var wrappedValue: String {
-        return "\"=\"\"\(self)\"\"\""
-    }
+    var wrappedValue: String { "\"=\"\"\(self)\"\"\"" }
 }
 
 extension String: Value {
     
     // MARK: Value
-    var value: String {
-        return lowercased().filter("0123456789 abcdefghijklmnopqrstuvwxyz".contains).trimmingCharacters(in: .whitespaces)
-    }
+    var value: String { lowercased().filter("0123456789 abcdefghijklmnopqrstuvwxyz".contains).trimmingCharacters(in: .whitespaces) }
     
     init?(value: String) {
         let value: String = value.value
@@ -31,7 +25,5 @@ extension String: Value {
 extension String: @retroactive Identifiable {
     
     // MARK: Identifiable
-    public var id: Self {
-        return self
-    }
+    public var id: Self { self }
 }

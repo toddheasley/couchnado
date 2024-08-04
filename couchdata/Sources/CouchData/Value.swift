@@ -1,9 +1,7 @@
 import Foundation
 
 protocol Value {
-    var value: String {
-        get
-    }
+    var value: String { get }
     
     init?(value: String)
 }
@@ -11,9 +9,7 @@ protocol Value {
 extension Value where Self: RawRepresentable, Self.RawValue == String {
     
     // MARK: Value
-    var value: String {
-        return rawValue
-    }
+    var value: String { rawValue }
     
     init?(value: String) {
         self.init(rawValue: value)

@@ -101,9 +101,7 @@ extension WebPage: FileDocument {
 #endif
 
 private extension URL.Service {
-    var name: String {
-        return "\(uri).svg"
-    }
+    var name: String { "\(uri).svg" }
     
     private var uri: String {
         switch self {

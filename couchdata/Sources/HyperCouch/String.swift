@@ -6,7 +6,7 @@ extension String {
     }
     
     func replacing(_ comment: Self, with value: Self) -> Self {
-        return replacingOccurrences(of: "/* \(comment) */", with: value)
+        replacingOccurrences(of: "/* \(comment) */", with: value)
     }
     
     mutating func replace(_ tag: (Self, Self?), with value: Self) {
@@ -22,7 +22,7 @@ extension String {
     }
     
     func values(for tag: (Self, Self)) -> [Self] {
-        return matches(tag).map { $0.trimmed(tag) }
+        matches(tag).map { $0.trimmed(tag) }
     }
     
     func matches(_ tag: (Self, Self?)) -> [Self] {

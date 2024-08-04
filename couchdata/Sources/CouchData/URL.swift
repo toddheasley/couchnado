@@ -20,7 +20,7 @@ extension URL {
 }
 
 extension URL {
-    public enum Service: String, CaseIterable, Identifiable, CustomStringConvertible {
+    public enum Service: String, Sendable, CaseIterable, Identifiable, CustomStringConvertible {
         case wikipedia, apple, netflix
         
         fileprivate var host: String? {
@@ -35,9 +35,7 @@ extension URL {
         }
         
         // MARK: Identifiable
-        public var id: String {
-            return rawValue
-        }
+        public var id: String { rawValue }
         
         // MARK: CustomStringConvertible
         public var description: String {
@@ -51,9 +49,7 @@ extension URL {
     }
     
     public var service: Service? {
-        return Service.allCases.filter({ service in
-            return (host ?? "").contains(service.host ?? " ")
-        }).first
+        Service.allCases.filter { (host ?? "").contains($0.host ?? " ") }.first
     }
 }
 

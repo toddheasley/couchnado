@@ -8,7 +8,9 @@ struct ViewCommands: View {
     // MARK: View
     var body: some View {
         Button("Refresh Videos") {
-            data.load()
+            Task { [weak data] in
+                await data?.load()
+            }
         }
         .keyboardShortcut("r", modifiers: .command)
     }

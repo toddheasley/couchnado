@@ -2,12 +2,12 @@
 
 import PackageDescription
 
-let package: Package = Package(name: "couchdata", platforms: [
-        .tvOS(.v17),
-        .macOS(.v14),
-        .visionOS(.v1),
-        .iOS(.v17),
-        .watchOS(.v10)
+let package: Package = Package(name: "CouchData", platforms: [
+        .tvOS(.v18),
+        .macOS(.v15),
+        .visionOS(.v2),
+        .iOS(.v18),
+        .watchOS(.v11)
     ],
     products: [
         .library(name: "CouchData", targets: [

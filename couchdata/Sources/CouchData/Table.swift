@@ -1,20 +1,18 @@
 import Foundation
 
-struct Table {
+struct Table: Sendable {
     let records: [[String]]
     let schema: [String]
     
     func records<T: Record>(_ type: T.Type) -> [T] {
-        return records.compactMap { T(record: $0) }
+        records.compactMap { T(record: $0) }
     }
     
     init?(records: [Record]) {
         guard let schema: [String] = records.first?.schema else {
             return nil
         }
-        self.records = records.compactMap { record in
-            return record.schema == schema ? record.record : nil
-        }
+        self.records = records.compactMap { $0.schema == schema ? $0.record : nil }
         self.schema = schema
     }
 }

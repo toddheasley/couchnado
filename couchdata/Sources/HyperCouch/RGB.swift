@@ -41,15 +41,11 @@ struct RGB: CustomStringConvertible {
 }
 
 private extension CGFloat {
-    var intValue: Int {
-        return Int(self * 255.0)
-    }
+    var intValue: Int { Int(self * 255.0) }
     
-    var value: Self {
-        return self / 255.0
-    }
+    var value: Self { self / 255.0 }
     
     func clamped(_ range: ClosedRange<Self>) -> Self {
-        return Self.minimum(Self.maximum(self, range.lowerBound), range.upperBound)
+        Self.minimum(Self.maximum(self, range.lowerBound), range.upperBound)
     }
 }
