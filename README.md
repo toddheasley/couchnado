@@ -12,7 +12,7 @@ Couchnado keeps my favorite movies and TV shows handy on Apple TV.
 
 ### Powered by Spreadsheet
 
-Couchnado's thin veneer of [SwiftUI](https://developer.apple.com/xcode/swiftui) is driven by a single spreadsheet, brought to life by the included [`CouchData`](couchdata/) package.
+The included [`CouchData` package](couchdata/) transforms rows and columns from a single, static [tab-separated values (.tsv) spreadsheet](https://en.wikipedia.org/wiki/Tab-separated_values) into video titles, links and genres.
 
 ### Requirements
 
