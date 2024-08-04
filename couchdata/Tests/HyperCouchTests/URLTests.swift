@@ -1,25 +1,21 @@
-import XCTest
+import Testing
 @testable import HyperCouch
+import Foundation
 
-final class URLTests: XCTestCase {
-    
-}
-
-extension URLTests {
-    func testBase() {
-        XCTAssertEqual(URL.base, URL(string: "index.html", relativeTo: .docs))
+struct URLTests {
+    @Test func base() {
+        #expect(URL(string: "index.html", relativeTo: .docs) == .base)
     }
     
-    func testNameBase() throws {
-        XCTAssertEqual(try .base("base", relativeTo: .docs), URL(string: "base.html", relativeTo: .docs))
+    @Test func nameBase() {
+        #expect(URL(string: "base.html", relativeTo: .docs) == (try! .base("base", relativeTo: .docs)))
         let url: URL = URL(fileURLWithPath: "file:///Users/toddheasley/Documents/")
-        XCTAssertEqual(try .base(relativeTo: url), URL(string: "index.html", relativeTo: url))
-        
+        #expect(URL(string: "index.html", relativeTo: url) == (try! .base(relativeTo: url)))
     }
     
-    func testStringBase() throws {
-        XCTAssertEqual(try URL.base(string: "apple-touch-icon.png"), URL(string: "apple-touch-icon.png", relativeTo: .docs))
+    @Test func stringBase() throws {
+        #expect(try! URL.base(string: "apple-touch-icon.png") == URL(string: "apple-touch-icon.png", relativeTo: .docs))
         let url: URL = URL(fileURLWithPath: "file:///Users/toddheasley/Documents/")
-        XCTAssertEqual(try URL.base(string: "favicon.ico", relativeTo: url), URL(string: "favicon.ico", relativeTo: url))
+        #expect(try! URL.base(string: "favicon.ico", relativeTo: url) == URL(string: "favicon.ico", relativeTo: url))
     }
 }

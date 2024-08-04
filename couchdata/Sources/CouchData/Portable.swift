@@ -8,17 +8,9 @@ public protocol Importable {
 }
 
 public protocol Exportable {
-    static var contentType: UTType {
-        get
-    }
-    
-    static var defaultFilename: String? {
-        get
-    }
+    static var contentType: UTType { get }
+    static var defaultFilename: String? { get }
 #if os(macOS)
-    
-    var file: FileDocument? {
-        get
-    }
+    var file: FileDocument? { get }
 #endif
 }

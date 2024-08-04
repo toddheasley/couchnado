@@ -1,22 +1,23 @@
-import XCTest
+import Testing
 @testable import HyperCouch
+import Foundation
 
-final class ResourceTests: XCTestCase {
-    func testSave() throws {
+struct ResourceTests {
+    @Test func save() throws {
         let url: URL = URL(fileURLWithPath: NSTemporaryDirectory())
         let resource: Resource = try Resource("apple-touch-icon.png")
         try resource.save(url)
         let file: Data = try Data(contentsOf: URL(string: resource.name, relativeTo: url)!)
-        XCTAssertEqual(file.count, 5172)
+        #expect(file.count == 5172)
     }
     
-    func testInit() throws {
-        XCTAssertEqual(try Resource("share-image.png").data.count, 40711)
-        XCTAssertEqual(try Resource("apple-touch-icon.png").data.count, 5172)
-        XCTAssertEqual(try Resource("favicon.ico").data.count, 861)
-        XCTAssertEqual(try Resource("wikipedia.svg").data.count, 2342)
-        XCTAssertEqual(try Resource("apple-tv.svg").data.count, 2087)
-        XCTAssertEqual(try Resource("netflix.svg").data.count, 2437)
-        XCTAssertEqual(try Resource("index.html").data.count, 4010)
+    @Test func nameInit() throws {
+        #expect(try Resource("share-image.png").data.count == 40711)
+        #expect(try Resource("apple-touch-icon.png").data.count == 5172)
+        #expect(try Resource("favicon.ico").data.count == 861)
+        #expect(try Resource("wikipedia.svg").data.count == 2342)
+        #expect(try Resource("apple-tv.svg").data.count == 2087)
+        #expect(try Resource("netflix.svg").data.count == 2437)
+        #expect(try Resource("index.html").data.count == 4010)
     }
 }

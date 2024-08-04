@@ -6,47 +6,37 @@ import SwiftUI
     public var error: URLError?
     
     public var filter: Video.Filter = .none {
-        didSet {
-            allVideos = nil ?? allVideos
-        }
+        didSet { allVideos = nil ?? allVideos }
     }
     
     public var sort: Video.Sort = .default {
-        didSet {
-            allVideos = nil ?? allVideos
-        }
+        didSet { allVideos = nil ?? allVideos }
     }
     
-    public var isEmpty: Bool {
-        return allVideos.isEmpty
-    }
+    public var isEmpty: Bool { allVideos.isEmpty }
     
-    public func load(_ url: URL? = nil) {
+    public func load(_ url: URL? = nil) async {
         let url: URL = url ?? .data
-        Task {
-            do {
-                switch url.scheme {
-                case "file":
-                    guard url.startAccessingSecurityScopedResource() else {
-                        throw URLError(.noPermissionsToReadFile)
-                    }
-                    let data: Data = try Data(contentsOf: url)
-                    try load(data: data)
-                    url.stopAccessingSecurityScopedResource()
-                default:
-                    let (data, _) = try await URLSession.shared.data(from: url)
-                    try load(data: data)
+        do {
+            switch url.scheme {
+            case "file":
+                guard url.startAccessingSecurityScopedResource() else {
+                    throw URLError(.noPermissionsToReadFile)
                 }
-            } catch {
-                DispatchQueue.main.async {
-                    self.error = error as? URLError
-                }
+                let data: Data = try Data(contentsOf: url)
+                try load(data: data)
+                url.stopAccessingSecurityScopedResource()
+            default:
+                let (data, _) = try await URLSession.shared.data(from: url)
+                try load(data: data)
             }
+        } catch {
+            self.error = error as? URLError
         }
     }
     
-    public init(_ url: URL? = nil) {
-        load(url)
+    public init() {
+        
     }
     
     private var allVideos: [Video] = [] {
@@ -60,9 +50,7 @@ import SwiftUI
         guard let allVideos: [Video] = Table(data: data)?.records(Video.self) else {
             throw URLError(.cannotDecodeContentData)
         }
-        DispatchQueue.main.async {
-            self.allVideos = allVideos
-        }
+        self.allVideos = allVideos
     }
     
     // MARK: CustomStringConvertible
@@ -84,9 +72,6 @@ extension CouchData: Portable {
     // MARK: Portable
     public static let contentType: UTType = Spreadsheet.readableContentTypes.first!
     public static let defaultFilename: String? = URL.data.deletingPathExtension().relativeString
-    
-    public var file: FileDocument? {
-        return Spreadsheet(Table(records: allVideos))
-    }
+    public var file: FileDocument? { Spreadsheet(Table(records: allVideos)) }
 }
 #endif

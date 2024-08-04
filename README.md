@@ -12,10 +12,10 @@ Couchnado keeps my favorite movies and TV shows handy on Apple TV.
 
 ### Powered by Spreadsheet
 
-Couchnado's thin veneer of [SwiftUI](https://developer.apple.com/xcode/swiftui) is driven by a single spreadsheet, brought to life by the included [`CouchData`](couchdata/) package.
+The included [`CouchData` package](couchdata/) transforms rows and columns from a single, static [tab-separated values (.tsv) spreadsheet](https://en.wikipedia.org/wiki/Tab-separated_values) into video titles, links and genres.
 
 ### Requirements
 
-Version 3 starts over with a unified SwiftUI app targeting [tvOS](https://developer.apple.com/tvos) 17, [iOS](https://developer.apple.com/ios)/[iPadOS](https://developer.apple.com/ipad) 17 and [macOS](https://developer.apple.com/macos) 14 Sonoma, including preliminary support for [visionOS.](https://developer.apple.com/visionos)
+Version 3 is a unified SwiftUI app targeting [tvOS](https://developer.apple.com/tvos) 18, [iOS](https://developer.apple.com/ios)/[iPadOS](https://developer.apple.com/ipad) 18 and [macOS](https://developer.apple.com/macos) 15 Sequoia, with preliminary support for [visionOS.](https://developer.apple.com/visionos)
 
-Written in [Swift](https://developer.apple.com/documentation/swift) 5.9. Builds in [Xcode](https://developer.apple.com/xcode) 15 or newer.
+Written in [Swift](https://developer.apple.com/documentation/swift) 6. Builds in [Xcode](https://developer.apple.com/xcode) 16 or newer.

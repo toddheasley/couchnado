@@ -1,31 +1,31 @@
-import XCTest
+import Testing
 @testable import HyperCouch
 
-final class RGBATests: XCTestCase {
-    func testCGFloatInit() {
+struct RGBTests {
+    @Test func cgFloatInit() {
         let rgb: RGB = RGB(0.5, 255.0, -1.0, 0.75)
-        XCTAssertEqual(rgb.red, 0.5)
-        XCTAssertEqual(rgb.green, 1.0)
-        XCTAssertEqual(rgb.blue, 0.0)
-        XCTAssertEqual(rgb.alpha, 0.75)
+        #expect(rgb.red == 0.5)
+        #expect(rgb.green == 1.0)
+        #expect(rgb.blue == 0.0)
+        #expect(rgb.alpha == 0.75)
     }
     
-    func testIntInit() {
+    @Test func intInit() {
         var rgb: RGB = RGB(127, 1000, -37, 0.75)
-        XCTAssertEqual(rgb.red, 0.5, accuracy: 0.01)
-        XCTAssertEqual(rgb.green, 1.0)
-        XCTAssertEqual(rgb.blue, 0.0)
-        XCTAssertEqual(rgb.alpha, 0.75)
+        #expect(rgb.red ==  0.4980392156862745)
+        #expect(rgb.green == 1.0)
+        #expect(rgb.blue == 0.0)
+        #expect(rgb.alpha == 0.75)
         rgb = RGB(203, 229, 209)
-        XCTAssertEqual(rgb.red, 0.8, accuracy: 0.01)
-        XCTAssertEqual(rgb.green, 0.9, accuracy: 0.01)
-        XCTAssertEqual(rgb.blue, 0.82, accuracy: 0.01)
-        XCTAssertEqual(rgb.alpha, 1.0)
+        #expect(rgb.red == 0.796078431372549)
+        #expect(rgb.green == 0.8980392156862745)
+        #expect(rgb.blue == 0.8196078431372549)
+        #expect(rgb.alpha == 1.0)
     }
     
     // MARK: CustomStringConvertible
-    func testDescription() {
-        XCTAssertEqual(RGB(0.5, 1.0, 0.0, 0.75).description, "rgba(127, 255, 0, 0.75)")
-        XCTAssertEqual(RGB(203, 229, 209).description, "rgb(203, 229, 209)")
+    @Test func description() {
+        #expect(RGB(0.5, 1.0, 0.0, 0.75).description == "rgba(127, 255, 0, 0.75)")
+        #expect(RGB(203, 229, 209).description == "rgb(203, 229, 209)")
     }
 }

@@ -26,9 +26,13 @@ struct App: SwiftUI.App {
                 }
             }
             .environment(data)
+            .task { [weak data] in
+                await data?.load()
+            }
             .alert(error: $data.error) {
                 data.error = nil
             }
+            .tint(.primary)
         }
 #elseif os(macOS)
         Window(Self.title, id: Self.title) {
@@ -52,6 +56,9 @@ struct App: SwiftUI.App {
                 data.filter = text.isEmpty ? .none : .title(text)
             }
             .environment(data)
+            .task { [weak data] in
+                await data?.load()
+            }
             .spreadsheet(data, isExporting: $options.isExportingSpreadsheet)
             .spreadsheet(data, isImporting: $options.isImportingSpreadsheet)
             .alert(error: $data.error) {
@@ -83,8 +90,8 @@ struct App: SwiftUI.App {
             NavigationStack {
                 VideoList()
                     .background(Color.tableBackground)
-                    .refreshable {
-                        data.load()
+                    .refreshable { [weak data] in
+                        await data?.load()
                     }
             }
             .searchable(text: $text)
@@ -92,6 +99,10 @@ struct App: SwiftUI.App {
                 data.filter = text.isEmpty ? .none : .title(text)
             }
             .environment(data)
+            .task { [weak data] in
+                await data?.load()
+            }
+
             .alert(error: $data.error) {
                 data.error = nil
             }
@@ -102,7 +113,7 @@ struct App: SwiftUI.App {
 
 private extension View {
     func alert(error: Binding<URLError?>, action: @escaping () -> Void = {}) -> some View {
-        return alert(item: error) { error in
+        alert(item: error) { error in
             Alert(title: Text("Error"), message: Text(error.description), dismissButton: .default(Text("OK"), action: action))
         }
     }

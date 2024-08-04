@@ -2,24 +2,20 @@ import Foundation
 import CouchData
 
 extension Video {
-    public var subtitle: String {
-        return "\(era) \(format)"
-    }
+    public var subtitle: String { "\(era) \(format)" }
     
-    public var watch: URL? {
-        return link(for: .apple) ?? link(for: .netflix)
-    }
+    public var watch: URL? { link(for: .apple) ?? link(for: .netflix) }
     
     public var about: URL? {
 #if canImport(WebKit)
-        return link(for: .wikipedia)
+        link(for: .wikipedia)
 #else
-        return nil
+        nil
 #endif
     }
     
     var filter: String {
-        return [
+        [
             "\(title)".tokenized(),
             genres.map({ $0.tokenized() }).joined(separator: " "),
             "\(format)".tokenized()

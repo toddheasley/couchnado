@@ -1,41 +1,41 @@
-import XCTest
+import Testing
 @testable import CouchData
+import Foundation
 
-final class TableTests: XCTestCase {
-    func testRecords() throws {
-        let table: Table = try XCTUnwrap(Table(data: TableTests_Data))
-        XCTAssertEqual(table.records(Video.self).count, 3)
+struct TableTests {
+    @Test func records() throws {
+        let table: Table = try #require(Table(data: TableTests_Data))
+        #expect(table.records(Video.self).count == 3)
     }
     
-    func testRecordsInit() throws {
-        let table1: Table = try XCTUnwrap(Table(data: TableTests_Data))
-        let table2: Table = try XCTUnwrap(Table(records: table1.records(Video.self)))
-        
-        XCTAssertEqual(table1.schema, table2.schema)
-        XCTAssertEqual([
+    @Test func recordsInit() throws {
+        let table1: Table = try #require(Table(data: TableTests_Data))
+        let table2: Table = try #require(Table(records: table1.records(Video.self)))
+        #expect([
             ["The Shining", "", "movie", "horror, suspense", "1980", "https://tv.apple.com/us/movie/the-shining/umc.cmc.be3gn94hs3l9fjvg34ex9sy1, https://en.wikipedia.org/wiki/The_Shining_(film)"],
             ["Castle Rock", "", "series", "horror, suspense", "2018-2019", "https://en.wikipedia.org/wiki/Castle_Rock_(TV_series)"],
             ["11.22.63", "", "miniseries", "science fiction", "2016", "https://en.wikipedia.org/wiki/11.22.63"]
-        ], table2.records)
+        ] == table2.records)
+        #expect(table1.schema == table2.schema)
     }
 }
 
 extension TableTests {
-    func testData() throws {
-        let table1: Table = try XCTUnwrap(Table(data: TableTests_Data))
-        let table2: Table = try XCTUnwrap(Table(data: table1.data))
-        XCTAssertEqual(table1.schema, table2.schema)
-        XCTAssertEqual(table1.records, table2.records)
+    @Test func data() throws {
+        let table1: Table = try #require(Table(data: TableTests_Data))
+        let table2: Table = try #require(Table(data: table1.data))
+        #expect(table1.records == table2.records)
+        #expect(table1.schema == table2.schema)
     }
     
-    func testDataInit() throws {
-        let table: Table = try XCTUnwrap(Table(data: TableTests_Data))
-        XCTAssertEqual(table.schema, ["Title", "Franchise", "Format", "Genres", "Era", "Links"])
-        XCTAssertEqual(table.records, [
+    @Test func dataInit() throws {
+        let table: Table = try #require(Table(data: TableTests_Data))
+        #expect([
             ["The Shining", "", "movie", "horror, suspense", "1980, REDRUM", "https://tv.apple.com/us/movie/the-shining/umc.cmc.be3gn94hs3l9fjvg34ex9sy1, https://en.wikipedia.org/wiki/The_Shining_(film)"],
             ["Castle Rock", "", "series", "horror, suspense", "2018-2019", "https://en.wikipedia.org/wiki/Castle_Rock_(TV_series)"],
             ["11.22.63", "", "miniseries", "science fiction", "2016", "https://en.wikipedia.org/wiki/11.22.63,,"]
-        ])
+        ] == table.records)
+        #expect(["Title", "Franchise", "Format", "Genres", "Era", "Links"] == table.schema)
     }
 }
 

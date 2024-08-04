@@ -2,7 +2,7 @@
 import SwiftUI
 import UniformTypeIdentifiers
 
-public struct Spreadsheet: FileDocument {
+public struct Spreadsheet: Sendable, FileDocument {
     let table: Table
     
     init?(_ table: Table?) {
@@ -24,7 +24,7 @@ public struct Spreadsheet: FileDocument {
     }
     
     public func fileWrapper(configuration: WriteConfiguration) throws -> FileWrapper {
-        return FileWrapper(regularFileWithContents: table.data)
+        FileWrapper(regularFileWithContents: table.data)
     }
 }
 #endif

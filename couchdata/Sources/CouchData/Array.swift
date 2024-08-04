@@ -35,9 +35,7 @@ extension Array where Element == Video {
 extension Array: Value where Element: Value {
     
     // MARK: Value
-    var value: String {
-        return map { $0.value }.joined(separator: ", ")
-    }
+    var value: String { map { $0.value }.joined(separator: ", ") }
     
     init?(value: String) {
         self = value.components(separatedBy: ",").compactMap { Element(value: $0.trimmingCharacters(in: .whitespacesAndNewlines))}

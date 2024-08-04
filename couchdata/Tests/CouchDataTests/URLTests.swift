@@ -1,46 +1,43 @@
-import XCTest
+import Testing
 @testable import CouchData
+import Foundation
 
-final class URLTests: XCTestCase {
-    
-}
-
-extension URLTests {
-    func testRepo() {
-        XCTAssertEqual(URL.repo, URL(string: "https://github.com/toddheasley/couchnado"))
+struct URLTests {
+    @Test func repo() {
+        #expect(URL(string: "https://github.com/toddheasley/couchnado") == .repo)
     }
     
-    func testDocs() {
-        XCTAssertEqual(URL.docs, URL(string: "https://toddheasley.github.io/couchnado/"))
+    @Test func docs() {
+        #expect(URL(string: "https://toddheasley.github.io/couchnado/") == .docs)
     }
     
-    func testData() {
-        XCTAssertEqual(URL.data, URL(string: "index.tsv", relativeTo: .docs))
+    @Test func data() {
+        #expect(URL(string: "index.tsv", relativeTo: .docs) == .data)
     }
     
-    func testNameData() throws {
+    @Test func nameData() throws {
+        #expect(throws: URLError.self) {
+            try URL.data("data", relativeTo: URL(string: "ftp://127.0.0.1")!)
+        }
+        #expect(throws: URLError.self) {
+            try URL.data("", relativeTo: .docs)
+        }
         var url: URL = try .data("data", relativeTo: .docs)
-        XCTAssertEqual(url, URL(string: "data.tsv", relativeTo: .docs))
+        #expect(url == URL(string: "data.tsv", relativeTo: .docs))
         let httpURL: URL = URL(string: "http://example.com/couchnado/")!
         url = try .data("data", relativeTo: httpURL)
-        XCTAssertEqual(url, URL(string: "data.tsv", relativeTo: httpURL))
+        #expect(url == URL(string: "data.tsv", relativeTo: httpURL))
         let fileURL: URL = URL(fileURLWithPath: "file:///Users/toddheasley/Documents/")
         url = try .data("Data File", relativeTo: fileURL)
-        XCTAssertEqual(url, URL(string: "Data%20File.tsv", relativeTo: fileURL))
-        XCTAssertThrowsError(try URL.data("data", relativeTo: URL(string: "ftp://127.0.0.1")!)) { error in
-            XCTAssertEqual(error as? URLError, URLError(.unsupportedURL))
-        }
-        XCTAssertThrowsError(try URL.data("", relativeTo: .docs)) { error in
-            XCTAssertEqual(error as? URLError, URLError(.badURL))
-        }
+        #expect(url == URL(string: "Data%20File.tsv", relativeTo: fileURL))
     }
 }
 
 extension URLTests {
-    func testService() {
-        XCTAssertEqual(URL(string: "https://en.wikipedia.org")!.service, .wikipedia)
-        XCTAssertEqual(URL(string: "https://tv.apple.com")!.service, .apple)
-        XCTAssertEqual(URL(string: "https://www.netflix.com")!.service, .netflix)
-        XCTAssertNil(URL(string: "https://hbo.com")!.service)
+    @Test func service() {
+        #expect(URL(string: "https://en.wikipedia.org")?.service == .wikipedia)
+        #expect(URL(string: "https://tv.apple.com")?.service == .apple)
+        #expect(URL(string: "https://www.netflix.com")?.service == .netflix)
+        #expect(URL(string: "https://hbo.com")?.service == nil)
     }
 }

@@ -5,11 +5,11 @@ extension Color {
     public static let tableBackground: Self = Self(rgb: RGB.background)
     
     public static func tableLink(_ url: URL? = nil) -> Self {
-        return url != nil ? Self(rgb: RGB.link) : tableForeground
+        url != nil ? Self(rgb: RGB.link) : tableForeground
     }
     
     public static func tableRow(_ index: Int? = nil) -> Self {
-        return (index ?? 0) % 2 == 0 ? Self(rgb: RGB.alternate) : clear
+        (index ?? 0) % 2 == 0 ? Self(rgb: RGB.alternate) : clear
     }
     
     private init(rgb: RGB.Pair) {

@@ -1,4 +1,4 @@
-public struct Title: Value, ExpressibleByStringLiteral, CustomStringConvertible {
+public struct Title: Value, Sendable, ExpressibleByStringLiteral, CustomStringConvertible {
     public var sortDescription: String {
         var components: [String] = value.components(separatedBy: " ")
         if components.count > 1, ["a", "an", "the"].contains(components[0].lowercased()) {
@@ -11,7 +11,7 @@ public struct Title: Value, ExpressibleByStringLiteral, CustomStringConvertible 
     }
     
     func matches(_ string: String) -> Bool {
-        return string.isEmpty || description.tokenized().contains(string.tokenized())
+        string.isEmpty || description.tokenized().contains(string.tokenized())
     }
     
     // MARK: Value
@@ -30,15 +30,13 @@ public struct Title: Value, ExpressibleByStringLiteral, CustomStringConvertible 
     }
     
     // MARK: CustomStringConvertible
-    public var description: String {
-        return value
-    }
+    public var description: String { value }
 }
 
 extension Title: Comparable {
     
     // MARK: Comparable
     public static func < (lhs: Self, rhs: Self) -> Bool {
-        return lhs.sortDescription.lowercased() < rhs.sortDescription.lowercased()
+        lhs.sortDescription.lowercased() < rhs.sortDescription.lowercased()
     }
 }

@@ -1,61 +1,56 @@
-import XCTest
+import Testing
 @testable import HyperCouch
 
-final class StringTests: XCTestCase {
-    
-}
-
-extension StringTests {
-    func testCommentReplace() {
+struct StringTests {
+    @Test func commentReplace() {
         var string: String = "--background: /* background-dark */;"
         string.replace("background-dark", with: "rgb(0, 0, 0)")
-        XCTAssertEqual(string, "--background: rgb(0, 0, 0);")
+        #expect(string == "--background: rgb(0, 0, 0);")
     }
     
-    func testCommentReplacing() {
-        XCTAssertEqual("--background: /* background-dark */;".replacing("background-dark", with: "rgb(0, 0, 0)"), "--background: rgb(0, 0, 0);")
+    @Test func commentReplacing() {
+        #expect("--background: /* background-dark */;".replacing("background-dark", with: "rgb(0, 0, 0)") == "--background: rgb(0, 0, 0);")
     }
     
-    func testTagReplace() {
+    @Test func tagReplace() {
         var string: String = "<title><!-- title --></title>"
         string.replace(("title", nil), with: "HyperCouch")
-        XCTAssertEqual(string, "<title>HyperCouch</title>")
+        #expect(string == "<title>HyperCouch</title>")
         string = "<!-- genres? -->\n<!-- genres[ -->\n    <option><!-- genre --></option>\n<!-- ]genres -->\n    <option>&nbsp;</option>\n<!-- ?genres -->"
         string.replace(("genres?", "?genres"), with: "")
-        XCTAssertEqual(string, "")
-        
+        #expect(string == "")
     }
     
-    func testTagReplacing() {
-        XCTAssertEqual("<title><!-- title --></title>".replacing(("title", nil), with: "HyperCouch"), "<title>HyperCouch</title>")
-        XCTAssertEqual("<!-- genres? -->\n<!-- genres[ -->\n    <option><!-- genre --></option>\n<!-- ]genres -->\n    <option>&nbsp;</option>\n<!-- ?genres -->".replacing(("genres?", "?genres"), with: ""), "")
+    @Test func tagReplacing() {
+        #expect("<title><!-- title --></title>".replacing(("title", nil), with: "HyperCouch") == "<title>HyperCouch</title>")
+        #expect("<!-- genres? -->\n<!-- genres[ -->\n    <option><!-- genre --></option>\n<!-- ]genres -->\n    <option>&nbsp;</option>\n<!-- ?genres -->".replacing(("genres?", "?genres"), with: "") == "")
     }
     
-    func testTagValues() {
-        XCTAssertEqual(string.values(for: ("genres[", "]genres")), ["    <option><!-- genre --></option>\n"])
+    @Test func tagValues() {
+        #expect(string.values(for: ("genres[", "]genres")) == ["    <option><!-- genre --></option>\n"])
     }
     
-    func testTagMatches() {
-        XCTAssertEqual(string.matches(("title", nil)), ["<!-- title -->", "<!-- title -->"])
-        XCTAssertEqual(string.matches(("genres?", "?genres")), ["<!-- genres? -->\n<!-- genres[ -->\n    <option><!-- genre --></option>\n<!-- ]genres -->\n    <option>&nbsp;</option>\n<!-- ?genres -->"])
-        XCTAssertEqual(string.matches(("format[", "]format")), ["<!-- format[ -->\n    <option><!-- format --></option>\n<!-- ]format -->"])
+    @Test func tagMatches() {
+        #expect(string.matches(("title", nil)) == ["<!-- title -->", "<!-- title -->"])
+        #expect(string.matches(("genres?", "?genres")) == ["<!-- genres? -->\n<!-- genres[ -->\n    <option><!-- genre --></option>\n<!-- ]genres -->\n    <option>&nbsp;</option>\n<!-- ?genres -->"])
+        #expect(string.matches(("format[", "]format")) == ["<!-- format[ -->\n    <option><!-- format --></option>\n<!-- ]format -->"])
     }
     
-    func testTagTrimmed() {
-        XCTAssertEqual("<!-- genres[ -->\n    <option><!-- genre --></option>\n<!-- ]genres -->".trimmed(("genres[", "]genres")), "    <option><!-- genre --></option>\n")
+    @Test func tagTrimmed() {
+        #expect("<!-- genres[ -->\n    <option><!-- genre --></option>\n<!-- ]genres -->".trimmed(("genres[", "]genres")) == "    <option><!-- genre --></option>\n")
     }
 }
 
 extension StringTests {
-    func testPatternMatches() {
-        XCTAssertEqual(string.matches("<!-- title -->"), ["<!-- title -->", "<!-- title -->"])
-        XCTAssertEqual(string.matches("<\\!-- genres\\[ -->(.*?)<!-- ]genres -->"), ["<!-- genres[ -->\n    <option><!-- genre --></option>\n<!-- ]genres -->"])
-        XCTAssertEqual(string.matches("<option>(.*?)</option>"), ["<option><!-- genre --></option>", "<option>&nbsp;</option>", "<option><!-- format --></option>"])
+    @Test func patternMatches() {
+        #expect(string.matches("<!-- title -->") == ["<!-- title -->", "<!-- title -->"])
+        #expect(string.matches("<\\!-- genres\\[ -->(.*?)<!-- ]genres -->") == ["<!-- genres[ -->\n    <option><!-- genre --></option>\n<!-- ]genres -->"])
+        #expect(string.matches("<option>(.*?)</option>") == ["<option><!-- genre --></option>", "<option>&nbsp;</option>", "<option><!-- format --></option>"])
     }
     
-    func testPattern() {
-        XCTAssertEqual("<!-- videos? -->".pattern(["!"]), "<\\!-- videos? -->")
-        XCTAssertEqual("<!-- videos? -->".pattern(), "<\\!-- videos\\? -->")
+    @Test func pattern() {
+        #expect("<!-- videos? -->".pattern(["!"]) == "<\\!-- videos? -->")
+        #expect("<!-- videos? -->".pattern() == "<\\!-- videos\\? -->")
     }
 }
 
