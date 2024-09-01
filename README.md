@@ -18,4 +18,4 @@ The included [`CouchData` package](couchdata/) transforms rows and columns from 
 
 Version 3 is a unified SwiftUI app targeting [tvOS](https://developer.apple.com/tvos) 18, [iOS](https://developer.apple.com/ios)/[iPadOS](https://developer.apple.com/ipad) 18 and [macOS](https://developer.apple.com/macos) 15 Sequoia, with preliminary support for [visionOS.](https://developer.apple.com/visionos)
 
-Written in [Swift](https://developer.apple.com/documentation/swift) 6. Builds in [Xcode](https://developer.apple.com/xcode) 16 or newer.
+Written in [Swift](https://developer.apple.com/documentation/swift) 6. Build in [Xcode](https://developer.apple.com/xcode) 16 or newer.
